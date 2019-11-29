@@ -85,14 +85,14 @@ ion-content {
   transform: translateY(-50%);
 }
 .prev-icon-custom{
-  background: url('../../assets/images/chevron_left.png') no-repeat scroll 0px 0px;
+  background: url('../../assets/images/left-chevron.png') no-repeat scroll 0px 0px;
 }
 .prev-icon-custom.disabled{
   opacity: 0.4;
   cursor: default;
 }
 .next-icon-custom{
-  background: url('../../assets/images/chevron_right.png') no-repeat scroll -32px 0px;
+  background: url('../../assets/images/right-chevron.png') no-repeat scroll -32px 0px;
 }
 .next-icon-custom.disabled{
   opacity: 0.4;
