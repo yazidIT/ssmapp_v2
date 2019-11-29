@@ -1,0 +1,52 @@
+.menu-logo-wrapper {
+    background: white;
+    height: 120px;
+    display: block;
+    width: 120%;
+    padding-right: -40px;
+     padding-right: 10px; 
+    padding-left: -10px;
+    position: absolute;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+div.menu-logo{
+    height: 120px;
+    width: 75%;
+    background-color: white !important;
+    background-image: url("../assets/images/ssmlogo.png");
+    background-size:contain;/* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+    image-rendering: -webkit-optimize-contrast; /* to recover blurry*/
+    align-content: center;
+    margin: 0 auto;
+    z-index: 10;
+    position: relative;
+}
+
+.ssmmenu-left{
+    height: 100%;
+    background-color: #2e2f83;
+/*    margin-top: 80px;*/
+/*   font-weight: bold;*/
+/*    font-family: "MyriadPro";*/
+}
+
+.custom {
+    --ion-background-color: #2e2f83 !important;
+}
+
+.custom .item {
+    --ion-background-color: #2e2f83  !important;
+    border:none;   /*takde border*/
+    border-top: 1px solid;   /*Lebar top border pada setiap menu item*/
+  /*  border-bottom:2px solid;   Lebar bottom border pada setiap menu item*/
+    border-color: #666;   /*Warna top dan bottom border*/
+    color: yellow;    /*Text color setiap item. */
+    font-size: 17px;
+    font-weight: bold;
+  /*    height: 62px;*/
+      padding-left: 15px;
+  }
