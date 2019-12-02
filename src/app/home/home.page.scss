@@ -3,7 +3,11 @@
   overflow: hidden;
 }
 .bg-image {
-  background: url('../../assets/images/background.png') no-repeat center center fixed;
+  background: url('../../assets/images/background.png') no-repeat center fixed;
+  background-size: cover;
+}
+.bg-image-toolbar {
+  background: url('../../assets/images/background.png') no-repeat top fixed;
   background-size: cover;
 }
 .no-scroll .scroll-content {
@@ -16,12 +20,8 @@
 }
 .home-topbar {
   /*    delete*/
-     width: 382px;
-      height: 26px;
-      border: 0px solid #FFF;
-      border-radius: 3px;
-      background: rgba(255, 255, 255, 0);
-      color: rgba(0, 0, 0, .8);
+  background-color: #2e2f83;
+  border-radius: 3px;
 }
 .bgtukar {
   /*    background: url(../img/background1.png);*/
@@ -46,6 +46,7 @@
 }
 
 ion-toolbar {
+  --color: white;
   --background: transparent;
   --ion-color-base: transparent !important;
 }
@@ -70,8 +71,8 @@ ion-card-header {
   --ion-color-base: transparent !important;
 }
 ion-content {
-  --background: url('../../assets/images/background.png') no-repeat center center fixed cover;
-  --background-size: cover;
+  --background: transparent;
+  --ion-color-base: transparent !important;
 }
 
 .custon-nav{
