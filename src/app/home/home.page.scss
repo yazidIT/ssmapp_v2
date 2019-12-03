@@ -3,11 +3,13 @@
   overflow: hidden;
 }
 .bg-image {
-  background: url('../../assets/images/background.png') no-repeat center fixed;
+  background: url('../../assets/images/background.png') no-repeat top fixed;
   background-size: cover;
 }
 .bg-image-toolbar {
   background: url('../../assets/images/background.png') no-repeat top fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
   background-size: cover;
 }
 .no-scroll .scroll-content {
@@ -20,6 +22,7 @@
 }
 .home-topbar {
   /*    delete*/
+  color: white;
   background-color: #2e2f83;
   border-radius: 3px;
 }
@@ -46,7 +49,6 @@
 }
 
 ion-toolbar {
-  --color: white;
   --background: transparent;
   --ion-color-base: transparent !important;
 }
