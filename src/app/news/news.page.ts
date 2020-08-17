@@ -1,14 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
-import { RegisterDeviceService } from '../services/registerdevice.service';
-
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-news',
+  templateUrl: 'news.page.html',
+  styleUrls: ['news.page.scss'],
 })
-
-export class HomePage {
+export class NewsPage {
 
   @ViewChild('slideWithNav', {static: false}) slideWithNav: IonSlides;
   @ViewChild('slideWithNav2', {static: false}) slideWithNav2: IonSlides;
@@ -17,6 +14,7 @@ export class HomePage {
   sliderOne: any;
   sliderTwo: any;
   sliderThree: any;
+
 
   //Configuration for each Slider
   slideOptsOne = {
@@ -35,9 +33,7 @@ export class HomePage {
     slidesPerView: 3
   };
 
-  constructor(private regDevServ: RegisterDeviceService) {
-
-    this.regDevServ.registerDevice()
+  constructor() {
     //Item object for Nature
     this.sliderOne =
       {
@@ -154,7 +150,6 @@ export class HomePage {
       object.isBeginningSlide = istrue;
     });
   }
-
   checkisEnd(object, slideView) {
     slideView.isEnd().then((istrue) => {
       object.isEndSlide = istrue;

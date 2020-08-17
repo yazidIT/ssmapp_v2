@@ -1,0 +1,24 @@
+<ion-view>
+  <ion-title class="title-class">
+  News & Announcement
+  </ion-title>
+
+  <ion-back-button style="color:yellow;"></ion-back-button>
+
+<ion-content>
+
+<div class="bgtukar">
+
+<div class="list" ng-app="starter.controllers" ng-controller="NewsCtrl">
+    <center ng-if="!userData.length" class="empty-news-main" style="margin-top:50%;">No News</center>
+  <div class="item item-text-wrap" ng-repeat="news in userData" ng-click="getDetailNews(news.link_id)">
+    <div class="positive titlenews-list"><strong>{{news.title}}</strong>
+        <br>
+        <span class="news-readmore"><i class="icon ion-ios-more"></i></span></div>
+      <br>
+  </div>
+</div>
+</div>
+</ion-content>
+    <div ng-controller="BrowseLink" class="ssmfooter"><center><a ng-click="openXLink('https://www.ssm.com.my')">SSM<span ng-if="appversion">. Version {{appversion}} </span>©</a></center></div>
+</ion-view>

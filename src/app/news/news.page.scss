@@ -1,0 +1,108 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+.bg-image {
+  background: url('../../assets/images/background.png') no-repeat top fixed;
+  background-size: cover;
+}
+.bg-image-toolbar {
+  background: url('../../assets/images/background.png') no-repeat top fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+.no-scroll .scroll-content {
+  overflow: hidden;
+}
+.titlenews-main{
+  background-color: #2e2f83;
+  font-size: 13px;
+  height: 25px;
+}
+.home-topbar {
+  /*    delete*/
+  color: white;
+  background-color: #2e2f83;
+  border-radius: 3px;
+}
+.bgtukar {
+  /*    background: url(../img/background1.png);*/
+      background-color: white;
+      background-repeat: repeat;
+      background-size: full;
+      background-position: center;
+      width: auto;
+      height: auto;
+      margin: auto;
+      z-index: 2;
+      position: relative;
+      margin-bottom: 110px;
+}
+.bgtukar-main{
+  margin-top:28%;
+}  
+.maintitle{
+  color: yellow;
+  padding-top: 3px;
+  padding-left: 15px;
+}
+
+ion-toolbar {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+ion-list {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+ion-card {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+ion-item {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+ion-label {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+ion-card-header {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+ion-content {
+  --background: transparent;
+  --ion-color-base: transparent !important;
+}
+
+.custon-nav{
+  height: 48px;
+  width: 20px;
+  cursor: pointer;
+
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.prev-icon-custom{
+  background: url('../../assets/images/left-chevron.png') no-repeat scroll 0px 0px;
+}
+.prev-icon-custom.disabled{
+  opacity: 0.4;
+  cursor: default;
+}
+.next-icon-custom{
+  background: url('../../assets/images/right-chevron.png') no-repeat scroll -32px 0px;
+}
+.next-icon-custom.disabled{
+  opacity: 0.4;
+  cursor: default;
+}
+.slider-nav{
+  ion-icon{
+      height: 100%;
+  }
+}
