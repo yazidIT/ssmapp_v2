@@ -36,8 +36,9 @@ export class RegisterDeviceService {
 
     var httpOptions = { headers }
 
-    let postData = { "uuid" : uuid, "type" : platform }
-    let urlEndpoint = this.apiv2url + 'register-device'
+    // version 2
+    let postData = { "uuid" : uuid, "os" : platform, "hash" : calculatedHash }
+    let urlEndpoint = this.apiv2url + 'device/register'
 
     this.http.post(urlEndpoint, postData, httpOptions)
       .subscribe(data => {
