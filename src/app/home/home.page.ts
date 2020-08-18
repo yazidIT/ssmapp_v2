@@ -1,6 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { RegisterDeviceService } from '../services/registerdevice.service';
+import { NewsService } from '../services/news.service';
+import { INewsResultData } from '../models/inewsresult';
 
 @Component({
   selector: 'app-home',
@@ -8,36 +10,25 @@ import { RegisterDeviceService } from '../services/registerdevice.service';
   styleUrls: ['home.page.scss'],
 })
 
-export class HomePage {
+export class HomePage implements OnInit{
 
   @ViewChild('slideWithNav', {static: false}) slideWithNav: IonSlides;
   @ViewChild('slideWithNav2', {static: false}) slideWithNav2: IonSlides;
   @ViewChild('slideWithNav3', {static: false}) slideWithNav3: IonSlides;
 
   sliderOne: any;
-  sliderTwo: any;
-  sliderThree: any;
+  private newsRss : INewsResultData
 
   //Configuration for each Slider
   slideOptsOne = {
     initialSlide: 0,
     slidesPerView: 1,
-    autoplay:true
-  };
-  slideOptsTwo = {
-    initialSlide: 1,
-    slidesPerView: 2,
-    loop: true,
-    centeredSlides: true
-  };
-  slideOptsThree = {
-    initialSlide: 0,
-    slidesPerView: 3
+    autoplay:false
   };
 
-  constructor(private regDevServ: RegisterDeviceService) {
+  constructor(private regDevServ: RegisterDeviceService,
+              private newsServ: NewsService) {
 
-    this.regDevServ.registerDevice()
     //Item object for Nature
     this.sliderOne =
       {
@@ -66,62 +57,21 @@ export class HomePage {
           }
         ]
       };
-    //Item object for Food
-    this.sliderTwo =
-      {
-        isBeginningSlide: true,
-        isEndSlide: false,
-        slidesItems: [
-          {
-            id: 6,
-            image: '../../assets/images/6.jpg'
-          },
-          {
-            id: 7,
-            image: '../../assets/images/7.jpg'
-          },
-          {
-            id: 8,
-            image: '../../assets/images/8.jpg'
-          },
-          {
-            id: 9,
-            image: '../../assets/images/9.jpg'
-          },
-          {
-            id: 10,
-            image: '../../assets/images/10.jpg'
-          }
-        ]
-      };
-    //Item object for Fashion
-    this.sliderThree =
-      {
-        isBeginningSlide: true,
-        isEndSlide: false,
-        slidesItems: [
-          {
-            id: 11,
-            image: '../../assets/images/11.jpg'
-          },
-          {
-            id: 12,
-            image: '../../assets/images/12.jpg'
-          },
-          {
-            id: 13,
-            image: '../../assets/images/13.jpg'
-          },
-          {
-            id: 14,
-            image: '../../assets/images/14.jpg'
-          },
-          {
-            id: 15,
-            image: '../../assets/images/15.jpg'
-          }
-        ]
-      };
+  }
+
+  ngOnInit(): void {
+    this.initData()
+  }
+
+  async initData() {
+
+    await this.regDevServ.registerDevice()
+    await this.newsServ.getNews()
+    await this.newsServ.getNewsItems().then(newsData => {
+      this.newsRss = newsData
+    })
+    
+    this.sliderOne.slidesItems = this.newsRss.channel
   }
 
   //Move to Next slide
@@ -160,4 +110,5 @@ export class HomePage {
       object.isEndSlide = istrue;
     });
   }
+
 }
