@@ -46,20 +46,16 @@ export class HomePage implements OnInit{
   async initData() {
 
     await this.regDevServ.registerDevice()
-    await this.newsServ.getNews()
-    await this.newsServ.getNewsItems().then(newsData => {
+    this.newsServ.getNews().then(newsData => {
       this.newsRss = newsData
+      this.sliderOne.slidesItems = this.newsRss.channel.item
+    }, error => {
+
     })
-    
-    this.sliderOne.slidesItems = this.newsRss.channel.item
 
     this.utilsServ.getAppVersion().then(version => {
       this.appversion = version
     })
-  }
-
-  getDetailNews(link) {
-    console.log(link)
   }
 
   //Move to Next slide

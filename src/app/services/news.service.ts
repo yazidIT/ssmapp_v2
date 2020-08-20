@@ -19,38 +19,31 @@ export class NewsService {
               private storage: Storage) {
   }
 
-  async getNews() {
+  getNews(): Promise<INewsResultData> {
 
     var newsData : INewsResultData
     var urlEndpoint = this.apiv2url + 'rss';
     var authHeader: any
 
-    await this.regDevServ.getDevToken().then(token => {
+    return this.regDevServ.getDevToken().then(token => {
       authHeader = 'Bearer' + ' ' + token;
+      console.log(authHeader)
+      let headers = new HttpHeaders()
+      headers.append("Authorization", authHeader);
+      var httpOptions = { headers }
+
+      return this.http.get<INewsResultData>(urlEndpoint, httpOptions).toPromise()
     })
 
-    console.log(authHeader)
-    let headers = new HttpHeaders()
-    headers.append("Authorization", authHeader);
-    var httpOptions = { headers }
-
-    this.http.get<INewsResultData>(urlEndpoint, httpOptions)
-      .subscribe(resData => {
-
-        this.storage.set('newsData', JSON.stringify(resData))
-
-      }, error => {
-        console.log(error);
-      });
   }
 
-  getNewsItems() : Promise<INewsResultData>{
-    return this.storage.get('newsData').then(newsData => {
-      return JSON.parse(newsData) as INewsResultData
-    })
-  }
+  // getNewsItems() : Promise<INewsResultData>{
+  //   return this.storage.get('newsData').then(newsData => {
+  //     return JSON.parse(newsData) as INewsResultData
+  //   })
+  // }
 
-  getDetailNews(newsUrl:string){
+  getDetailNews(newsUrl:string): Promise<any>{
 
     var urlEndpoint = newsUrl;
     var authHeader: any
