@@ -1,8 +1,19 @@
 export interface INewsResultData {
-    channel: Array<IChannelItem>
+    channel: IChannelItem
 }
 
 export interface IChannelItem {
+    title: string
+    link: string
+    description: string
+    lastBuildDate: string
+    generator: string
+    ttl: string
+    language: string
+    item: Array<INewsItem>
+}
+
+export interface INewsItem {
     title: string
     link: string
     description: string

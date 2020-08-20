@@ -15,7 +15,8 @@ export class RegisterDeviceService {
   private secKey = 'ZMVbSD0CZwdRDxTd3DzvfDT8xy60ZgwX'
   private apiurl = 'https://m.ssm.com.my/api/'
 
-  constructor(private http: HttpClient, private storage: Storage) {}
+  constructor(private http: HttpClient,
+              private storage: Storage) {}
 
   async registerDevice() {
     var timeNow = Math.floor(new Date().getTime()/100000)
@@ -34,12 +35,10 @@ export class RegisterDeviceService {
     let postData = { "uuid" : uuid, "os" : platform, "hash" : calculatedHash }
     let urlEndpoint = this.apiv2url + 'device/register'
 
-    this.http.post<any>(urlEndpoint, postData, httpOptions)
+    this.http.post<IRegDevResultData>(urlEndpoint, postData, httpOptions)
       .subscribe(resData => {
 
-        // console.log(JSON.stringify(resData));
-        let regDevResult = resData as IRegDevResultData
-        this.storage.set('token', regDevResult.token);
+        this.storage.set('token', resData.token);
 
        }, error => {
         console.log(error);

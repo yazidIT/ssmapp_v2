@@ -3,6 +3,7 @@ import { IonSlides } from '@ionic/angular';
 import { RegisterDeviceService } from '../services/registerdevice.service';
 import { NewsService } from '../services/news.service';
 import { INewsResultData } from '../models/inewsresult';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-home',
@@ -16,8 +17,9 @@ export class HomePage implements OnInit{
   @ViewChild('slideWithNav2', {static: false}) slideWithNav2: IonSlides;
   @ViewChild('slideWithNav3', {static: false}) slideWithNav3: IonSlides;
 
-  sliderOne: any;
-  private newsRss : INewsResultData
+  sliderOne: any
+  newsRss : INewsResultData
+  appversion: any
 
   //Configuration for each Slider
   slideOptsOne = {
@@ -27,35 +29,15 @@ export class HomePage implements OnInit{
   };
 
   constructor(private regDevServ: RegisterDeviceService,
-              private newsServ: NewsService) {
+              private newsServ: NewsService,
+              private utilsServ: UtilsService) {
 
     //Item object for Nature
     this.sliderOne =
       {
         isBeginningSlide: true,
         isEndSlide: false,
-        slidesItems: [
-          {
-            id: 1,
-            image: '../../assets/images/1.jpg'
-          },
-          {
-            id: 2,
-            image: '../../assets/images/2.jpg'
-          },
-          {
-            id: 3,
-            image: '../../assets/images/3.jpg'
-          },
-          {
-            id: 4,
-            image: '../../assets/images/4.jpg'
-          },
-          {
-            id: 5,
-            image: '../../assets/images/5.jpg'
-          }
-        ]
+        slidesItems: []
       };
   }
 
@@ -71,7 +53,11 @@ export class HomePage implements OnInit{
       this.newsRss = newsData
     })
     
-    this.sliderOne.slidesItems = this.newsRss.channel
+    this.sliderOne.slidesItems = this.newsRss.channel.item
+
+    this.utilsServ.getAppVersion().then(version => {
+      this.appversion = version
+    })
   }
 
   //Move to Next slide

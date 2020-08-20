@@ -33,12 +33,10 @@ export class NewsService {
     headers.append("Authorization", authHeader);
     var httpOptions = { headers }
 
-    this.http.get<any>(urlEndpoint, httpOptions)
+    this.http.get<INewsResultData>(urlEndpoint, httpOptions)
       .subscribe(resData => {
 
-        newsData = resData as INewsResultData
-        // console.log(JSON.stringify(newsData.channel));
-        this.storage.set('newsData', JSON.stringify(newsData))
+        this.storage.set('newsData', JSON.stringify(resData))
 
       }, error => {
         console.log(error);
@@ -47,7 +45,7 @@ export class NewsService {
 
   getNewsItems() : Promise<INewsResultData>{
     return this.storage.get('newsData').then(newsData => {
-      return newsData
+      return JSON.parse(newsData) as INewsResultData
     })
   }
 
