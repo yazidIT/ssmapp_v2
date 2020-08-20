@@ -69,7 +69,7 @@ export class RegisterDeviceService {
       });
   }
 
-  getDevToken() {
+  getDevToken(): Promise<any> {
     return this.storage.get('token').then(data => {
       return data
     })

@@ -27,6 +27,11 @@ export class AppComponent {
       icon: 'list'
     },
     {
+      title: 'e-Query',
+      url: '/e_query',
+      icon: 'list'
+    },
+    {
       title: 'e-Compound',
       url: '/e_compound',
       icon: 'list'

@@ -14,8 +14,6 @@ import { UtilsService } from '../services/utils.service';
 export class HomePage implements OnInit{
 
   @ViewChild('slideWithNav', {static: false}) slideWithNav: IonSlides;
-  @ViewChild('slideWithNav2', {static: false}) slideWithNav2: IonSlides;
-  @ViewChild('slideWithNav3', {static: false}) slideWithNav3: IonSlides;
 
   sliderOne: any
   newsRss : INewsResultData
@@ -58,6 +56,10 @@ export class HomePage implements OnInit{
     this.utilsServ.getAppVersion().then(version => {
       this.appversion = version
     })
+  }
+
+  getDetailNews(link) {
+    console.log(link)
   }
 
   //Move to Next slide

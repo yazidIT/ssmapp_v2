@@ -1,0 +1,19 @@
+<ion-header>
+ <ion-toolbar  class="button button-icon button-energized ion-navicon"
+  style="color:yellow;background-color:rgba(47,47,131,0.9);border:10px;">
+   <ion-buttons slot="start">
+     <ion-back-button></ion-back-button>
+   </ion-buttons>
+   <ion-title class="title-class">News & Announcement</ion-title>
+ </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="bgtukar" style="height: 100%; padding: 20px;">
+  <div class="list">
+    <div [innerHTML]="detailNews"></div>
+  </div>
+</div>
+</ion-content>
+
+<div class="ssmfooter" align="center"><a ng-click="openXLink('https://www.ssm.com.my')">Suruhanjaya Syarikat Malaysia {{appversion}}©</a></div>

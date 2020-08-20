@@ -16,7 +16,7 @@
           (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
           <ion-slide *ngFor="let s of sliderOne.slidesItems">
           <div class=box1>
-            <div class="newscontent">
+            <div class="newscontent" [routerLink]="['/detailnews/', s.link_id]" routerDirection="forward">
               <div style="color:#2e2f83;"><strong>{{s.title}}</strong></div>
                 <br>
               <div>{{s.description}}</div>

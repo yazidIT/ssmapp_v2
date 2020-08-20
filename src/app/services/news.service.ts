@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 
 import { RegisterDeviceService } from './registerdevice.service';
 import { INewsResultData, IChannelItem} from '../models/inewsresult';
+import { from as fromPromise, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -49,4 +50,18 @@ export class NewsService {
     })
   }
 
+  getDetailNews(newsUrl:string){
+
+    var urlEndpoint = newsUrl;
+    var authHeader: any
+
+    return this.regDevServ.getDevToken().then(token => {
+      authHeader = 'Bearer' + ' ' + token;
+      let headers = new HttpHeaders()
+      headers.append("Authorization", authHeader);
+      var httpOptions = { headers }
+      return this.http.get<any>(urlEndpoint, httpOptions).toPromise()
+    })
+    
+  }
 }
