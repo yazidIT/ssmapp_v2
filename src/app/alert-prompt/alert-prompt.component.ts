@@ -31,7 +31,7 @@ export class AlertPromptComponent implements OnInit {
         text: 'OK',
         cssClass: 'title-class',
         handler: () => {
-          this.navCtrl.navigateBack('/home')
+          this.navCtrl.back()
         }
       }]
     });

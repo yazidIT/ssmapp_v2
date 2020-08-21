@@ -1,24 +1,20 @@
-<ion-view>
-  <ion-title class="title-class">
-  News & Announcement
-  </ion-title>
+<ion-content style="overflow:visible;" fullscreen scroll="false">
+  <ion-toolbar class="bar-class">
+    <ion-buttons slot="start">
+      <ion-menu-button class="bar-class" style="border-radius:5px;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-class">News & Announcement</ion-title>
+  </ion-toolbar>
 
-  <ion-back-button style="color:yellow;"></ion-back-button>
+  <div class="bgtukar" style="height: 100%; padding: 5px;">
 
-<ion-content>
-
-<div class="bgtukar">
-
-<div class="list" ng-app="starter.controllers" ng-controller="NewsCtrl">
-    <center ng-if="!userData.length" class="empty-news-main" style="margin-top:50%;">No News</center>
-  <div class="item item-text-wrap" ng-repeat="news in userData" ng-click="getDetailNews(news.link_id)">
-    <div class="positive titlenews-list"><strong>{{news.title}}</strong>
-        <br>
-        <span class="news-readmore"><i class="icon ion-ios-more"></i></span></div>
-      <br>
+  <ion-list>
+    <ion-card *ngFor="let s of newsItems" class="positive titlenews-list" style="color:rgba(47,47,131,0.9); padding:5px;"
+    [routerLink]="['/detailnews/', s.link_id]" routerDirection="forward">
+    {{s.title}}
+    <div class="news-readmore"><ion-icon name="more"></ion-icon></div>
+    </ion-card>
+  </ion-list>
   </div>
-</div>
-</div>
 </ion-content>
-    <div ng-controller="BrowseLink" class="ssmfooter"><center><a ng-click="openXLink('https://www.ssm.com.my')">SSM<span ng-if="appversion">. Version {{appversion}} </span>©</a></center></div>
-</ion-view>
+<div class="ssmfooter" align="center"><a ng-click="openXLink('https://www.ssm.com.my')">Suruhanjaya Syarikat Malaysia {{appversion}}©</a></div>
