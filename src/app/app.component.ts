@@ -23,17 +23,17 @@ export class AppComponent {
     },
     {
       title: 'e-Search',
-      url: '/e_search',
+      url: '/esearch',
       icon: 'list'
     },
     {
       title: 'e-Query',
-      url: '/e_query',
+      url: '/equery',
       icon: 'list'
     },
     {
       title: 'e-Compound',
-      url: '/e_compound',
+      url: '/ecompound',
       icon: 'list'
     },
     {

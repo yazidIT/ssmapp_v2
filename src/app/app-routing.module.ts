@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'detailnews/:newsurl',
     loadChildren: () => import('./detailnews/detailnews.module').then( m => m.DetailnewsPageModule)
+  },
+  {
+    path: 'esearch',
+    loadChildren: () => import('./esearch/esearch.module').then( m => m.EsearchPageModule)
   }
 ];
 

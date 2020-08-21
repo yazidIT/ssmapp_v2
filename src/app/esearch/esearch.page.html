@@ -1,0 +1,88 @@
+<ion-content style="overflow:visible;" fullscreen scroll="false">
+  <ion-toolbar class="bar-class">
+    <ion-buttons slot="start">
+      <ion-menu-button class="bar-class" style="border-radius:5px;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-class">e-Search</ion-title>
+  </ion-toolbar>
+
+  <div class="bgtukar" style="height: 100%; padding: 0px;">
+
+  <ion-grid>
+  <ion-row>
+    <ion-col class="ion-text-center">
+      SSM Registration Checking<p>
+      <font color="grey">Please fill in the blank space below:</font>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+  <ion-col>
+  <div class="list ion-text-center">
+    <label class="item item-input item-select">
+      <span class="input-label"><strong><font color="#2E2F83">Registration Type:</font></strong></span>
+      <ion-select name="esearchType" interface="popover" value="ROC"
+       [(ngModel)]="searchType" (ionChange)="searchTypeSelect()">
+        <ion-select-option value="ROC" >Company Registration No. Old</ion-select-option>
+        <ion-select-option value="ROB" >Business Registration No. Old</ion-select-option>
+        <ion-select-option value="ROCNEW" >Company Registration No. New</ion-select-option>
+        <ion-select-option value="ROBNEW" >Business Registration No. New</ion-select-option>
+        <ion-select-option value="LLP" >LLP Registration No.</ion-select-option>
+      </ion-select>
+    </label>
+  </div>
+  </ion-col>
+  </ion-row>
+
+  <ion-row>
+  <ion-col class="ion-text-center">
+    <label class="item item-input">
+    <span class="input-label"><strong><font color="#2E2F83" translate="REGISNO">Registration Number:</font></strong></span>
+    <ion-input type="text" font="#FF0000" placeholder="{{placeHolder}}" [(ngModel)]="searchCompany"></ion-input>
+    </label>
+  </ion-col>
+  </ion-row>
+
+  <ion-row>
+  <ion-col>
+    <div class="ion-text-center">
+      <ion-button class="findbutton" (click)="esearchFind()"><strong>Find</strong></ion-button>
+    </div>
+  </ion-col>
+  </ion-row>
+
+  <ion-row>
+  <ion-col class="no-border">
+    <div class="ion-text-center">
+    Download : e-Search User Manual
+    </div>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="ios-arrow-up"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button data-desc="Status 308">
+        <i class="icon-icon2_308"></i>
+      </ion-fab-button>
+      <ion-fab-button data-desc="e-Compound">
+        <i class="icon-icon2_eC"></i>
+      </ion-fab-button>
+      <ion-fab-button data-desc="e-Query">
+        <i class="icon-icon2_eQ"></i>
+      </ion-fab-button>
+      <ion-fab-button data-desc="e-Search">
+        <i class="icon-icon2_eS"></i>
+      </ion-fab-button>
+    </ion-fab-list>
+
+  </ion-fab>
+</ion-content>
+<div class="ssmfooter" align="center"><a ng-click="openXLink('https://www.ssm.com.my')">Suruhanjaya Syarikat Malaysia {{appversion}}©</a></div>
+
