@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-alert-prompt',
@@ -8,22 +8,32 @@ import { AlertController } from '@ionic/angular';
 })
 export class AlertPromptComponent implements OnInit {
 
-  constructor(public alertController: AlertController) {}
+  private alertController : AlertController
+
+  constructor(private navCtrl: NavController) {
+    this.alertController = new AlertController()
+  }
 
   ngOnInit(): void {
   }
 
   async presentServerFail(title:string, errNo: Number) {
-    var msg = null
+    var msg = ""
     if(errNo === 401) {
-      msg = "Unathorised access"
+      msg = "Unauthorised access"
     }
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: title,
-      // subHeader: 'Subtitle',
+      subHeader: "Server error",
       message: msg,
-      buttons: ['OK']
+      buttons: [{
+        text: 'OK',
+        cssClass: 'title-class',
+        handler: () => {
+          this.navCtrl.navigateBack('/home')
+        }
+      }]
     });
 
     await alert.present();
