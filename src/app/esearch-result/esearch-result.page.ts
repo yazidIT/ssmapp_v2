@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { IESearchCompany, IESearchBusiness, IESearchLLP } from '../models/iqueryresult';
 
@@ -19,7 +19,9 @@ export class EsearchResultPage implements OnInit {
   llpResult: IESearchLLP
   llpReg: boolean = false
 
-  constructor(private storage: Storage) { }
+  appversion: any
+  
+  constructor(private storage: NativeStorage) { }
 
   ngOnInit() {
 
@@ -70,7 +72,7 @@ export class EsearchResultPage implements OnInit {
       }
     }
 
-    this.storage.get('queryResult').then(resData => {
+    this.storage.getItem('queryResult').then(resData => {
       console.log(resData)
       var jsonObj = JSON.parse(resData)
 

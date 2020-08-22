@@ -8,7 +8,8 @@ import { NewsService } from '../services/news.service';
 export class NewsPage implements OnInit{
 
   newsItems : any
-
+  appversion: any
+  
   constructor(private newsServ: NewsService) {}
 
   ngOnInit(): void {

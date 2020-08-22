@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Storage } from '@ionic/storage';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { RegisterDeviceService } from './registerdevice.service';
 
 @Injectable({
@@ -10,7 +10,7 @@ export class SsmQueryService {
 
   constructor(private regDevServ: RegisterDeviceService,
               private http: HttpClient,
-              private storage: Storage) { }
+              private storage: NativeStorage) { }
 
 
   async eSearchQuery(urlEndpoint:string) {
@@ -27,6 +27,6 @@ export class SsmQueryService {
   }
 
   saveQueryResult(result:any): Promise<any> {
-    return this.storage.set('queryResult', result);
+    return this.storage.setItem('queryResult', result);
   }
 }

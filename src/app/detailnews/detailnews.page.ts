@@ -17,7 +17,8 @@ export class DetailnewsPage implements OnInit {
   newsurl = null;
   detailNews = null;
   alertPrompt : AlertPromptComponent
-
+  appversion: any
+  
   constructor(private activatedRoute: ActivatedRoute,
               private newsServ: NewsService,
               private navCtrl: NavController) {

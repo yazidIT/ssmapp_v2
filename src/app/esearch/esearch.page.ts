@@ -13,7 +13,8 @@ export class EsearchPage implements OnInit {
   placeHolder: string
   searchType: string
   searchCompany: string
-
+  appversion: any
+  
   searchNameValue = {
     "ROC": "Company Registration No. Old",
     "ROB": "Business Registration No. Old",

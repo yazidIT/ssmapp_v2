@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Storage } from '@ionic/storage';
 import { Md5 } from 'ts-md5/dist/md5';
-import { Device } from '@ionic-native/device';
+import { Device } from '@ionic-native/device/ngx';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { IRegDevResult, IRegDevResultData } from '../models/iregdevresult'
 
@@ -16,12 +16,13 @@ export class RegisterDeviceService {
   private apiurl = 'https://m.ssm.com.my/api/'
 
   constructor(private http: HttpClient,
-              private storage: Storage) {}
+              private device: Device,
+              private storage: NativeStorage) {}
 
   async registerDevice() {
     var timeNow = Math.floor(new Date().getTime()/100000)
-    var uuid = 'fd7cfed5-fa60-4942-8a47-79307233781c'
-    var platform = 'Chrome'
+    var uuid = this.device.uuid
+    var platform = this.device.platform
     var calculatedHash = Md5.hashStr(uuid+platform+timeNow + this.secKey)
 
     let headers = new HttpHeaders()
@@ -36,7 +37,7 @@ export class RegisterDeviceService {
     this.http.post<IRegDevResultData>(urlEndpoint, postData, httpOptions)
       .subscribe(resData => {
 
-        this.storage.set('token', resData.token);
+        this.storage.setItem('token', resData.token);
 
        }, error => {
         console.log(error);
@@ -68,7 +69,7 @@ export class RegisterDeviceService {
   }
 
   getDevToken(): Promise<any> {
-    return this.storage.get('token').then(data => {
+    return this.storage.getItem('token').then(data => {
       return data
     })
   }

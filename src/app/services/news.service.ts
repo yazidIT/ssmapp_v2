@@ -1,6 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Storage } from '@ionic/storage';
 
 import { RegisterDeviceService } from './registerdevice.service';
 import { INewsResultData, IChannelItem} from '../models/inewsresult';
