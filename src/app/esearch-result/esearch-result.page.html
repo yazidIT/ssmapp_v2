@@ -21,6 +21,7 @@
   <ion-row>
   <ion-col>
 
+  <!--   REGISTER OF COMPANY -->
   <div *ngIf="companyReg">
     <ion-grid>
       <ion-row class="no-bottom-border">
@@ -69,6 +70,54 @@
     <label style="font-size:13px;">GST No as at: {{companyResult.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
   </div>
 
+  <!-- REGISTER OF BUSINESS -->
+  <div *ngIf="businessReg">
+    <ion-grid>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">Registration Number:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{businessResult.oldFormatNo}}</font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">New Registration Number:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{businessResult.newFormatNo}} </font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">Entity Name:</font>
+        </ion-col>
+        <ion-col class="no-border" size="8">
+        <font size="2px"> {{businessResult.bizName}} </font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">Status:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{businessResult.bizStatus}} </font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="all-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">GST Number:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{businessResult.findGSTRegNoList?.GSTRegNo?.vchgstnumber}} </font>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <label style="font-size:13px;">As at: </label><br>
+    <label style="font-size:13px;">GST No as at: {{businessResult.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
+  </div>
 
   </ion-col>
   </ion-row>

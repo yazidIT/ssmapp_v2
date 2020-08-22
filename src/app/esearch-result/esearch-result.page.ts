@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
-import { IESearchCompany, IGstRegNoList, IGSTRegNo } from '../models/iqueryresult';
+import { IESearchCompany, IESearchBusiness } from '../models/iqueryresult';
 
 @Component({
   selector: 'app-esearch-result',
@@ -11,7 +11,10 @@ import { IESearchCompany, IGstRegNoList, IGSTRegNo } from '../models/iqueryresul
 export class EsearchResultPage implements OnInit {
 
   companyResult: IESearchCompany
-  companyReg: boolean = true
+  companyReg: boolean = false
+
+  businessResult: IESearchBusiness
+  businessReg: boolean = false
 
   constructor(private storage: Storage) { }
 
@@ -32,11 +35,35 @@ export class EsearchResultPage implements OnInit {
       oldFormatNo:""
     }
 
+    this.businessResult = {
+      bizRegNo:"",
+      chkDigit:"",
+      bizName:"",
+      bizStatus:"",
+      findGSTRegNoList: {
+        GSTRegNo: {
+          dtasofdate: "",
+          vchgstnumber: ""
+        }
+      },
+      newFormatNo:"",
+      oldFormatNo:""
+    }
+
     this.storage.get('queryResult').then(resData => {
       console.log(resData)
       var jsonObj = JSON.parse(resData)
       this.companyReg = (jsonObj.companyNo === undefined) ? false : true
-      this.companyResult = jsonObj
+      if(this.companyReg == true) {
+        this.companyResult = jsonObj
+        return
+      }
+
+      this.businessReg = (jsonObj.bizRegNo === undefined) ? false : true
+      if(this.businessReg == true) {
+        this.businessResult = jsonObj
+        return
+      }
     })
   }
 

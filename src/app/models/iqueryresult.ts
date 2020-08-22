@@ -19,3 +19,13 @@ export interface IGSTRegNo {
     dtasofdate : string
     vchgstnumber: string
 }
+
+export interface IESearchBusiness {
+    bizRegNo: string
+    chkDigit: string
+    bizName: string
+    bizStatus: string
+    findGSTRegNoList: IGstRegNoList
+    newFormatNo: string
+    oldFormatNo: string
+}
