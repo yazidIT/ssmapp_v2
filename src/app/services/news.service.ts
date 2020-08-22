@@ -15,13 +15,11 @@ export class NewsService {
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private http: HttpClient,
-              private regDevServ: RegisterDeviceService,
-              private storage: Storage) {
+              private regDevServ: RegisterDeviceService) {
   }
 
   getNews(): Promise<INewsResultData> {
 
-    var newsData : INewsResultData
     var urlEndpoint = this.apiv2url + 'rss';
     var authHeader: any
 

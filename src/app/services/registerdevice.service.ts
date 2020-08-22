@@ -25,9 +25,7 @@ export class RegisterDeviceService {
     var calculatedHash = Md5.hashStr(uuid+platform+timeNow + this.secKey)
 
     let headers = new HttpHeaders()
-    // headers.append("Accept", 'application/json');
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    // headers.append('Access-Control-Allow-Origin', '*');
 
     var httpOptions = { headers }
 

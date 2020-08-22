@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'esearch',
     loadChildren: () => import('./esearch/esearch.module').then( m => m.EsearchPageModule)
+  },
+  {
+    path: 'esearch-result',
+    loadChildren: () => import('./esearch-result/esearch-result.module').then( m => m.EsearchResultPageModule)
   }
 ];
 

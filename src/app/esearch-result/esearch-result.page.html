@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar class="bar-class">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title-class">e-Search Result</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="bgtukar" style="height: 100%; padding: 0px;">
+
+  <ion-grid>
+
+  <ion-row>
+    <ion-col class="ion-text-center">
+      SSM Registration Checking<p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+  <ion-col>
+
+  <div *ngIf="companyReg">
+    <ion-grid>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">Registration Number:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{companyResult.oldFormatNo}}</font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">New Registration Number:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{companyResult.newFormatNo}} </font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">Entity Name:</font>
+        </ion-col>
+        <ion-col class="no-border" size="8">
+        <font size="2px"> {{companyResult.companyName}} </font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">Status:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{companyResult.comStatus}} </font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="all-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">GST Number:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{companyResult.findGSTRegNoList?.GSTRegNo?.vchgstnumber}} </font>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <label style="font-size:13px;">As at: </label><br>
+    <label style="font-size:13px;">GST No as at: {{companyResult.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
+  </div>
+
+
+  </ion-col>
+  </ion-row>
+
+  </ion-grid>
+</div>
+</ion-content>
+
+<div class="ssmfooter" align="center"><a ng-click="openXLink('https://www.ssm.com.my')">Suruhanjaya Syarikat Malaysia {{appversion}}©</a></div>
