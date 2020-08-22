@@ -32,7 +32,7 @@ export class DetailnewsPage implements OnInit {
         this.detailNews = newsitem.description
       }, error => {
         console.log(error)
-        this.alertPrompt.presentServerFail("Detail News", 401)
+        this.alertPrompt.presentServerFail("Detail News", 401, true)
       }
     )
   }

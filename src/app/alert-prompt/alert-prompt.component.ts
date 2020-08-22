@@ -17,7 +17,7 @@ export class AlertPromptComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async presentServerFail(title:string, errNo: Number) {
+  async presentServerFail(title:string, errNo: Number, goBack: boolean) {
     var msg = ""
     if(errNo === 401) {
       msg = "Unauthorised access"
@@ -31,7 +31,8 @@ export class AlertPromptComponent implements OnInit {
         text: 'OK',
         cssClass: 'title-class',
         handler: () => {
-          this.navCtrl.back()
+          if(goBack)
+            this.navCtrl.back()
         }
       }]
     });
