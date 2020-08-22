@@ -525,7 +525,7 @@ div.menu-logo{
     width: 75%;
     background-color: white !important;
     background-image: url("./assets/images/ssmlogo.png");
-    background-size:contain;/* <------ */
+    background-size: contain;/* <------ */
     background-repeat:   no-repeat;
     background-position: center center;
     image-rendering: -webkit-optimize-contrast; /* to recover blurry*/
@@ -540,12 +540,11 @@ div.menu-logo{
     height: 120px;
     display: block;
     width: 120%;
-    padding-right: -40px;
-     padding-right: 10px; 
-    padding-left: -10px;
+    padding-right: 10px; 
+    padding-left: 10px;
     position: absolute;
-    margin-left: -10px;
-    margin-right: -10px;
+    margin-left: 10px;
+    margin-right: 10px;
     
 }
 

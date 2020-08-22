@@ -10,9 +10,9 @@ import { AlertPromptComponent } from '../alert-prompt/alert-prompt.component';
 })
 export class EsearchPage implements OnInit {
 
-  placeHolder: any
-  searchType: any
-  searchCompany: any
+  placeHolder: string
+  searchType: string
+  searchCompany: string
 
   searchNameValue = {
     "ROC": "Company Registration No. Old",
@@ -42,6 +42,11 @@ export class EsearchPage implements OnInit {
 
   esearchFind() {
 
+    if(this.searchCompany === undefined || this.searchCompany.length == 0 ) {
+      this.alertPrompt.presentInputError("e-Search", "Missing search parameter")
+      return
+    }
+
     let findUrl = 'findLlp/'
     if(this.searchType === "ROC" || this.searchType === "ROCNEW") {
       findUrl = 'findRoc/';
@@ -56,10 +61,18 @@ export class EsearchPage implements OnInit {
     this.ssmQueryServ.eSearchQuery(urlEndpoint).then(resData => {
 
       console.log(resData)
-      this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.result)).then(() => {
-        console.log("query result saved!")
-        this.navCtrl.navigateForward('/esearch-result')
-      })
+
+      if(resData.result === undefined) {
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData)).then(() => {
+          console.log("query result saved!")
+          this.navCtrl.navigateForward('/esearch-result')
+        })
+      } else {
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.result)).then(() => {
+          console.log("query result saved!")
+          this.navCtrl.navigateForward('/esearch-result')
+        })
+      }
 
     }, error => {
       console.log(error.status)

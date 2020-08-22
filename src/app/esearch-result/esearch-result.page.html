@@ -118,6 +118,49 @@
     <label style="font-size:13px;">As at: </label><br>
     <label style="font-size:13px;">GST No as at: {{businessResult.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
   </div>
+  
+  <!-- REGISTER OF LLP -->
+  <div *ngIf="llpReg">
+    <ion-grid>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">Registration Number:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{llpResult.llpEntry.llpNo}}</font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">Entity Name:</font>
+        </ion-col>
+        <ion-col class="no-border" size="8">
+        <font size="2px"> {{llpResult.llpEntry.llpName}} </font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">Status:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{llpResult.llpEntry.llpStatus}} </font>
+        </ion-col>
+      </ion-row>
+      <ion-row class="all-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">GST Number:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{llpResult.llpEntry.findGSTRegNoList?.GSTRegNo?.vchgstnumber}} </font>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <label style="font-size:13px;">As at: </label><br>
+    <label style="font-size:13px;">GST No as at: {{llpResult.llpEntry.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
+  </div>
+
+
 
   </ion-col>
   </ion-row>

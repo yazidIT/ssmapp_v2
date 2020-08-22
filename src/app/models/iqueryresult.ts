@@ -18,6 +18,7 @@ export interface IGstRegNoList {
 export interface IGSTRegNo {
     dtasofdate : string
     vchgstnumber: string
+    vchregistrationnumber: string
 }
 
 export interface IESearchBusiness {
@@ -28,4 +29,15 @@ export interface IESearchBusiness {
     findGSTRegNoList: IGstRegNoList
     newFormatNo: string
     oldFormatNo: string
+}
+
+export interface IESearchLLP {
+    llpEntry : ILlpEntry
+}
+
+export interface ILlpEntry {
+    llpNo: string
+    llpName: string
+    llpStatus: string
+    findGSTRegNoList: IGstRegNoList
 }
