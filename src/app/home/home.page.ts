@@ -1,5 +1,6 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { Component, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { IonSlides, Platform, IonRouterOutlet } from '@ionic/angular';
+
 import { RegisterDeviceService } from '../services/registerdevice.service';
 import { NewsService } from '../services/news.service';
 import { INewsResultData } from '../models/inewsresult';
@@ -11,8 +12,9 @@ import { UtilsService } from '../services/utils.service';
   styleUrls: ['home.page.scss'],
 })
 
-export class HomePage implements OnInit{
+export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
+  backButtonSubscription; 
   @ViewChild('slideWithNav', {static: false}) slideWithNav: IonSlides;
 
   sliderOne: any
@@ -28,7 +30,9 @@ export class HomePage implements OnInit{
 
   constructor(private regDevServ: RegisterDeviceService,
               private newsServ: NewsService,
-              private utilsServ: UtilsService) {
+              private utilsServ: UtilsService,
+              private platform: Platform,
+              private routerOutlet: IonRouterOutlet) {
 
     //Item object for Nature
     this.sliderOne =
@@ -37,6 +41,17 @@ export class HomePage implements OnInit{
         isEndSlide: false,
         slidesItems: []
       };
+  }
+
+  ngAfterViewInit(): void {
+    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+      if (!this.routerOutlet.canGoBack())
+        navigator['app'].exitApp();
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.backButtonSubscription.unsubscribe();
   }
 
   ngOnInit(): void {
