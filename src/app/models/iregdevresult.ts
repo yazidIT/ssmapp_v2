@@ -3,5 +3,6 @@ export interface IRegDevResult {
 }
 
 export interface IRegDevResultData {
+    success: boolean
     token: string
 }

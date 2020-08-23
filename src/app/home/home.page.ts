@@ -41,6 +41,19 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
         isEndSlide: false,
         slidesItems: []
       };
+
+    this.newsRss = {
+      channel : {
+        title: "",
+        link: "",
+        description: "",
+        lastBuildDate: "",
+        generator: "",
+        ttl: "",
+        language: "",
+        item: []
+      }
+    }
   }
 
   ngAfterViewInit(): void {
@@ -66,7 +79,7 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
     this.newsServ.getNews().then(newsData => {
 
-      this.newsRss = newsData.data as INewsResultData
+      this.newsRss = JSON.parse(newsData.data)
       this.sliderOne.slidesItems = this.newsRss.channel.item
       
     }, error => {

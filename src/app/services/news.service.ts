@@ -24,7 +24,7 @@ export class NewsService {
 
       authHeader = 'Bearer' + ' ' + token;
       console.log(authHeader)
-      let headers = { "Authorization": authHeader }
+      let headers = { Authorization : authHeader }
 
       return this.http.get(urlEndpoint, "", headers)
     })

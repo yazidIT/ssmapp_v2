@@ -15,34 +15,43 @@ export class RegisterDeviceService {
   private secKey = 'ZMVbSD0CZwdRDxTd3DzvfDT8xy60ZgwX'
   private apiurl = 'https://m.ssm.com.my/api/'
 
+  regDevResultData : IRegDevResultData;
+
   constructor(private http: HTTP,
               private device: Device,
-              private storage: NativeStorage) {}
+              private storage: NativeStorage) {
 
-  async registerDevice() {
+    this.regDevResultData = {
+      success: false,
+      token: ""
+    }
+  }
+
+  async registerDevice(): Promise<any> {
     var timeNow = Math.floor(new Date().getTime()/100000)
     var uuid = this.device.uuid
     var platform = this.device.platform
     var calculatedHash = Md5.hashStr(uuid+platform+timeNow + this.secKey)
 
     let headers = {
-      "Content-Type": "application/json; charset=utf-8"
+      'Content-Type': 'application/json; charset=utf-8'
     }
 
     // version 2
     let postData = { "uuid" : uuid, "os" : platform, "hash" : calculatedHash }
     let urlEndpoint = this.apiv2url + 'device/register'
 
-    this.http.post(urlEndpoint, postData, headers)
-    .then(response => {
+    return this.http.post(urlEndpoint, postData, headers)
+      .then(response => {
 
-      this.storage.setItem('token', response.data);
+        this.regDevResultData = JSON.parse(response.data)
+        return this.storage.setItem('token', this.regDevResultData.token);
 
-    }, error => {
+      }, error => {
 
-      console.log(error)
+        console.log(error)
 
-    })
+      })
 
   }
 
