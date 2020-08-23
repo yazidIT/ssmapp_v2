@@ -72,25 +72,24 @@ export class AlertPromptComponent implements OnInit {
     await alert.present();
   }
 
-  async presentAlertConfirm() {
+  async presentAlertConfirmExitApp() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      header: "SSMApp",
+      message: "Exit SSMApp?",
       buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            navigator['app'].exitApp();
+          }
+        },
         {
           text: 'Cancel',
           role: 'cancel',
           cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Confirm Cancel: blah');
-          }
-        }, {
-          text: 'Okay',
-          handler: () => {
-            console.log('Confirm Okay');
-          }
-        }
+          handler: () => {}
+        },
       ]
     });
 
