@@ -16,6 +16,7 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
   searchType: string
   searchCompany: string
   appversion: any
+  eSearchResponseData: any
   
   searchNameValue = {
     "ROC": "Company Registration No. Old",
@@ -34,6 +35,10 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
               private platform: Platform,
               private routerOutlet: IonRouterOutlet) {
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
+    this.eSearchResponseData = {
+      success: false,
+      data: ""
+    }
   }
 
   ngOnDestroy(): void {
@@ -76,20 +81,23 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
 
     let urlEndpoint = this.apiv2url + 'esearch/' + findUrl + this.searchCompany
 
-    this.ssmQueryServ.eSearchQuery(urlEndpoint).then(resData => {
+    this.ssmQueryServ.eSearchQuery(urlEndpoint).then(response => {
 
-      console.log(resData)
+      this.eSearchResponseData = JSON.parse(response.data)
+      console.log(this.eSearchResponseData)
 
-      if(resData.data.result === undefined) {
+      // for LLP
+      if(this.eSearchResponseData.result === undefined) {
 
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData)).then(() => {
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eSearchResponseData)).then(() => {
           console.log("query result saved!")
           this.navCtrl.navigateForward('/esearch-result')
         })
 
+      // For ROC & ROB
       } else {
 
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.data.result)).then(() => {
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eSearchResponseData.result)).then(() => {
           console.log("query result saved!")
           this.navCtrl.navigateForward('/esearch-result')
         })
