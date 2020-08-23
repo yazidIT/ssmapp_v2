@@ -34,7 +34,9 @@ export class NewsPage implements OnInit, OnDestroy, AfterViewInit{
     this.newsItems = []
 
     this.newsServ.getNews().then(newsData=> {
-      this.newsItems = newsData.channel.item
+
+      this.newsItems = newsData.data.channel.item
+
     })
   }
 }

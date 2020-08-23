@@ -80,21 +80,27 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
 
       console.log(resData)
 
-      if(resData.result === undefined) {
+      if(resData.data.result === undefined) {
+
         this.ssmQueryServ.saveQueryResult(JSON.stringify(resData)).then(() => {
           console.log("query result saved!")
           this.navCtrl.navigateForward('/esearch-result')
         })
+
       } else {
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.result)).then(() => {
+
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.data.result)).then(() => {
           console.log("query result saved!")
           this.navCtrl.navigateForward('/esearch-result')
         })
+
       }
 
     }, error => {
+
       console.log(error.status)
       this.alertPrompt.presentServerFail("e-Search", error.status, false)
+      
     })
   }
 }

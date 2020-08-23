@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -10,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppVersion } from '@ionic-native/app-version/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Device } from '@ionic-native/device/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +23,6 @@ import { AlertPromptComponent } from './alert-prompt/alert-prompt.component';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,
     HomePageModule
   ],
   providers: [
@@ -32,6 +31,7 @@ import { AlertPromptComponent } from './alert-prompt/alert-prompt.component';
     AppVersion,
     NativeStorage,
     Device,
+    HTTP,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -26,14 +26,20 @@ export class DetailnewsPage implements OnInit {
   }
 
   ngOnInit() {
+
     this.newsurl = this.activatedRoute.snapshot.paramMap.get('newsurl');
+
     this.newsServ.getDetailNews(this.newsurl).then(
+
       resData => {
-        let newsitem = resData as INewsItem
+        let newsitem = resData.data as INewsItem
         this.detailNews = newsitem.description
+
       }, error => {
+
         console.log(error)
-        this.alertPrompt.presentServerFail("Detail News", 401, true)
+        this.alertPrompt.presentServerFail("Detail News", error.status, true)
+
       }
     )
   }

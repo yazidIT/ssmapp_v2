@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
+
 import { RegisterDeviceService } from './registerdevice.service';
 
 @Injectable({
@@ -9,7 +10,7 @@ import { RegisterDeviceService } from './registerdevice.service';
 export class SsmQueryService {
 
   constructor(private regDevServ: RegisterDeviceService,
-              private http: HttpClient,
+              private http: HTTP,
               private storage: NativeStorage) { }
 
 
@@ -17,12 +18,11 @@ export class SsmQueryService {
 
     var authHeader: any
     return this.regDevServ.getDevToken().then(token => {
+      
       authHeader = 'Bearer' + ' ' + token;
-      let headers = new HttpHeaders()
-      headers.append("Authorization", authHeader);
-      var httpOptions = { headers }
+      let headers = { "Authorization": authHeader }
 
-      return this.http.get<any>(urlEndpoint, httpOptions).toPromise()
+      return this.http.get(urlEndpoint, "", headers)
     })
   }
 

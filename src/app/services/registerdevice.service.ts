@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Md5 } from 'ts-md5/dist/md5';
 import { Device } from '@ionic-native/device/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
 
+import { Md5 } from 'ts-md5/dist/md5';
 import { IRegDevResult, IRegDevResultData } from '../models/iregdevresult'
 
 @Injectable({
@@ -15,7 +15,7 @@ export class RegisterDeviceService {
   private secKey = 'ZMVbSD0CZwdRDxTd3DzvfDT8xy60ZgwX'
   private apiurl = 'https://m.ssm.com.my/api/'
 
-  constructor(private http: HttpClient,
+  constructor(private http: HTTP,
               private device: Device,
               private storage: NativeStorage) {}
 
@@ -25,48 +25,50 @@ export class RegisterDeviceService {
     var platform = this.device.platform
     var calculatedHash = Md5.hashStr(uuid+platform+timeNow + this.secKey)
 
-    let headers = new HttpHeaders()
-    headers.append('Content-Type', 'application/json; charset=utf-8');
-
-    var httpOptions = { headers }
+    let headers = {
+      "Content-Type": "application/json; charset=utf-8"
+    }
 
     // version 2
     let postData = { "uuid" : uuid, "os" : platform, "hash" : calculatedHash }
     let urlEndpoint = this.apiv2url + 'device/register'
 
-    this.http.post<IRegDevResultData>(urlEndpoint, postData, httpOptions)
-      .subscribe(resData => {
+    this.http.post(urlEndpoint, postData, headers)
+    .then(response => {
 
-        this.storage.setItem('token', resData.token);
+      this.storage.setItem('token', response.data);
 
-       }, error => {
-        console.log(error);
-      });
+    }, error => {
+
+      console.log(error)
+
+    })
+
   }
 
-  registerDeviceV1() {
+  // registerDeviceV1() {
 
-    var uuid = 'fd7cfed5-fa60-4942-8a47-79307233781c'
-    var platform = 'Chrome'
+  //   var uuid = 'fd7cfed5-fa60-4942-8a47-79307233781c'
+  //   var platform = 'Chrome'
 
-    let headers = new HttpHeaders()
-    headers.append('Content-Type', 'application/json; charset=utf-8');
+  //   let headers = new HttpHeaders()
+  //   headers.append('Content-Type', 'application/json; charset=utf-8');
 
-    var httpOptions = { headers }
+  //   var httpOptions = { headers }
 
-    // version 1
-    let postData = { "uuid" : uuid, "type" : platform }
-    let urlEndpoint = this.apiurl + 'register-device'
+  //   // version 1
+  //   let postData = { "uuid" : uuid, "type" : platform }
+  //   let urlEndpoint = this.apiurl + 'register-device'
 
-    this.http.post<any>(urlEndpoint, postData, httpOptions)
-      .subscribe(resData => {
+  //   this.http.post<any>(urlEndpoint, postData, httpOptions)
+  //     .subscribe(resData => {
 
-        console.log(JSON.stringify(resData));
+  //       console.log(JSON.stringify(resData));
 
-       }, error => {
-        console.log(error);
-      });
-  }
+  //      }, error => {
+  //       console.log(error);
+  //     });
+  // }
 
   getDevToken(): Promise<any> {
     return this.storage.getItem('token').then(data => {

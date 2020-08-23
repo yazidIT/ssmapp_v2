@@ -1,9 +1,7 @@
-import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HTTP, HTTPResponse } from '@ionic-native/http/ngx';
 
 import { RegisterDeviceService } from './registerdevice.service';
-import { INewsResultData, IChannelItem} from '../models/inewsresult';
-import { from as fromPromise, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,23 +11,22 @@ export class NewsService {
 
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
-  constructor(private http: HttpClient,
+  constructor(private http: HTTP,
               private regDevServ: RegisterDeviceService) {
   }
 
-  getNews(): Promise<INewsResultData> {
+  getNews(): Promise<HTTPResponse> {
 
     var urlEndpoint = this.apiv2url + 'rss';
     var authHeader: any
 
     return this.regDevServ.getDevToken().then(token => {
+
       authHeader = 'Bearer' + ' ' + token;
       console.log(authHeader)
-      let headers = new HttpHeaders()
-      headers.append("Authorization", authHeader);
-      var httpOptions = { headers }
+      let headers = { "Authorization": authHeader }
 
-      return this.http.get<INewsResultData>(urlEndpoint, httpOptions).toPromise()
+      return this.http.get(urlEndpoint, "", headers)
     })
 
   }
@@ -40,17 +37,17 @@ export class NewsService {
   //   })
   // }
 
-  getDetailNews(newsUrl:string): Promise<any>{
+  getDetailNews(newsUrl:string): Promise<HTTPResponse>{
 
     var urlEndpoint = newsUrl;
     var authHeader: any
 
     return this.regDevServ.getDevToken().then(token => {
+
       authHeader = 'Bearer' + ' ' + token;
-      let headers = new HttpHeaders()
-      headers.append("Authorization", authHeader);
-      var httpOptions = { headers }
-      return this.http.get<any>(urlEndpoint, httpOptions).toPromise()
+      let headers = { "Authorization": authHeader }
+
+      return this.http.get(urlEndpoint, "", headers)
     })
     
   }

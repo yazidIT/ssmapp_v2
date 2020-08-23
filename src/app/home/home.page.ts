@@ -55,15 +55,20 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
   }
 
   ngOnInit(): void {
-    this.initData()
+    this.platform.ready().then(() => {
+      this.initData()
+    })
   }
 
   async initData() {
 
     await this.regDevServ.registerDevice()
+
     this.newsServ.getNews().then(newsData => {
-      this.newsRss = newsData
+
+      this.newsRss = newsData.data as INewsResultData
       this.sliderOne.slidesItems = this.newsRss.channel.item
+      
     }, error => {
 
     })
