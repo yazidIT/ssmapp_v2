@@ -34,16 +34,16 @@ export class NewsPage implements OnInit, OnDestroy, AfterViewInit{
   }
 
   ngOnDestroy(): void {
-    this.backButtonSubscription.unsubscribe();
+    // this.backButtonSubscription.unsubscribe();
   }
 
   ngAfterViewInit(): void {
-    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      if (!this.routerOutlet.canGoBack())
-        navigator['app'].exitApp();
-      else
-        this.routerOutlet.pop()
-    });
+    // this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+    //   if (!this.routerOutlet.canGoBack())
+    //     navigator['app'].exitApp();
+    //   else
+    //     this.routerOutlet.pop()
+    // });
   }
 
   ngOnInit(): void {

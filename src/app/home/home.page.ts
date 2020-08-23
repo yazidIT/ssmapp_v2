@@ -57,25 +57,23 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
   }
 
   ngAfterViewInit(): void {
-    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      if (!this.routerOutlet.canGoBack())
-        navigator['app'].exitApp();
-    });
+    // this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+    //   if (!this.routerOutlet.canGoBack())
+    //     navigator['app'].exitApp();
+    // });
   }
 
   ngOnDestroy(): void {
-    this.backButtonSubscription.unsubscribe();
+    // this.backButtonSubscription.unsubscribe();
   }
 
   ngOnInit(): void {
-    this.platform.ready().then(() => {
-      this.initData()
-    })
+
+    this.initData()
+
   }
 
   async initData() {
-
-    await this.regDevServ.registerDevice()
 
     this.newsServ.getNews().then(newsData => {
 

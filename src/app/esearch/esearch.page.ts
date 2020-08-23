@@ -42,16 +42,16 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy(): void {
-    this.backButtonSubscription.unsubscribe();
+    // this.backButtonSubscription.unsubscribe();
   }
   
   ngAfterViewInit(): void {
-    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      if (!this.routerOutlet.canGoBack())
-        navigator['app'].exitApp();
-      else
-        this.navCtrl.back()
-    });
+    // this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+    //   if (!this.routerOutlet.canGoBack())
+    //     navigator['app'].exitApp();
+    //   else
+    //     this.navCtrl.back()
+    // });
   }
 
   ngOnInit() {
