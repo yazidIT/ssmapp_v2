@@ -32,7 +32,8 @@ export class DetailnewsPage implements OnInit {
     this.newsServ.getDetailNews(this.newsurl).then(
 
       resData => {
-        let newsitem = resData.data as INewsItem
+
+        let newsitem:INewsItem = JSON.parse(resData.data)
         this.detailNews = newsitem.description
 
       }, error => {
