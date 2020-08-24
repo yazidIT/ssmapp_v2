@@ -39,7 +39,7 @@ export class Status308Page implements OnInit {
 
       console.log(resData)
 
-      this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.data)).then(() => {
+      this.ssmQueryServ.saveQueryResult(JSON.stringify(resData)).then(() => {
         console.log("query result saved!")
         this.navCtrl.navigateForward('/status308-result')
       })
