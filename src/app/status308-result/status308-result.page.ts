@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { IStatus308Result, IStatus308Cos, IStatus308Data, IStatus308Notice } from '../models/iqueryresult';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-status308-result',
@@ -13,7 +14,10 @@ export class Status308ResultPage implements OnInit {
   status308Cos: IStatus308Cos
   status308Notices: IStatus308Notice
 
-  constructor(private storage: NativeStorage) { 
+  appversion: any
+
+  constructor(private storage: NativeStorage,
+              private utilsServ: UtilsService) { 
 
     this.status308Data = {
         companyName: "",
@@ -48,6 +52,9 @@ export class Status308ResultPage implements OnInit {
       this.status308Notices = this.status308Data.notices[0]
     })
 
+    this.utilsServ.getAppVersion().then(version => {
+      this.appversion = version
+    })
   }
 
 }
