@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'equery',
     loadChildren: () => import('./equery/equery.module').then( m => m.EqueryPageModule)
+  },
+  {
+    path: 'ecompound',
+    loadChildren: () => import('./ecompound/ecompound.module').then( m => m.EcompoundPageModule)
   }
 ];
 
