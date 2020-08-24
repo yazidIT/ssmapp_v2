@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button class="bar-class" style="border-radius:5px;"></ion-menu-button>
     </ion-buttons>
-    <ion-title class="title-class">e-Search</ion-title>
+    <ion-title class="title-class">e-Query</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,34 +14,16 @@
   <ion-grid>
   <ion-row>
     <ion-col class="ion-text-center">
-      SSM Registration Checking<p>
+      List of Company that have queried document under Section 11(8) & (9) of the Companies Act 1965.<p>
       <font color="grey">Please fill in the blank space below:</font>
     </ion-col>
   </ion-row>
 
   <ion-row>
-  <ion-col>
-  <div class="list ion-text-center">
-    <label class="item item-input item-select">
-      <span class="input-label"><strong><font color="#2E2F83">Registration Type:</font></strong></span>
-      <ion-select name="esearchType" interface="popover" value="ROC"
-       [(ngModel)]="searchType" (ionChange)="searchTypeSelect()">
-        <ion-select-option value="ROC" >Company Registration No. Old</ion-select-option>
-        <ion-select-option value="ROB" >Business Registration No. Old</ion-select-option>
-        <ion-select-option value="ROCNEW" >Company Registration No. New</ion-select-option>
-        <ion-select-option value="ROBNEW" >Business Registration No. New</ion-select-option>
-        <ion-select-option value="LLP" >LLP Registration No.</ion-select-option>
-      </ion-select>
-    </label>
-  </div>
-  </ion-col>
-  </ion-row>
-
-  <ion-row>
   <ion-col class="ion-text-center">
     <label class="item item-input">
-    <span class="input-label"><strong><font color="#2E2F83" translate="REGISNO">Registration Number:</font></strong></span>
-    <ion-input type="text" font="#FF0000" placeholder="{{placeHolder}}" [(ngModel)]="searchCompany"></ion-input>
+    <span class="input-label"><strong><font color="#2E2F83" translate="REGISNO">Company No./MyCoID:</font></strong></span>
+    <ion-input type="text" font="#FF0000" placeholder="{{placeHolder}}" [(ngModel)]="queryCoId"></ion-input>
     </label>
   </ion-col>
   </ion-row>
@@ -49,16 +31,24 @@
   <ion-row>
   <ion-col>
     <div class="ion-text-center">
-      <ion-button class="findbutton" (click)="esearchFind()"><strong>Find</strong></ion-button>
+      <ion-button class="findbutton" (click)="equeryFind()"><strong>Find</strong></ion-button>
     </div>
   </ion-col>
   </ion-row>
 
   <ion-row>
   <ion-col class="no-border">
-    <div class="ion-text-center">
-    Download : e-Search User Manual
-    </div>
+
+    <font color="#2E2F83"><strong translate="NOTE">Note:</strong></font>
+    <p>
+    1. Please enter "944751" for company/MyCoID number 944751-A in the field above.
+    <br>
+    <br>
+    2. Any inquiries regarding queried document will be not entertained by telephone. Please go to the nearest SSM office for further information.
+    <br>
+    <br>
+    3. SSM shall not be held liable and responsible for any misuse of the information by irresponsible person.
+
   </ion-col>
   </ion-row>
   </ion-grid>
@@ -88,4 +78,5 @@
   </ion-fab>
 </ion-content>
 <div class="ssmfooter" align="center"><a ng-click="openXLink('https://www.ssm.com.my')">Suruhanjaya Syarikat Malaysia {{appversion}}©</a></div>
+
 
