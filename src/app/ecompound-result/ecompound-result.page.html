@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar class="bar-class">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title-class">e-Compound Result</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="bgtukar" style="height: 100%; padding: 0px;">
+
+  <ion-grid>
+
+  <ion-row>
+    <ion-col class="ion-text-center">
+      List of compounds<p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+  <ion-col>
+
+  <div>
+    <ion-grid>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px">Entity Number:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{compoundResult.entityNo}}</font>
+        </ion-col>
+      </ion-row>
+
+      <div *ngFor="let s of compoundResult.compound">
+        <ion-row class="no-bottom-border">
+          <ion-col class="no-border">
+          <font color="#2E2F83" size="2px">Compound Number:</font>
+          </ion-col>
+          <ion-col class="no-border">
+          <font size="2px"> {{s.compoundNo}}</font>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="no-bottom-border">
+          <ion-col class="no-border">
+          <font color="#2E2F83" size="2px">Compound Status:</font>
+          </ion-col>
+          <ion-col class="no-border">
+          <font size="2px"> {{s.compoundStatus}}</font>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="no-bottom-border">
+          <ion-col class="no-border">
+          <font color="#2E2F83" size="2px">Amount:</font>
+          </ion-col>
+          <ion-col class="no-border">
+          <font size="2px"> {{s.amount}}</font>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <ion-row class="top-border"></ion-row>
+    </ion-grid>
+  </div>
+
+  </ion-col>
+  </ion-row>
+
+  </ion-grid>
+</div>
+</ion-content>
+
+<div class="ssmfooter" align="center"><a ng-click="openXLink('https://www.ssm.com.my')">Suruhanjaya Syarikat Malaysia {{appversion}}©</a></div>

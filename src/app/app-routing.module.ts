@@ -26,6 +26,18 @@ const routes: Routes = [
   {
     path: 'esearch-result',
     loadChildren: () => import('./esearch-result/esearch-result.module').then( m => m.EsearchResultPageModule)
+  },
+  {
+    path: 'equery',
+    loadChildren: () => import('./equery/equery.module').then( m => m.EqueryPageModule)
+  },
+  {
+    path: 'ecompound',
+    loadChildren: () => import('./ecompound/ecompound.module').then( m => m.EcompoundPageModule)
+  },
+  {
+    path: 'ecompound-result',
+    loadChildren: () => import('./ecompound-result/ecompound-result.module').then( m => m.EcompoundResultPageModule)
   }
 ];
 

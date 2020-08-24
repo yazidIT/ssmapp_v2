@@ -29,4 +29,30 @@ export class SsmQueryService {
   saveQueryResult(result:any): Promise<any> {
     return this.storage.setItem('queryResult', result);
   }
+
+  async eQueryQuery(urlEndpoint:string, postBody: any) {
+
+    var authHeader: any
+    return this.regDevServ.getDevToken().then(token => {
+      authHeader = 'Bearer' + ' ' + token;
+      let headers = new HttpHeaders()
+      headers.append("Authorization", authHeader);
+      var httpOptions = { headers }
+
+      return this.http.post<any>(urlEndpoint, postBody, httpOptions).toPromise()
+    })
+  }
+
+  async eCompoundQuery(urlEndpoint:string, postBody: any) {
+
+    var authHeader: any
+    return this.regDevServ.getDevToken().then(token => {
+      authHeader = 'Bearer' + ' ' + token;
+      let headers = new HttpHeaders()
+      headers.append("Authorization", authHeader);
+      var httpOptions = { headers }
+
+      return this.http.post<any>(urlEndpoint, postBody, httpOptions).toPromise()
+    })
+  }
 }
