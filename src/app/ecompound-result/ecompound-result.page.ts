@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { ICompoundData } from '../models/iqueryresult';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-ecompound-result',
@@ -11,8 +12,10 @@ import { ICompoundData } from '../models/iqueryresult';
 export class EcompoundResultPage implements OnInit {
 
   compoundResult: ICompoundData
-
-  constructor(private storage: Storage) { 
+  appversion: any
+  
+  constructor(private storage: NativeStorage,
+              private utilsServ: UtilsService) { 
 
     this.compoundResult = {
       entityNo: "",
@@ -23,11 +26,15 @@ export class EcompoundResultPage implements OnInit {
 
   ngOnInit() {
 
-    this.storage.get('queryResult').then(resData => {
+    this.storage.getItem('queryResult').then(resData => {
       console.log(resData)
       var jsonObj = JSON.parse(resData)
 
       this.compoundResult = jsonObj
+    })
+
+    this.utilsServ.getAppVersion().then(version => {
+      this.appversion = version
     })
 
   }

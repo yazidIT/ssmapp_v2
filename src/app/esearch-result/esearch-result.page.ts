@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 import { IESearchCompany, IESearchBusiness, IESearchLLP } from '../models/iqueryresult';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-esearch-result',
@@ -21,7 +22,8 @@ export class EsearchResultPage implements OnInit {
 
   appversion: any
   
-  constructor(private storage: NativeStorage) { }
+  constructor(private storage: NativeStorage,
+              private utilsServ: UtilsService) { }
 
   ngOnInit() {
 
@@ -93,6 +95,10 @@ export class EsearchResultPage implements OnInit {
         this.llpResult = jsonObj
         return
       }
+    })
+
+    this.utilsServ.getAppVersion().then(version => {
+      this.appversion = version
     })
   }
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { NavController } from '@ionic/angular';
 import { AlertPromptComponent } from '../alert-prompt/alert-prompt.component';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-equery',
@@ -12,18 +13,25 @@ export class EqueryPage implements OnInit {
 
   placeHolder: string
   queryCoId: string
-
+  eQueryRespondData: any
   alertPrompt : AlertPromptComponent
+  appversion: any
   
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
-              private navCtrl: NavController) {
+              private navCtrl: NavController,
+              private utilsServ: UtilsService) {
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
 
   ngOnInit() {
     this.placeHolder = "Company No./MyCoID"
+
+    this.utilsServ.getAppVersion().then(version => {
+      this.appversion = version
+    })
+
   }
 
   equeryFind() {
@@ -35,17 +43,18 @@ export class EqueryPage implements OnInit {
 
     let urlEndpoint = this.apiv2url + 'equery'
 
-    this.ssmQueryServ.eSearchQuery(urlEndpoint).then(resData => {
+    this.ssmQueryServ.eSearchQuery(urlEndpoint).then(response => {
 
-      console.log(resData)
+      this.eQueryRespondData = JSON.parse(response.data)
+      console.log(this.eQueryRespondData)
 
-      if(resData.result === undefined) {
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData)).then(() => {
+      if(response.data.result === undefined) {
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(response.data)).then(() => {
           console.log("query result saved!")
           this.navCtrl.navigateForward('/esearch-result')
         })
       } else {
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.result)).then(() => {
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(response.data.result)).then(() => {
           console.log("query result saved!")
           this.navCtrl.navigateForward('/esearch-result')
         })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { NavController } from '@ionic/angular';
 import { AlertPromptComponent } from '../alert-prompt/alert-prompt.component';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-ecompound',
@@ -15,6 +16,8 @@ export class EcompoundPage implements OnInit {
   compoundType: string
   entityType: string
   compoundEntity: string
+  eCompoundResponseData: any
+  appversion: any
 
   entityNameValue = {
     "01": "Company Registration No.",
@@ -34,7 +37,9 @@ export class EcompoundPage implements OnInit {
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
-              private navCtrl: NavController) {
+              private navCtrl: NavController,
+              private utilsServ: UtilsService) {
+                
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
 
@@ -42,6 +47,10 @@ export class EcompoundPage implements OnInit {
     this.compoundType = "ROC"
     this.entityType = "01"
     this.placeHolder = this.entityNameValue[this.entityType]
+
+    this.utilsServ.getAppVersion().then(version => {
+      this.appversion = version
+    })
   }
 
   entityTypeSelect() {
@@ -62,18 +71,19 @@ export class EcompoundPage implements OnInit {
       "entityNo": this.compoundEntity
     }
 
-    this.ssmQueryServ.eCompoundQuery(urlEndpoint, postBody).then(resData => {
+    this.ssmQueryServ.eCompoundQuery(urlEndpoint, postBody).then(response => {
 
-      console.log(resData)
+      this.eCompoundResponseData = JSON.parse(response.data)
+      console.log(this.eCompoundResponseData)
 
-      this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.data)).then(() => {
+      this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eCompoundResponseData.data)).then(() => {
         console.log("query result saved!")
         this.navCtrl.navigateForward('/ecompound-result')
       })
 
     }, error => {
       console.log(error.status)
-      this.alertPrompt.presentServerFail("e-Search", error.status, false)
+      this.alertPrompt.presentServerFail("e-Compound", error.status, false)
     })
   }
 }

@@ -38,7 +38,7 @@ export class DetailnewsPage implements OnInit {
 
       }, error => {
 
-        console.log(error)
+        console.log(JSON.stringify(error))
         this.alertPrompt.presentServerFail("Detail News", error.status, true)
 
       }
