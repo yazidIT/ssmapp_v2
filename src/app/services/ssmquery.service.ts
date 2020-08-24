@@ -51,4 +51,17 @@ export class SsmQueryService {
       return this.http.post(urlEndpoint, postBody, headers)
     })
   }
+
+  async status308Query(urlEndpoint:string) {
+
+    var authHeader: any
+    return this.regDevServ.getDevToken().then(token => {
+      authHeader = 'Bearer' + ' ' + token;
+      let headers = new HttpHeaders()
+      headers.append("Authorization", authHeader);
+      var httpOptions = { headers }
+
+      return this.http.get<any>(urlEndpoint, httpOptions).toPromise()
+    })
+  }
 }

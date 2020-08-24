@@ -52,3 +52,27 @@ export interface ICompoundInfo {
     compoundStatus: string
     amount: string
 }
+
+export interface IStatus308Result {
+    data: IStatus308Data
+    cos: IStatus308Cos
+}
+export interface IStatus308Data {
+    companyNo: string
+    companyName: string
+    notices: Array<IStatus308Notice>
+}
+
+export interface IStatus308Notice {
+    nfaDate: string
+    dateNotice1: string
+    dateNotice2: string
+    dateNotice4: string
+    gazzetteNo2: string
+    gazzetteDate2: string
+}
+
+export interface IStatus308Cos {
+    newFormatNo: string
+    oldFormatNo: string
+}

@@ -38,6 +38,14 @@ const routes: Routes = [
   {
     path: 'ecompound-result',
     loadChildren: () => import('./ecompound-result/ecompound-result.module').then( m => m.EcompoundResultPageModule)
+  },
+  {
+    path: 'status308',
+    loadChildren: () => import('./status308/status308.module').then( m => m.Status308PageModule)
+  },
+  {
+    path: 'status308-result',
+    loadChildren: () => import('./status308-result/status308-result.module').then( m => m.Status308ResultPageModule)
   }
 ];
 
