@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { IStatus308Result, IStatus308Cos, IStatus308Data, IStatus308Notice } from '../models/iqueryresult';
 
 @Component({
@@ -13,7 +13,7 @@ export class Status308ResultPage implements OnInit {
   status308Cos: IStatus308Cos
   status308Notices: IStatus308Notice
 
-  constructor(private storage: Storage) { 
+  constructor(private storage: NativeStorage) { 
 
     this.status308Data = {
         companyName: "",
@@ -39,7 +39,7 @@ export class Status308ResultPage implements OnInit {
 
   ngOnInit() {
 
-    this.storage.get('queryResult').then(resData => {
+    this.storage.getItem('queryResult').then(resData => {
       console.log(resData)
       var jsonObj = JSON.parse(resData)
 

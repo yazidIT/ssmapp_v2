@@ -57,11 +57,9 @@ export class SsmQueryService {
     var authHeader: any
     return this.regDevServ.getDevToken().then(token => {
       authHeader = 'Bearer' + ' ' + token;
-      let headers = new HttpHeaders()
-      headers.append("Authorization", authHeader);
-      var httpOptions = { headers }
+      let headers = { Authorization : authHeader }
 
-      return this.http.get<any>(urlEndpoint, httpOptions).toPromise()
+      return this.http.get(urlEndpoint, "", headers)
     })
   }
 }
