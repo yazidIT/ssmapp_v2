@@ -38,7 +38,7 @@ export class AppComponent {
     },
     {
       title: 'Status 308',
-      url: '/status_308',
+      url: '/status308',
       icon: 'list'
     },
     {

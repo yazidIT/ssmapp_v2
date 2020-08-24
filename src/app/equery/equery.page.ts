@@ -35,7 +35,7 @@ export class EqueryPage implements OnInit {
 
     let urlEndpoint = this.apiv2url + 'equery'
 
-    this.ssmQueryServ.eSearchQuery(urlEndpoint).then(resData => {
+    this.ssmQueryServ.eQueryQuery(urlEndpoint, "").then(resData => {
 
       console.log(resData)
 
