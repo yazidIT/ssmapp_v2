@@ -41,3 +41,14 @@ export interface ILlpEntry {
     llpStatus: string
     findGSTRegNoList: IGstRegNoList
 }
+
+export interface ICompoundData {
+    entityNo: string
+    compound: Array<ICompoundInfo>
+}
+
+export interface ICompoundInfo {
+    compoundNo: string
+    compoundStatus: string
+    amount: string
+}

@@ -57,6 +57,7 @@ export class EcompoundPage implements OnInit {
 
     let urlEndpoint = this.apiv2url + 'esearch/ecompound/'
     let postBody = {
+      "type": this.compoundType,
       "entityType": this.entityType,
       "entityNo": this.compoundEntity
     }
@@ -65,17 +66,10 @@ export class EcompoundPage implements OnInit {
 
       console.log(resData)
 
-      if(resData.result === undefined) {
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData)).then(() => {
-          console.log("query result saved!")
-          this.navCtrl.navigateForward('/esearch-result')
-        })
-      } else {
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.result)).then(() => {
-          console.log("query result saved!")
-          this.navCtrl.navigateForward('/esearch-result')
-        })
-      }
+      this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.data)).then(() => {
+        console.log("query result saved!")
+        this.navCtrl.navigateForward('/ecompound-result')
+      })
 
     }, error => {
       console.log(error.status)

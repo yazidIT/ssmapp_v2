@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'ecompound',
     loadChildren: () => import('./ecompound/ecompound.module').then( m => m.EcompoundPageModule)
+  },
+  {
+    path: 'ecompound-result',
+    loadChildren: () => import('./ecompound-result/ecompound-result.module').then( m => m.EcompoundResultPageModule)
   }
 ];
 
