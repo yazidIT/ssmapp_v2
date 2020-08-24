@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { NavController, Platform } from '@ionic/angular';
+
 import { SsmQueryService } from '../services/ssmquery.service';
-import { NavController, Platform, IonRouterOutlet } from '@ionic/angular';
 import { AlertPromptComponent } from '../alert-prompt/alert-prompt.component';
 
 @Component({
@@ -33,7 +35,7 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
   constructor(private ssmQueryServ: SsmQueryService,
               private navCtrl: NavController,
               private platform: Platform,
-              private routerOutlet: IonRouterOutlet) {
+              private location: Location) {
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
     this.eSearchResponseData = {
       success: false,
@@ -42,16 +44,13 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy(): void {
-    // this.backButtonSubscription.unsubscribe();
+    this.backButtonSubscription.unsubscribe();
   }
   
   ngAfterViewInit(): void {
-    // this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-    //   if (!this.routerOutlet.canGoBack())
-    //     navigator['app'].exitApp();
-    //   else
-    //     this.navCtrl.back()
-    // });
+    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+      this.location.back()
+    });
   }
 
   ngOnInit() {

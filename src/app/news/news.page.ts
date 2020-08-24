@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit} from '@angular/core';
-import { Platform, IonRouterOutlet } from '@ionic/angular';
+import { Location } from '@angular/common';
+import { Platform } from '@ionic/angular';
 import { NewsService } from '../services/news.service';
 import { INewsResultData } from '../models/inewsresult';
 @Component({
@@ -17,7 +18,7 @@ export class NewsPage implements OnInit, OnDestroy, AfterViewInit{
   
   constructor(private newsServ: NewsService,
               private platform: Platform,
-              private routerOutlet: IonRouterOutlet) {
+              private location: Location) {
     
     this.newsData = {
       channel : {
@@ -34,16 +35,13 @@ export class NewsPage implements OnInit, OnDestroy, AfterViewInit{
   }
 
   ngOnDestroy(): void {
-    // this.backButtonSubscription.unsubscribe();
+    this.backButtonSubscription.unsubscribe();
   }
 
   ngAfterViewInit(): void {
-    // this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-    //   if (!this.routerOutlet.canGoBack())
-    //     navigator['app'].exitApp();
-    //   else
-    //     this.routerOutlet.pop()
-    // });
+    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+      this.location.back()
+    });
   }
 
   ngOnInit(): void {
