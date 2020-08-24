@@ -89,7 +89,10 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
     this.ssmQueryServ.eSearchQuery(urlEndpoint).then(response => {
 
       this.eSearchResponseData = JSON.parse(response.data)
-      console.log(this.eSearchResponseData)
+      if(this.eSearchResponseData.success === false) {
+        this.alertPrompt.presentInputError("e-Search", this.eSearchResponseData.message)
+        return
+      }
 
       // for LLP
       if(this.eSearchResponseData.result === undefined) {

@@ -74,7 +74,11 @@ export class EcompoundPage implements OnInit {
     this.ssmQueryServ.eCompoundQuery(urlEndpoint, postBody).then(response => {
 
       this.eCompoundResponseData = JSON.parse(response.data)
-      console.log(this.eCompoundResponseData)
+
+      if(this.eCompoundResponseData.success === false) {
+        this.alertPrompt.presentInputError("e-Compound", this.eCompoundResponseData.message)
+        return
+      }
 
       this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eCompoundResponseData.data)).then(() => {
         console.log("query result saved!")
