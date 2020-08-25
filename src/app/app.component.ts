@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { TranslateConfigService } from './services/translate-config.service';
 
 @Component({
   selector: 'app-root',
@@ -12,51 +13,52 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   public appPages = [
     {
-      title: 'HOME',
+      title: 'MENU_04',
       url: '/home',
       icon: 'home'
     },
     {
-      title: 'News & Announcement',
+      title: 'MENU_01',
       url: '/news_announcement',
       icon: 'list'
     },
     {
-      title: 'e-Search',
+      title: 'MENU_07',
       url: '/esearch',
       icon: 'list'
     },
     {
-      title: 'e-Query',
+      title: 'MENU_05',
       url: '/equery',
       icon: 'list'
     },
     {
-      title: 'e-Compound',
+      title: 'MENU_06',
       url: '/ecompound',
       icon: 'list'
     },
     {
-      title: 'Status 308',
+      title: 'MENU_08',
       url: '/status308',
       icon: 'list'
     },
     {
-      title: 'Contact Us',
+      title: 'MENU_02',
       url: '/contact_us',
       icon: 'list'
-    },
-    {
-      title: 'Bahasa Melayu',
-      url: '/bahasa_melayu',
-      icon: 'list'
     }
+    // {
+    //   title: 'MENU_03',
+    //   url: '/bahasa_melayu',
+    //   icon: 'list'
+    // }
   ];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private translateConfigService: TranslateConfigService
   ) {
     this.initializeApp();
   }
@@ -65,6 +67,14 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.translateConfigService.setLanguage('en')
     });
+  }
+
+  changeLanguage() {
+    if(this.translateConfigService.getLanguage() === 'en')
+      this.translateConfigService.setLanguage('ms')
+    else
+      this.translateConfigService.setLanguage('en')
   }
 }

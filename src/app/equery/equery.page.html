@@ -55,27 +55,7 @@
 
   </div>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="ios-arrow-up"></ion-icon>
-    </ion-fab-button>
-
-    <ion-fab-list side="top">
-      <ion-fab-button data-desc="Status 308">
-        <i class="icon-icon2_308" [routerLink]="['/status308']" routerDirection="forward"></i>
-      </ion-fab-button>
-      <ion-fab-button data-desc="e-Compound">
-        <i class="icon-icon2_eC" [routerLink]="['/ecompound']" routerDirection="forward"></i>
-      </ion-fab-button>
-      <ion-fab-button data-desc="e-Query">
-        <i class="icon-icon2_eQ" [routerLink]="['/equery']" routerDirection="forward"></i>
-      </ion-fab-button>
-      <ion-fab-button data-desc="e-Search">
-        <i class="icon-icon2_eS" [routerLink]="['/esearch']" routerDirection="forward"></i>
-      </ion-fab-button>
-    </ion-fab-list>
-
-  </ion-fab>
+  <app-ssmfab></app-ssmfab>
 </ion-content>
 <app-ssmfooter></app-ssmfooter>
 

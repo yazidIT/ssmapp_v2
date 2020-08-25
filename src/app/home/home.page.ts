@@ -26,6 +26,8 @@ export class HomePage implements OnInit{
     autoplay:false
   };
 
+  selectedLanguage:string;
+
   constructor(private regDevServ: RegisterDeviceService,
               private newsServ: NewsService,
               private utilsServ: UtilsService) {
@@ -37,6 +39,7 @@ export class HomePage implements OnInit{
         isEndSlide: false,
         slidesItems: []
       };
+    
   }
 
   ngOnInit(): void {

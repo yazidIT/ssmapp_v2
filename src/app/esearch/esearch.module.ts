@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { EsearchPageRoutingModule } from './esearch-routing.module';
-import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 import { EsearchPage } from './esearch.page';
+
+import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 
 @NgModule({
   imports: [
@@ -14,7 +16,8 @@ import { EsearchPage } from './esearch.page';
     FormsModule,
     IonicModule,
     ComponentmoduleModule,
-    EsearchPageRoutingModule
+    EsearchPageRoutingModule,
+    TranslateModule
   ],
   declarations: [EsearchPage]
 })

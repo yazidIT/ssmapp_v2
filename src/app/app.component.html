@@ -14,7 +14,14 @@
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
               <!--<ion-icon slot="start" [name]="p.icon"></ion-icon>-->
               <ion-label>
-                {{p.title}}
+                {{p.title | translate}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item (click)="changeLanguage()">
+              <ion-label>
+                {{ 'MENU_03' | translate}}
               </ion-label>
             </ion-item>
           </ion-menu-toggle>
