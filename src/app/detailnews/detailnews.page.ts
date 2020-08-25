@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core'
-;
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
 import { NewsService } from '../services/news.service';
 import { INewsItem } from '../models/inewsresult';
 import { AlertPromptComponent } from '../alert-prompt/alert-prompt.component';
+import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-detailnews',
@@ -21,6 +21,7 @@ export class DetailnewsPage implements OnInit {
   
   constructor(private activatedRoute: ActivatedRoute,
               private newsServ: NewsService,
+              private utilsServ: UtilsService,
               private navCtrl: NavController) {
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
@@ -43,6 +44,10 @@ export class DetailnewsPage implements OnInit {
 
       }
     )
+
+    this.utilsServ.getAppVersion().then(version => {
+      this.appversion = version
+    })
   }
 
 }
