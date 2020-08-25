@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { EqueryPageRoutingModule } from './equery-routing.module';
-
+import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 import { EqueryPage } from './equery.page';
 
 @NgModule({
@@ -13,6 +13,7 @@ import { EqueryPage } from './equery.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentmoduleModule,
     EqueryPageRoutingModule
   ],
   declarations: [EqueryPage]

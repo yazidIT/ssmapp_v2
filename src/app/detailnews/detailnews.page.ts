@@ -5,7 +5,7 @@ import { NavController } from '@ionic/angular';
 
 import { NewsService } from '../services/news.service';
 import { INewsItem } from '../models/inewsresult';
-import { AlertPromptComponent } from '../alert-prompt/alert-prompt.component';
+import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 
 @Component({
   selector: 'app-detailnews',
