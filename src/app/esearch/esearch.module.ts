@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { EsearchPageRoutingModule } from './esearch-routing.module';
-
+import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 import { EsearchPage } from './esearch.page';
 
 @NgModule({
@@ -12,6 +12,7 @@ import { EsearchPage } from './esearch.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentmoduleModule,
     EsearchPageRoutingModule
   ],
   declarations: [EsearchPage]

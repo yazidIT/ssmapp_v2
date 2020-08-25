@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { NavController } from '@ionic/angular';
-import { AlertPromptComponent } from '../alert-prompt/alert-prompt.component';
+import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 import { UtilsService } from '../services/utils.service';
 
 @Component({

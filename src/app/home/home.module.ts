@@ -5,12 +5,14 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentmoduleModule,
     RouterModule.forChild([
       {
         path: '',

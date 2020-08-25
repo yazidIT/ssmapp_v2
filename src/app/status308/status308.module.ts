@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { Status308PageRoutingModule } from './status308-routing.module';
+import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 
 import { Status308Page } from './status308.page';
 
@@ -13,6 +14,7 @@ import { Status308Page } from './status308.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentmoduleModule,
     Status308PageRoutingModule
   ],
   declarations: [Status308Page]

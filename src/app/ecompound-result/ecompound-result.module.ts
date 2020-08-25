@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { EcompoundResultPageRoutingModule } from './ecompound-result-routing.module';
+import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 import { EcompoundResultPage } from './ecompound-result.page';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { EcompoundResultPage } from './ecompound-result.page';
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentmoduleModule,
     EcompoundResultPageRoutingModule
   ],
   declarations: [EcompoundResultPage]

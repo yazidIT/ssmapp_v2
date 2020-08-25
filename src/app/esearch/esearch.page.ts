@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { NavController, Platform } from '@ionic/angular';
 
 import { SsmQueryService } from '../services/ssmquery.service';
-import { AlertPromptComponent } from '../alert-prompt/alert-prompt.component';
+import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 import { UtilsService } from '../services/utils.service';
 
 @Component({
