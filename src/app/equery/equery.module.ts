@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EqueryPageRoutingModule } from './equery-routing.module';
 import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 import { EqueryPage } from './equery.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { EqueryPage } from './equery.page';
     FormsModule,
     IonicModule,
     ComponentmoduleModule,
-    EqueryPageRoutingModule
+    EqueryPageRoutingModule,
+    TranslateModule
   ],
   declarations: [EqueryPage]
 })

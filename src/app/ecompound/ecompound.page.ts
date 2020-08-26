@@ -48,6 +48,10 @@ export class EcompoundPage implements OnInit {
     this.placeHolder = this.entityNameValue[this.entityType]
   }
 
+  compoundTypeSelect() {
+
+  }
+
   ecompoundFind() {
 
     if(this.compoundEntity === undefined || this.compoundEntity.length == 0 ) {
@@ -62,7 +66,7 @@ export class EcompoundPage implements OnInit {
       "entityNo": this.compoundEntity
     }
 
-    this.ssmQueryServ.eCompoundQuery(urlEndpoint, postBody).then(resData => {
+    this.ssmQueryServ.eCompoundQuery(urlEndpoint, JSON.stringify(postBody)).then(resData => {
 
       console.log(resData)
 

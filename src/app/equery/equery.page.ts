@@ -34,24 +34,19 @@ export class EqueryPage implements OnInit {
     }
 
     let urlEndpoint = this.apiv2url + 'equery'
+    let postData = { "documentNo": this.queryCoId }
 
-    this.ssmQueryServ.eQueryQuery(urlEndpoint, "").then(resData => {
+    this.ssmQueryServ.eQueryQuery(urlEndpoint, JSON.stringify(postData)).then(resData => {
 
       console.log(resData)
 
-      if(resData.result === undefined) {
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData)).then(() => {
-          console.log("query result saved!")
-          this.navCtrl.navigateForward('/esearch-result')
-        })
-      } else {
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.result)).then(() => {
-          console.log("query result saved!")
-          this.navCtrl.navigateForward('/esearch-result')
-        })
-      }
+      this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.result)).then(() => {
+        console.log("query result saved!")
+        this.navCtrl.navigateForward('/esearch-result')
+      })
 
     }, error => {
+      console.log(error)
       console.log(error.status)
       this.alertPrompt.presentServerFail("e-Search", error.status, false)
     })
