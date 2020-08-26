@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { SsmQueryService } from '../services/ssmquery.service';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 
 @Component({
@@ -8,7 +9,9 @@ import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.co
   templateUrl: './ecompound.page.html',
   styleUrls: ['./ecompound.page.scss'],
 })
-export class EcompoundPage implements OnInit {
+export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
+
+  backButtonSubscription; 
 
   alertPrompt : AlertPromptComponent
   placeHolder: string
@@ -35,7 +38,9 @@ export class EcompoundPage implements OnInit {
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
-              private navCtrl: NavController) {
+              private navCtrl: NavController,
+              private platform: Platform,
+              private location: Location) {
                 
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
@@ -44,6 +49,16 @@ export class EcompoundPage implements OnInit {
     this.compoundType = "ROC"
     this.entityType = "01"
     this.placeHolder = this.entityNameValue[this.entityType]
+  }
+
+  ngOnDestroy(): void {
+    this.backButtonSubscription.unsubscribe();
+  }
+  
+  ngAfterViewInit(): void {
+    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+      this.location.back()
+    });
   }
 
   entityTypeSelect() {

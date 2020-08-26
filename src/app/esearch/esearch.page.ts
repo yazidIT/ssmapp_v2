@@ -35,11 +35,13 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
               private navCtrl: NavController,
               private platform: Platform,
               private location: Location) {
+
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
     this.eSearchResponseData = {
       success: false,
       data: ""
     }
+    
   }
 
   ngOnDestroy(): void {

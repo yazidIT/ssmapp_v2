@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { NavController, Platform } from '@ionic/angular';
+
 import { SsmQueryService } from '../services/ssmquery.service';
-import { NavController } from '@ionic/angular';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 
 @Component({
@@ -8,7 +10,9 @@ import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.co
   templateUrl: './equery.page.html',
   styleUrls: ['./equery.page.scss'],
 })
-export class EqueryPage implements OnInit {
+export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
+
+  backButtonSubscription; 
 
   placeHolder: string
   queryCoId: string
@@ -18,8 +22,20 @@ export class EqueryPage implements OnInit {
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
-              private navCtrl: NavController) {
+              private navCtrl: NavController,
+              private platform: Platform,
+              private location: Location) {
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
+  }
+
+  ngOnDestroy(): void {
+    this.backButtonSubscription.unsubscribe();
+  }
+  
+  ngAfterViewInit(): void {
+    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+      this.location.back()
+    });
   }
 
   ngOnInit() {
