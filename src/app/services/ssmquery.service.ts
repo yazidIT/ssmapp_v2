@@ -22,7 +22,7 @@ export class SsmQueryService {
       authHeader = 'Bearer' + ' ' + token;
       let headers = { Authorization : authHeader }
 
-      return this.http.get(urlEndpoint, "", headers)
+      return this.http.get(urlEndpoint, {}, headers)
     })
   }
 
@@ -59,7 +59,7 @@ export class SsmQueryService {
       authHeader = 'Bearer' + ' ' + token;
       let headers = { Authorization : authHeader }
 
-      return this.http.get(urlEndpoint, "", headers)
+      return this.http.get(urlEndpoint, {}, {})
     })
   }
 }

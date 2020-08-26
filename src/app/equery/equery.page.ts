@@ -52,21 +52,20 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
     let urlEndpoint = this.apiv2url + 'equery'
     let postData = { "documentNo": this.queryCoId }
 
-    this.ssmQueryServ.eQueryQuery(urlEndpoint, JSON.stringify(postData)).then(resData => {
-    this.ssmQueryServ.eQueryQuery(urlEndpoint, "").then(response => {
+    this.ssmQueryServ.eQueryQuery(urlEndpoint, postData).then(response => {
 
       this.eQueryRespondData = JSON.parse(response.data)
       console.log(this.eQueryRespondData)
 
-      this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.result)).then(() => {
+      this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eQueryRespondData.data)).then(() => {
         console.log("query result saved!")
-        this.navCtrl.navigateForward('/esearch-result')
+        this.navCtrl.navigateForward('/equery-result')
       })
 
     }, error => {
-      console.log(error)
+      console.log(JSON.stringify(error))
       console.log(error.status)
-      this.alertPrompt.presentServerFail("e-Search", error.status, false)
+      this.alertPrompt.presentServerFail("e-Query", error.status, false)
     })
   }
 }
