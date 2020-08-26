@@ -65,6 +65,10 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
     this.placeHolder = this.entityNameValue[this.entityType]
   }
 
+  compoundTypeSelect() {
+
+  }
+
   ecompoundFind() {
 
     if(this.compoundEntity === undefined || this.compoundEntity.length == 0 ) {
