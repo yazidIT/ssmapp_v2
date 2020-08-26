@@ -14,10 +14,7 @@ export class Status308ResultPage implements OnInit {
   status308Cos: IStatus308Cos
   status308Notices: IStatus308Notice
 
-  appversion: any
-
-  constructor(private storage: NativeStorage,
-              private utilsServ: UtilsService) { 
+  constructor(private storage: NativeStorage) { 
 
     this.status308Data = {
         companyName: "",
@@ -52,9 +49,6 @@ export class Status308ResultPage implements OnInit {
       this.status308Notices = this.status308Data.notices[0]
     })
 
-    this.utilsServ.getAppVersion().then(version => {
-      this.appversion = version
-    })
   }
 
 }

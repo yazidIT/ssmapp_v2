@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { NavController } from '@ionic/angular';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
-import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-status308',
@@ -14,25 +13,18 @@ export class Status308Page implements OnInit {
   placeHolder: string
   stat308CoId: string
   status308ResponseData: any
-  appversion: any
-
   alertPrompt : AlertPromptComponent
   
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
-              private navCtrl: NavController,
-              private utilsServ: UtilsService) {
+              private navCtrl: NavController) {
 
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
 
   ngOnInit() {
     this.placeHolder = "Company/MyCoID No."
-
-    this.utilsServ.getAppVersion().then(version => {
-      this.appversion = version
-    })
   }
 
   status308Find() {

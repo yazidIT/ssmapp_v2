@@ -4,7 +4,6 @@ import { NavController, Platform } from '@ionic/angular';
 
 import { SsmQueryService } from '../services/ssmquery.service';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
-import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-esearch',
@@ -18,7 +17,6 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
   placeHolder: string
   searchType: string
   searchCompany: string
-  appversion: any
   eSearchResponseData: any
   
   searchNameValue = {
@@ -36,7 +34,6 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
   constructor(private ssmQueryServ: SsmQueryService,
               private navCtrl: NavController,
               private platform: Platform,
-              private utilsServ: UtilsService,
               private location: Location) {
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
     this.eSearchResponseData = {
@@ -58,10 +55,6 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     this.searchType = "ROC"
     this.placeHolder = this.searchNameValue[this.searchType]
-
-    this.utilsServ.getAppVersion().then(version => {
-      this.appversion = version
-    })
   }
 
   searchTypeSelect() {

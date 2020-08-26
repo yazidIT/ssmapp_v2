@@ -59,7 +59,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private regDevServ: RegisterDeviceService
+    private regDevServ: RegisterDeviceService,
     private translateConfigService: TranslateConfigService
   ) {
     this.initializeApp();

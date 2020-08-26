@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-ssmfooter',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SsmfooterComponent implements OnInit {
 
-  constructor() { }
+  appversion: any
+  constructor(private utilsServ: UtilsService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.utilsServ.getAppVersion().then(version => {
+      this.appversion = version
+    })
+  }
 
 }

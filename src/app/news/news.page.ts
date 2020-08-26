@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { Platform } from '@ionic/angular';
 import { NewsService } from '../services/news.service';
 import { INewsResultData } from '../models/inewsresult';
-import { UtilsService } from '../services/utils.service';
+
 @Component({
   selector: 'app-news',
   templateUrl: 'news.page.html',
@@ -15,11 +15,9 @@ export class NewsPage implements OnInit, OnDestroy, AfterViewInit{
   
   newsItems : any
   newsData : INewsResultData
-  appversion: any
   
   constructor(private newsServ: NewsService,
               private platform: Platform,
-              private utilsServ: UtilsService,
               private location: Location) {
     
     this.newsData = {
@@ -56,8 +54,5 @@ export class NewsPage implements OnInit, OnDestroy, AfterViewInit{
 
     })
 
-    this.utilsServ.getAppVersion().then(version => {
-      this.appversion = version
-    })
   }
 }

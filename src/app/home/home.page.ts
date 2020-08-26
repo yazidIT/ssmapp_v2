@@ -4,7 +4,6 @@ import { IonSlides, Platform, IonRouterOutlet } from '@ionic/angular';
 import { RegisterDeviceService } from '../services/registerdevice.service';
 import { NewsService } from '../services/news.service';
 import { INewsResultData } from '../models/inewsresult';
-import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +18,6 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
   sliderOne: any
   newsRss : INewsResultData
-  appversion: any
 
   //Configuration for each Slider
   slideOptsOne = {
@@ -32,7 +30,6 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
   constructor(private regDevServ: RegisterDeviceService,
               private newsServ: NewsService,
-              private utilsServ: UtilsService,
               private platform: Platform,
               private routerOutlet: IonRouterOutlet) {
 
@@ -86,9 +83,6 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
     })
 
-    this.utilsServ.getAppVersion().then(version => {
-      this.appversion = version
-    })
   }
 
   //Move to Next slide

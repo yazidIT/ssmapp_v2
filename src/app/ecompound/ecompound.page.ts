@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { NavController } from '@ionic/angular';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
-import { UtilsService } from '../services/utils.service';
 
 @Component({
   selector: 'app-ecompound',
@@ -17,7 +16,6 @@ export class EcompoundPage implements OnInit {
   entityType: string
   compoundEntity: string
   eCompoundResponseData: any
-  appversion: any
 
   entityNameValue = {
     "01": "Company Registration No.",
@@ -37,8 +35,7 @@ export class EcompoundPage implements OnInit {
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
-              private navCtrl: NavController,
-              private utilsServ: UtilsService) {
+              private navCtrl: NavController) {
                 
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
@@ -47,10 +44,6 @@ export class EcompoundPage implements OnInit {
     this.compoundType = "ROC"
     this.entityType = "01"
     this.placeHolder = this.entityNameValue[this.entityType]
-
-    this.utilsServ.getAppVersion().then(version => {
-      this.appversion = version
-    })
   }
 
   entityTypeSelect() {
