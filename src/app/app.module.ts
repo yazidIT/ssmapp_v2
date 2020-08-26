@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -11,8 +12,16 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { HTTP } from '@ionic-native/http/ngx';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateConfigService } from './services/translate-config.service';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+
+export function LanguageLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,12 +29,19 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (LanguageLoader),
+        deps: [HttpClient]
     AppRoutingModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AppVersion,
+    TranslateConfigService,
     NativeStorage,
     Device,
     HTTP,

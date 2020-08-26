@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { NewsPage } from "./news.page"
 import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { ComponentmoduleModule } from '../components/componentmodule/componentmo
         path: '',
         component: NewsPage
       }
-    ])
+    ]),
+    TranslateModule
   ],
   declarations: [NewsPage]
 })

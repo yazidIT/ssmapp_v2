@@ -28,6 +28,8 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
     autoplay:false
   };
 
+  selectedLanguage:string;
+
   constructor(private regDevServ: RegisterDeviceService,
               private newsServ: NewsService,
               private utilsServ: UtilsService,

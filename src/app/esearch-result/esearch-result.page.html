@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title class="title-class">e-Search Result</ion-title>
+    <ion-title class="title-class">{{ 'ESEARCH_RSLT'|translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
   <ion-grid>
 
   <ion-row>
-    <ion-col class="ion-text-center">
+    <ion-col class="ion-text-center" translate="eSearch_01">
       SSM Registration Checking<p>
     </ion-col>
   </ion-row>
@@ -26,7 +26,7 @@
     <ion-grid>
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Registration Number:</font>
+        <font color="#2E2F83" size="2px" translate="REGISNO">Registration Number:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{companyResult.oldFormatNo}}</font>
@@ -34,7 +34,7 @@
       </ion-row>
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">New Registration Number:</font>
+        <font color="#2E2F83" size="2px" translate="REGISNONEW">New Registration Number:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{companyResult.newFormatNo}} </font>
@@ -42,7 +42,7 @@
       </ion-row>
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Entity Name:</font>
+        <font color="#2E2F83" size="2px" translate="ENTITYNAME">Entity Name:</font>
         </ion-col>
         <ion-col class="no-border" size="8">
         <font size="2px"> {{companyResult.companyName}} </font>
@@ -58,7 +58,7 @@
       </ion-row>
       <ion-row class="all-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">GST Number:</font>
+        <font color="#2E2F83" size="2px" translate="GSTNUMBER">GST Number:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{companyResult.findGSTRegNoList?.GSTRegNo?.vchgstnumber}} </font>
@@ -66,8 +66,8 @@
       </ion-row>
     </ion-grid>
 
-    <label style="font-size:13px;">As at: </label><br>
-    <label style="font-size:13px;">GST No as at: {{companyResult.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
+    <label style="font-size:13px;">{{'ASAT'|translate}}: </label><br>
+    <label style="font-size:13px;">{{'GST_ASAT'|translate}}: {{companyResult.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
   </div>
 
   <!-- REGISTER OF BUSINESS -->
@@ -75,7 +75,7 @@
     <ion-grid>
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Registration Number:</font>
+        <font color="#2E2F83" size="2px" translate="REGISNO">Registration Number:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{businessResult.oldFormatNo}}</font>
@@ -83,7 +83,7 @@
       </ion-row>
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">New Registration Number:</font>
+        <font color="#2E2F83" size="2px" translate="REGISNONEW">New Registration Number:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{businessResult.newFormatNo}} </font>
@@ -91,7 +91,7 @@
       </ion-row>
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Entity Name:</font>
+        <font color="#2E2F83" size="2px" translate="ENTITYNAME">Entity Name:</font>
         </ion-col>
         <ion-col class="no-border" size="8">
         <font size="2px"> {{businessResult.bizName}} </font>
@@ -107,7 +107,7 @@
       </ion-row>
       <ion-row class="all-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">GST Number:</font>
+        <font color="#2E2F83" size="2px" translate="GSTNUMBER">GST Number:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{businessResult.findGSTRegNoList?.GSTRegNo?.vchgstnumber}} </font>
@@ -115,8 +115,8 @@
       </ion-row>
     </ion-grid>
 
-    <label style="font-size:13px;">As at: </label><br>
-    <label style="font-size:13px;">GST No as at: {{businessResult.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
+    <label style="font-size:13px;">{{'ASAT'|translate}}: </label><br>
+    <label style="font-size:13px;">{{'GST_ASAT'|translate}}: {{businessResult.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
   </div>
   
   <!-- REGISTER OF LLP -->
@@ -124,7 +124,7 @@
     <ion-grid>
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Registration Number:</font>
+        <font color="#2E2F83" size="2px" translate="REGISNO">Registration Number:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{llpResult.llpEntry.llpNo}}</font>
@@ -132,7 +132,7 @@
       </ion-row>
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Entity Name:</font>
+        <font color="#2E2F83" size="2px" translate="ENTITYNAME">Entity Name:</font>
         </ion-col>
         <ion-col class="no-border" size="8">
         <font size="2px"> {{llpResult.llpEntry.llpName}} </font>
@@ -148,7 +148,7 @@
       </ion-row>
       <ion-row class="all-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">GST Number:</font>
+        <font color="#2E2F83" size="2px" translate="GSTNUMBER">GST Number:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{llpResult.llpEntry.findGSTRegNoList?.GSTRegNo?.vchgstnumber}} </font>
@@ -156,11 +156,9 @@
       </ion-row>
     </ion-grid>
 
-    <label style="font-size:13px;">As at: </label><br>
-    <label style="font-size:13px;">GST No as at: {{llpResult.llpEntry.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
+    <label style="font-size:13px;">{{'ASAT'|translate}}: </label><br>
+    <label style="font-size:13px;">{{'GST_ASAT'|translate}}: {{llpResult.llpEntry.findGSTRegNoList?.GSTRegNo?.dtasofdate}}</label><br>
   </div>
-
-
 
   </ion-col>
   </ion-row>
