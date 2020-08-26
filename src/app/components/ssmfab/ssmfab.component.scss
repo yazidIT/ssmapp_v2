@@ -4,13 +4,13 @@ ion-fab-button {
     --border-color: #2E2F83;
 }
 
-ion-fab-button[data-desc] {
+ion-fab-button[title] {
     position: relative;
 }
   
-ion-fab-button[data-desc]::after {
+ion-fab-button[title]::after {
     position: absolute;
-    content: attr(data-desc);
+    content: attr(title);
     z-index: 1;
     right: 55px;
     bottom: 10px;
