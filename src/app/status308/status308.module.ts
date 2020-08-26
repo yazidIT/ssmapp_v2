@@ -8,6 +8,7 @@ import { Status308PageRoutingModule } from './status308-routing.module';
 import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 
 import { Status308Page } from './status308.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { Status308Page } from './status308.page';
     FormsModule,
     IonicModule,
     ComponentmoduleModule,
-    Status308PageRoutingModule
+    Status308PageRoutingModule,
+    TranslateModule
   ],
   declarations: [Status308Page]
 })

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EsearchResultPageRoutingModule } from './esearch-result-routing.module';
 import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 import { EsearchResultPage } from './esearch-result.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { EsearchResultPage } from './esearch-result.page';
     FormsModule,
     IonicModule,
     ComponentmoduleModule,
-    EsearchResultPageRoutingModule
+    EsearchResultPageRoutingModule,
+    TranslateModule
   ],
   declarations: [EsearchResultPage]
 })

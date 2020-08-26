@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title class="title-class">e-Compound Result</ion-title>
+    <ion-title class="title-class">{{ 'ECMPND_RSLT'|translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
   <ion-grid>
 
   <ion-row>
-    <ion-col class="ion-text-center">
+    <ion-col class="ion-text-center" translate="eCompound_01">
       List of compounds<p>
     </ion-col>
   </ion-row>
@@ -25,7 +25,7 @@
     <ion-grid>
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Entity Number:</font>
+        <font color="#2E2F83" size="2px" translate="ENTITYNO">Entity Number:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{compoundResult.entityNo}}</font>
@@ -35,7 +35,7 @@
       <div *ngFor="let s of compoundResult.compound">
         <ion-row class="no-bottom-border">
           <ion-col class="no-border">
-          <font color="#2E2F83" size="2px">Compound Number:</font>
+          <font color="#2E2F83" size="2px" translate="COMPNDNO">Compound Number:</font>
           </ion-col>
           <ion-col class="no-border">
           <font size="2px"> {{s.compoundNo}}</font>
@@ -44,7 +44,7 @@
 
         <ion-row class="no-bottom-border">
           <ion-col class="no-border">
-          <font color="#2E2F83" size="2px">Compound Status:</font>
+          <font color="#2E2F83" size="2px" translate="COMPNDSTATUS">Compound Status:</font>
           </ion-col>
           <ion-col class="no-border">
           <font size="2px"> {{s.compoundStatus}}</font>
@@ -53,7 +53,7 @@
 
         <ion-row class="no-bottom-border">
           <ion-col class="no-border">
-          <font color="#2E2F83" size="2px">Amount:</font>
+          <font color="#2E2F83" size="2px" translate="AMOUNT">Amount:</font>
           </ion-col>
           <ion-col class="no-border">
           <font size="2px"> {{s.amount}}</font>

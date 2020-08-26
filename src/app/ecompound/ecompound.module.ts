@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EcompoundPageRoutingModule } from './ecompound-routing.module';
 import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 import { EcompoundPage } from './ecompound.page';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { EcompoundPage } from './ecompound.page';
     FormsModule,
     IonicModule,
     ComponentmoduleModule,
-    EcompoundPageRoutingModule
+    EcompoundPageRoutingModule,
+    TranslateModule
   ],
   declarations: [EcompoundPage]
 })

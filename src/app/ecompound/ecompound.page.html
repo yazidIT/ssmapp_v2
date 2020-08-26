@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button class="bar-class" style="border-radius:5px;"></ion-menu-button>
     </ion-buttons>
-    <ion-title class="title-class">e-Compound</ion-title>
+    <ion-title class="title-class">{{'MENU_06'|translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +14,7 @@
   <ion-grid>
   <ion-row>
     <ion-col class="ion-text-center">
-      <font color="grey">Please fill in the blank space below:</font>
+      <font color="grey">{{'FILLIN'|translate}}</font>
     </ion-col>
   </ion-row>
 
@@ -22,11 +22,11 @@
   <ion-col>
   <div class="list ion-text-center">
     <label class="item item-input item-select">
-      <span class="input-label"><strong><font color="#2E2F83">Compound:</font></strong></span>
+      <span class="input-label"><strong><font color="#2E2F83"  translate="COMPOUND">Compound:</font></strong></span>
       <ion-select name="ecompoundType" interface="popover" value="ROC"
        [(ngModel)]="compoundType" (ionChange)="compoundTypeSelect()">
-        <ion-select-option value="ROC" >Registrar of Companies (ROC)</ion-select-option>
-        <ion-select-option value="ROB" >Registrar of Businesses (ROB)</ion-select-option>
+        <ion-select-option value="ROC" translate="optROC">Registrar of Companies (ROC)</ion-select-option>
+        <ion-select-option value="ROB" translate="optROB">Registrar of Businesses (ROB)</ion-select-option>
       </ion-select>
     </label>
   </div>
@@ -37,23 +37,23 @@
   <ion-col>
   <div class="list ion-text-center">
     <label class="item item-input item-select">
-      <span class="input-label"><strong><font color="#2E2F83">Entity Type:</font></strong></span>
+      <span class="input-label"><strong><font color="#2E2F83" translate="ENTITYTYPE">Entity Type:</font></strong></span>
       <ion-select name="ecompoundEntityType" interface="popover" value="01"
        [(ngModel)]="entityType" (ionChange)="entityTypeSelect()">
-        <ion-select-option value="01" >Company Registration No. Old</ion-select-option>
-        <ion-select-option value="02" >Business Registration No. Old</ion-select-option>
-        <ion-select-option value="01" >Company Registration No. New</ion-select-option>
-        <ion-select-option value="02" >Business Registration No. New</ion-select-option>
-        <ion-select-option value="03" >New IC No.</ion-select-option>
-        <ion-select-option value="04" >Passport No.</ion-select-option>
-        <ion-select-option value="06" >Company Reference No.</ion-select-option>
-        <ion-select-option value="07" >Old IC No.</ion-select-option>
-        <ion-select-option value="08" >Co. Secretary License No.</ion-select-option>
-        <ion-select-option value="10" >Police ID</ion-select-option>
-        <ion-select-option value="17" >Army ID</ion-select-option>
-        <ion-select-option value="11" >Audit Firm</ion-select-option>
-        <ion-select-option value="12" >Auditor</ion-select-option>
-        <ion-select-option value="15" >Others</ion-select-option>
+        <ion-select-option value="01" translate="optEntityCRegNoOld">Company Registration No. Old</ion-select-option>
+        <ion-select-option value="02" translate="optEntityBRegNoOld">Business Registration No. Old</ion-select-option>
+        <ion-select-option value="01" translate="optEntityCRegNoNew">Company Registration No. New</ion-select-option>
+        <ion-select-option value="02" translate="optEntityBRegNoNew">Business Registration No. New</ion-select-option>
+        <ion-select-option value="03" translate="optEntityNewIC">New IC No.</ion-select-option>
+        <ion-select-option value="04" translate="optEntityPassNo">Passport No.</ion-select-option>
+        <ion-select-option value="06" translate="optEntityCRefNo">Company Reference No.</ion-select-option>
+        <ion-select-option value="07" translate="optEntityOldIC">Old IC No.</ion-select-option>
+        <ion-select-option value="08" translate="optEntitySecLicenseNo">Co. Secretary License No.</ion-select-option>
+        <ion-select-option value="10" translate="optEntityPoliceID">Police ID</ion-select-option>
+        <ion-select-option value="17" translate="optEntityArmyID">Army ID</ion-select-option>
+        <ion-select-option value="11" translate="optEntityAuditFirm">Audit Firm</ion-select-option>
+        <ion-select-option value="12" translate="optEntityAuditor">Auditor</ion-select-option>
+        <ion-select-option value="15" translate="optEntityOthers">Others</ion-select-option>
       </ion-select>
     </label>
   </div>
@@ -72,7 +72,7 @@
   <ion-row>
   <ion-col>
     <div class="ion-text-center">
-      <ion-button class="findbutton" (click)="ecompoundFind()"><strong>Find</strong></ion-button>
+      <ion-button class="findbutton" (click)="ecompoundFind()"><strong>{{'FIND'|translate}}</strong></ion-button>
     </div>
   </ion-col>
   </ion-row>
@@ -81,18 +81,9 @@
   <ion-col class="no-border">
     <div>
     <font color="#2E2F83"><strong translate="ATTENTION">ATTENTION!</strong></font>
+    </div>
     <p>
-    1. The information displayed may take time to be updated. As such please keep the payment receipt as proof of payment.
-    <br>
-    <br>
-    2. SSM shall not be held liable and responsible for any misuse of the information by irresponsible person.
-    <br>
-    <br>
-    3. Please contact the nearest SSM office for a copy of the compound notice.
-    <br>
-    <br>
-    4. For the purpose of validation and verification on the information displayed, please contact 03-22995334 or email ar_compliance@ssm.com.my.
-    </p>
+    <div [innerHTML]="'eCompound_02'|translate">
     </div>
   </ion-col>
   </ion-row>

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title class="title-class">Status 308 Result</ion-title>
+    <ion-title class="title-class">{{'S308_RSLT'|translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,14 +14,16 @@
 
   <ion-row>
     <ion-col class="ion-text-center">
-      Status of Application to Strike-off a Company under S308 of Companies ACT 1965 / under S550 of Companies Act 2016<p>
+      <div [innerHtml]="'s308_01'|translate">
+      Status of Application to Strike-off a Company under S308 of Companies ACT 1965 / under S550 of Companies Act 2016
+      </div><p>
     </ion-col>
   </ion-row>
 
   <ion-grid>
     <ion-row class="no-bottom-border">
       <ion-col class="no-border">
-      <font color="#2E2F83" size="2px">Company/MyCoID No.:</font>
+      <font color="#2E2F83" size="2px" translate="placeHolderCOMPANYNO">Company/MyCoID No.:</font>
       </ion-col>
       <ion-col class="no-border">
       <font size="2px"> {{status308Cos.oldFormatNo}}</font>
@@ -30,7 +32,7 @@
 
     <ion-row class="no-bottom-border">
       <ion-col class="no-border">
-      <font color="#2E2F83" size="2px">New Company No.:</font>
+      <font color="#2E2F83" size="2px" translate="placeHolderNEWCOMPANYNO">New Company No.:</font>
       </ion-col>
       <ion-col class="no-border">
       <font size="2px"> {{status308Cos.newFormatNo}}</font>
@@ -39,7 +41,7 @@
 
     <ion-row class="no-bottom-border">
       <ion-col class="no-border">
-      <font color="#2E2F83" size="2px">Company Name:</font>
+      <font color="#2E2F83" size="2px" translate="COMPANYNAME">Company Name:</font>
       </ion-col>
       <ion-col class="no-border">
       <font size="2px"> {{status308Data.companyName}}</font>
@@ -53,7 +55,7 @@
     <ion-grid>
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Date of Notice 308(1)/551(1):</font>
+        <font color="#2E2F83" size="2px" ranslate="DON308_1">Date of Notice 308(1)/551(1):</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{status308Notices.dateNotice1}}</font>
@@ -62,7 +64,7 @@
 
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Date of Notice 308(2)/Notification 551(1):</font>
+        <font color="#2E2F83" size="2px" ranslate="DON308_2">Date of Notice 308(2)/Notification 551(1):</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{status308Notices.dateNotice2}}</font>
@@ -71,7 +73,7 @@
 
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">NFA Date:</font>
+        <font color="#2E2F83" size="2px" translate="NFADate">NFA Date:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{status308Notices.nfaDate}}</font>
@@ -80,7 +82,7 @@
 
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Date of Notice 308(4):</font>
+        <font color="#2E2F83" size="2px" translate="DON308_4">Date of Notice 308(4):</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{status308Notices.dateNotice4}}</font>
@@ -89,7 +91,7 @@
 
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Date of Gazette (2) 308(4)/Gazette 551(3):</font>
+        <font color="#2E2F83" size="2px" translate="GAZETTE308_2">Date of Gazette (2) 308(4)/Gazette 551(3):</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{status308Notices.gazzetteDate2}}</font>
@@ -98,7 +100,7 @@
 
       <ion-row class="no-bottom-border">
         <ion-col class="no-border">
-        <font color="#2E2F83" size="2px">Gazzette No:</font>
+        <font color="#2E2F83" size="2px" translate="GAZETTE308_NO">Gazzette No:</font>
         </ion-col>
         <ion-col class="no-border">
         <font size="2px"> {{status308Notices.gazzetteNo2}}</font>
