@@ -18,16 +18,18 @@
  
         <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
           (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+
           <ion-slide *ngFor="let s of sliderOne.slidesItems">
           <div class=box1>
             <div class="newscontent" [routerLink]="['/detailnews/', s.link_id]" routerDirection="forward">
-              <div style="color:#2e2f83;"><strong>{{s.title}}</strong></div>
-                <br>
-              <div>{{s.description}}</div>
-              <br>
+              <div style="color:#2e2f83; display: inline-block; text-align: left;"><strong>{{s.title}}</strong></div>
+              <p>
+              <div style="display: inline-block; text-align: left;">{{s.description}}</div>
             </div>
+            <div class="main-readmore"><ion-icon name="more"></ion-icon></div>
           </div>
           </ion-slide>
+
         </ion-slides>
 
     </ion-row>
