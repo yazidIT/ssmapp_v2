@@ -3,6 +3,9 @@ ion-fab-button {
     --color: #F9EC00;
     --border-color: #2E2F83;
     --background-hover: #3880ff;
+
+    width: 56px;
+    height: 56px;
 }
 
 ion-fab-button[title] {
@@ -13,8 +16,8 @@ ion-fab-button[title]::after {
     position: absolute;
     content: attr(title);
     z-index: 1;
-    right: 55px;
-    bottom: 10px;
+    right: 58px;
+    bottom: 20px;
     background-color: grey;
     padding: 2px;
     border-radius: 5px;

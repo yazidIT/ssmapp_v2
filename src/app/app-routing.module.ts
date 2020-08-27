@@ -47,6 +47,10 @@ const routes: Routes = [
   {
     path: 'status308-result',
     loadChildren: () => import('./status308-result/status308-result.module').then( m => m.Status308ResultPageModule)
+  },
+  {
+    path: 'contact_us',
+    loadChildren: () => import('./contactus/contactus.module').then( m => m.ContactusPageModule)
   }
 ];
 
