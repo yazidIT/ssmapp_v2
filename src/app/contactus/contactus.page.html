@@ -14,10 +14,18 @@
 
   <div class="social-title info-title">{{'OURSOCIAL'|translate}}</div>
   <div>
-    <ion-img class="soscial-link avatar relative" src="../../assets/images/facebook.png"></ion-img>
-    <ion-img class="soscial-link avatar relative" src="../../assets/images/twitter.png"></ion-img>
-    <ion-img class="soscial-link avatar relative" src="../../assets/images/instagram.png"></ion-img>
-    <ion-img class="soscial-link avatar relative" src="../../assets/images/youtube.png"></ion-img>
+    <ion-img class="soscial-link avatar relative" 
+      (click)="openInAppBrowser('https://www.facebook.com/ssmofficialpage')"
+      src="../../assets/images/facebook.png"></ion-img>
+    <ion-img class="soscial-link avatar relative"
+      (click)="openInAppBrowser('https://twitter.com/ssmofficialpage')"
+      src="../../assets/images/twitter.png"></ion-img>
+    <ion-img class="soscial-link avatar relative"
+      (click)="openInAppBrowser('https://www.instagram.com/suruhanjaya_syarikat_malaysia/')"
+      src="../../assets/images/instagram.png"></ion-img>
+    <ion-img class="soscial-link avatar relative"
+      (click)="openInAppBrowser('http://www.youtube.com/user/ssmofficialpage')"
+      src="../../assets/images/youtube.png"></ion-img>
   </div>
 </ion-content>
 <app-ssmfooter></app-ssmfooter>

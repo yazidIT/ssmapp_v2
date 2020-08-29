@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-contactus',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactusPage implements OnInit {
 
-  constructor() { }
+  constructor(private inAppBrowser: InAppBrowser) { }
 
   ngOnInit() {
   }
 
+  openInAppBrowser(link) {
+    this.inAppBrowser.create(link)
+  }
 }

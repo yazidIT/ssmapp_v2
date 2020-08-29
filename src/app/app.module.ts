@@ -11,6 +11,7 @@ import { AppVersion } from '@ionic-native/app-version/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { Device } from '@ionic-native/device/ngx';
 import { HTTP } from '@ionic-native/http/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -47,6 +48,7 @@ export function LanguageLoader(http: HttpClient) {
     NativeStorage,
     Device,
     HTTP,
+    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
