@@ -16,8 +16,8 @@
   <ion-grid>
     <ion-row>
  
-        <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
-          (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+        <ion-slides pager="true" paginationType="fraction" [options]="slideOptsOne" #slideWithNav
+          (ionSlideDidChange)="slideDidChange(slideWithNav)">
 
           <ion-slide *ngFor="let s of sliderOne.slidesItems">
           <div class=box1>
@@ -27,12 +27,14 @@
               <div style="display: inline-block; text-align: left;">{{s.description}}</div>
             </div>
             <div class="main-readmore"><ion-icon name="more"></ion-icon></div>
+            
           </div>
           </ion-slide>
 
         </ion-slides>
 
     </ion-row>
+
   </ion-grid>
 
   <div class="icon-bottom" align="center">

@@ -26,6 +26,8 @@ export class HomePage implements OnInit{
     autoplay:false
   };
 
+  slideIndex = 0
+
   selectedLanguage:string;
 
   constructor(private regDevServ: RegisterDeviceService,
@@ -76,8 +78,11 @@ export class HomePage implements OnInit{
   }
 
   //Method called when slide is changed by drag or navigation
-  SlideDidChange(object, slideView) {
-    this.checkIfNavDisabled(object, slideView);
+  slideDidChange(slideView) {
+    this.slideWithNav.getActiveIndex().then(slideNo => {
+      this.slideIndex = slideNo
+    })
+    this.checkIfNavDisabled(this.sliderOne, slideView);
   }
 
   //Call methods to check if slide is first or last to enable disbale navigation  
