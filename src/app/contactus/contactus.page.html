@@ -10,7 +10,39 @@
 <ion-content style="overflow:visible;" fullscreen="true">
 
   <div class="bgtukar" style="height: 100%; padding: 5px;">
-  </div>
+  <div  class="list">
+
+    <div class="list" id="map" data-tap-disabled="true"></div>
+
+    <font size="4px" color="#2E2F83"><strong>{{'SSMOFFICES'|translate}}</strong></font>
+      <br>
+      <br>
+
+      <ion-label class="item item-input item-select">{{'OFFICELOCATION'|translate}} :</ion-label>
+        <ion-select name="officeSelect" interface="popover" value={{selectedOption.id}}
+          [(ngModel)]="officeLocation" (ionChange)="officeLocationSelect()">
+          <div *ngFor="let s of officeData.offices">
+            <ion-select-option value="{{s.id}}">{{s.placeHolderName}}</ion-select-option>
+          </div>
+        </ion-select>
+
+    <p>
+    <p>
+    <div class="item info-item">
+
+        <div class="info-container">
+            <div class="info-title">{{selectedOption.placeHolderName}} - {{'ADDRESS'|translate}}</div>
+            <div class="info-details" style="margin-top:10px;">
+                <div [innerHTML]="myHtmlAddr"></div>
+            </div>
+        </div>
+
+        <div class="info-icon">
+            <ion-icon name="locate"></ion-icon>
+        </div>
+
+    </div>
+
 
   <div class="social-title info-title">{{'OURSOCIAL'|translate}}</div>
   <div>
@@ -26,6 +58,7 @@
     <ion-img class="soscial-link avatar relative"
       (click)="openInAppBrowser('http://www.youtube.com/user/ssmofficialpage')"
       src="../../assets/images/youtube.png"></ion-img>
+  </div>
   </div>
 </ion-content>
 <app-ssmfooter></app-ssmfooter>
