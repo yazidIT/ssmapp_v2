@@ -37,7 +37,7 @@ export class ContactusPage implements OnInit {
     }
 
     this.selectedOption = this.officeData.offices[0];
-    this.loadMap()
+    // this.loadMap()
   }
 
   officeLocationSelect() {

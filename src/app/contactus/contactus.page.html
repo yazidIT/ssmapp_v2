@@ -18,28 +18,39 @@
       <br>
       <br>
 
-      <ion-label class="item item-input item-select">{{'OFFICELOCATION'|translate}} :</ion-label>
-        <ion-select name="officeSelect" interface="popover" value={{selectedOption.id}}
-          [(ngModel)]="officeLocation" (ionChange)="officeLocationSelect()">
-          <div *ngFor="let s of officeData.offices">
-            <ion-select-option value="{{s.id}}">{{s.placeHolderName}}</ion-select-option>
-          </div>
-        </ion-select>
+    <ion-grid>
+    <ion-row>
+    <ion-col class="ion-align-self-center">
+      <ion-label class="input-label">
+        {{'OFFICELOCATION'|translate}} :
+      </ion-label>
+    </ion-col>
+
+    <ion-col class="ion-align-self-center">
+      <ion-select name="officeSelect" class="item item-input item-select" interface="popover" value={{selectedOption.id}}
+        [(ngModel)]="officeLocation" (ionChange)="officeLocationSelect()">
+        <div *ngFor="let s of officeData.offices">
+          <ion-select-option value="{{s.id}}" style="width:20px;">{{s.placeHolderName}}</ion-select-option>
+        </div>
+      </ion-select>
+    </ion-col>
+    </ion-row>
+    </ion-grid>
 
     <p>
     <p>
     <div class="item info-item">
 
-        <div class="info-container">
-            <div class="info-title">{{selectedOption.placeHolderName}} - {{'ADDRESS'|translate}}</div>
-            <div class="info-details" style="margin-top:10px;">
-                <div [innerHTML]="myHtmlAddr"></div>
-            </div>
+    <div class="info-container">
+        <div class="info-title">{{selectedOption.placeHolderName}} - {{'ADDRESS'|translate}}</div>
+        <div class="info-details" style="margin-top:10px;">
+            <div [innerHTML]="myHtmlAddr"></div>
         </div>
+    </div>
 
-        <div class="info-icon">
-            <ion-icon name="locate"></ion-icon>
-        </div>
+    <div class="info-icon">
+        <ion-icon name="locate"></ion-icon>
+    </div>
 
     </div>
 
