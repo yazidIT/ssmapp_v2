@@ -19,53 +19,59 @@
   </ion-row>
 
   <ion-row>
-  <ion-col>
-  <div class="list ion-text-center">
-    <label class="item item-input item-select">
-      <span class="input-label"><strong><font color="#2E2F83"  translate="COMPOUND">Compound:</font></strong></span>
-      <ion-select name="ecompoundType" interface="popover" value="ROC"
-       [(ngModel)]="compoundType" (ionChange)="compoundTypeSelect()">
-        <ion-select-option value="ROC" translate="optROC">Registrar of Companies (ROC)</ion-select-option>
-        <ion-select-option value="ROB" translate="optROB">Registrar of Businesses (ROB)</ion-select-option>
-      </ion-select>
-    </label>
-  </div>
+  <ion-col class="ion-align-self-center">
+    <ion-label class="input-label">
+      <strong><font color="#2E2F83" translate="COMPOUND">Compound:</font></strong>
+    </ion-label>
+  </ion-col>
+
+  <ion-col class="ion-align-self-center">
+    <ion-select name="ecompoundType" class="item item-input item-select" interface="popover" value="ROC"
+      [(ngModel)]="compoundType" (ionChange)="compoundTypeSelect()">
+      <ion-select-option value="ROC" translate="optROC">Registrar of Companies (ROC)</ion-select-option>
+      <ion-select-option value="ROB" translate="optROB">Registrar of Businesses (ROB)</ion-select-option>
+    </ion-select>
   </ion-col>
   </ion-row>
 
   <ion-row>
-  <ion-col>
-  <div class="list ion-text-center">
-    <label class="item item-input item-select">
-      <span class="input-label"><strong><font color="#2E2F83" translate="ENTITYTYPE">Entity Type:</font></strong></span>
-      <ion-select name="ecompoundEntityType" interface="popover" value="01"
-       [(ngModel)]="entityType" (ionChange)="entityTypeSelect()">
-        <ion-select-option value="01" translate="optEntityCRegNoOld">Company Registration No. Old</ion-select-option>
-        <ion-select-option value="02" translate="optEntityBRegNoOld">Business Registration No. Old</ion-select-option>
-        <ion-select-option value="01" translate="optEntityCRegNoNew">Company Registration No. New</ion-select-option>
-        <ion-select-option value="02" translate="optEntityBRegNoNew">Business Registration No. New</ion-select-option>
-        <ion-select-option value="03" translate="optEntityNewIC">New IC No.</ion-select-option>
-        <ion-select-option value="04" translate="optEntityPassNo">Passport No.</ion-select-option>
-        <ion-select-option value="06" translate="optEntityCRefNo">Company Reference No.</ion-select-option>
-        <ion-select-option value="07" translate="optEntityOldIC">Old IC No.</ion-select-option>
-        <ion-select-option value="08" translate="optEntitySecLicenseNo">Co. Secretary License No.</ion-select-option>
-        <ion-select-option value="10" translate="optEntityPoliceID">Police ID</ion-select-option>
-        <ion-select-option value="17" translate="optEntityArmyID">Army ID</ion-select-option>
-        <ion-select-option value="11" translate="optEntityAuditFirm">Audit Firm</ion-select-option>
-        <ion-select-option value="12" translate="optEntityAuditor">Auditor</ion-select-option>
-        <ion-select-option value="15" translate="optEntityOthers">Others</ion-select-option>
-      </ion-select>
-    </label>
-  </div>
+  <ion-col class="ion-align-self-center">
+    <ion-label class="input-label">
+      <strong><font color="#2E2F83" translate="ENTITYTYPE">Entity Type:</font></strong>
+    </ion-label>
+  </ion-col>
+
+  <ion-col class="ion-align-self-center">
+    <ion-select name="ecompoundEntityType" class="item item-input item-select" interface="popover" value="01"
+      [(ngModel)]="entityType" (ionChange)="entityTypeSelect()">
+      <ion-select-option value="01" translate="optEntityCRegNoOld">Company Registration No. Old</ion-select-option>
+      <ion-select-option value="02" translate="optEntityBRegNoOld">Business Registration No. Old</ion-select-option>
+      <ion-select-option value="01" translate="optEntityCRegNoNew">Company Registration No. New</ion-select-option>
+      <ion-select-option value="02" translate="optEntityBRegNoNew">Business Registration No. New</ion-select-option>
+      <ion-select-option value="03" translate="optEntityNewIC">New IC No.</ion-select-option>
+      <ion-select-option value="04" translate="optEntityPassNo">Passport No.</ion-select-option>
+      <ion-select-option value="06" translate="optEntityCRefNo">Company Reference No.</ion-select-option>
+      <ion-select-option value="07" translate="optEntityOldIC">Old IC No.</ion-select-option>
+      <ion-select-option value="08" translate="optEntitySecLicenseNo">Co. Secretary License No.</ion-select-option>
+      <ion-select-option value="10" translate="optEntityPoliceID">Police ID</ion-select-option>
+      <ion-select-option value="17" translate="optEntityArmyID">Army ID</ion-select-option>
+      <ion-select-option value="11" translate="optEntityAuditFirm">Audit Firm</ion-select-option>
+      <ion-select-option value="12" translate="optEntityAuditor">Auditor</ion-select-option>
+      <ion-select-option value="15" translate="optEntityOthers">Others</ion-select-option>
+    </ion-select>
   </ion-col>
   </ion-row>
 
   <ion-row>
-  <ion-col class="ion-text-center">
-    <label class="item item-input">
-    <span class="input-label"><strong><font color="#2E2F83">Entity Number:</font></strong></span>
-    <ion-input type="text" font="#FF0000" placeholder="{{placeHolder}}" [(ngModel)]="compoundEntity"></ion-input>
-    </label>
+  <ion-col class="ion-align-self-center">
+    <ion-label class="input-label">
+      <strong><font color="#2E2F83">Entity Number:</font></strong>
+    </ion-label>
+  </ion-col>
+
+  <ion-col class="ion-align-self-center">
+    <ion-input type="text" class="item item-input item-select" font="#FF0000" placeholder="{{placeHolder}}" [(ngModel)]="compoundEntity">
+    </ion-input>
   </ion-col>
   </ion-row>
 
