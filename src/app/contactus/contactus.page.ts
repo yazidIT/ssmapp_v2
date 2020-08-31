@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
-
+import { Location } from '@angular/common';
+import { Platform } from '@ionic/angular';
 import {
   GoogleMaps,
   GoogleMap,
@@ -9,12 +10,15 @@ import {
   GoogleMapsAnimation,
   MyLocation
 } from '@ionic-native/google-maps';
+
 @Component({
   selector: 'app-contactus',
   templateUrl: './contactus.page.html',
   styleUrls: ['./contactus.page.scss'],
 })
-export class ContactusPage implements OnInit {
+export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
+
+  backButtonSubscription; 
 
   officeData: any
   officeLocation: any
@@ -22,7 +26,9 @@ export class ContactusPage implements OnInit {
 
   map: GoogleMap;
   
-  constructor(private inAppBrowser: InAppBrowser) { }
+  constructor(private inAppBrowser: InAppBrowser,
+              private platform: Platform,
+              private location: Location) { }
 
   ngOnInit() {
     this.officeData = {
@@ -39,12 +45,23 @@ export class ContactusPage implements OnInit {
     }
 
     this.selectedOption = this.officeData.offices[0];
-    this.loadMap()
+    // this.loadMap()
+  }
+
+  ngOnDestroy(): void {
+    this.backButtonSubscription.unsubscribe();
+  }
+  
+  ngAfterViewInit(): void {
+    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+      this.location.back()
+    });
   }
 
   openInAppBrowser(link) {
     this.inAppBrowser.create(link)
   }
+
   officeLocationSelect() {
     console.log(this.officeLocation)
     this.selectedOption = this.officeData.offices[this.officeLocation - 1];

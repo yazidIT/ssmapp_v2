@@ -94,7 +94,7 @@
       "cordova-sqlite-storage": {},
       "cordova-plugin-app-version": {},
       "cordova-plugin-nativestorage": {},
-      "cordova-plugin-advanced-http": {}
+      "cordova-plugin-advanced-http": {},
       "cordova-plugin-googlemaps": {}
     },
     "platforms": [

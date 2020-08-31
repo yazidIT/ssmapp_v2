@@ -7,18 +7,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content style="overflow:visible;" fullscreen="true">
+<ion-content style="overflow:visible;" fullscreen scroll="false">
 
   <div class="bgtukar" style="height: 100%; padding: 5px;">
-  <div  class="list">
 
-    <div class="list" id="map" data-tap-disabled="true"></div>
+    <div id="map"></div>
 
     <font size="4px" color="#2E2F83"><strong>{{'SSMOFFICES'|translate}}</strong></font>
       <br>
       <br>
 
-      <ion-label class="item item-input item-select">{{'OFFICELOCATION'|translate}} :</ion-label>
+      <ion-label class="item item-select">{{'OFFICELOCATION'|translate}} :</ion-label>
         <ion-select name="officeSelect" interface="popover" value={{selectedOption.id}}
           [(ngModel)]="officeLocation" (ionChange)="officeLocationSelect()">
           <div *ngFor="let s of officeData.offices">
@@ -28,6 +27,7 @@
 
     <p>
     <p>
+
     <div class="item info-item">
 
         <div class="info-container">
@@ -43,22 +43,22 @@
 
     </div>
 
+    <div class="social-title info-title">{{'OURSOCIAL'|translate}}</div>
+    <div>
+      <ion-img class="soscial-link avatar relative" 
+        (click)="openInAppBrowser('https://www.facebook.com/ssmofficialpage')"
+        src="../../assets/images/facebook.png"></ion-img>
+      <ion-img class="soscial-link avatar relative"
+        (click)="openInAppBrowser('https://twitter.com/ssmofficialpage')"
+        src="../../assets/images/twitter.png"></ion-img>
+      <ion-img class="soscial-link avatar relative"
+        (click)="openInAppBrowser('https://www.instagram.com/suruhanjaya_syarikat_malaysia/')"
+        src="../../assets/images/instagram.png"></ion-img>
+      <ion-img class="soscial-link avatar relative"
+        (click)="openInAppBrowser('http://www.youtube.com/user/ssmofficialpage')"
+        src="../../assets/images/youtube.png"></ion-img>
+    </div>
 
-  <div class="social-title info-title">{{'OURSOCIAL'|translate}}</div>
-  <div>
-    <ion-img class="soscial-link avatar relative" 
-      (click)="openInAppBrowser('https://www.facebook.com/ssmofficialpage')"
-      src="../../assets/images/facebook.png"></ion-img>
-    <ion-img class="soscial-link avatar relative"
-      (click)="openInAppBrowser('https://twitter.com/ssmofficialpage')"
-      src="../../assets/images/twitter.png"></ion-img>
-    <ion-img class="soscial-link avatar relative"
-      (click)="openInAppBrowser('https://www.instagram.com/suruhanjaya_syarikat_malaysia/')"
-      src="../../assets/images/instagram.png"></ion-img>
-    <ion-img class="soscial-link avatar relative"
-      (click)="openInAppBrowser('http://www.youtube.com/user/ssmofficialpage')"
-      src="../../assets/images/youtube.png"></ion-img>
-  </div>
   </div>
 </ion-content>
 <app-ssmfooter></app-ssmfooter>
