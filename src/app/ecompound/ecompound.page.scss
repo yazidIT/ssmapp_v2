@@ -8,6 +8,10 @@ ion-row {
     padding: 15px;
 }
 
+ion-row.no-border {
+    border-bottom: 0px;
+}
+
 ion-col.no-border {
     border-bottom: 0px;
 }
@@ -16,4 +20,8 @@ ion-button.findbutton {
     --background: #2E2F83;
     --color: #F9EC00;
     --border-color: #2E2F83;
+}
+
+ion-content {
+    --overflow: visible;
 }
