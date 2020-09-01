@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar class="bar-class">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title-class">{{'eQUERYResult'|translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="bgtukar" style="height: 100%; padding: 0px;">
+
+  <ion-grid>
+
+  <ion-row>
+    <ion-col class="input-label ion-text-center" [innerHTML]="'eQuery_01'|translate">
+      List of Company that have queried document under Section 11(8) & (9) of the Companies Act 1965.<p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+  <ion-col>
+
+  <div>
+    <ion-grid>
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px" translate="placeHolderCOMPANYNO">Comp No./MyCoID:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{queryResult.companyNo}}</font>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="no-bottom-border">
+        <ion-col class="no-border">
+        <font color="#2E2F83" size="2px" translate="COMPANYNAME">Company Name:</font>
+        </ion-col>
+        <ion-col class="no-border">
+        <font size="2px"> {{queryResult.companyName}}</font>
+        </ion-col>
+      </ion-row>
+
+      <div *ngFor="let document of queryResult.documents">
+
+        <ion-row class="no-bottom-border">
+          <ion-col class="no-border">
+          <font color="#2E2F83" size="2px" translate="COMPANYNAME">Document:</font>
+          </ion-col>
+          <ion-col class="no-border">
+          <font size="2px"> {{document.document}}</font>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="no-bottom-border">
+          <ion-col class="no-border">
+          <font color="#2E2F83" size="2px" translate="DOCUMENTDate">Document Date:</font>
+          </ion-col>
+          <ion-col class="no-border">
+          <font size="2px"> {{document.documentDate}}</font>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="no-bottom-border">
+          <ion-col class="no-border">
+          <font color="#2E2F83" size="2px" translate="QUERYDate">Query Date:</font>
+          </ion-col>
+          <ion-col class="no-border">
+          <font size="2px"> {{document.queryDate}}</font>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="no-bottom-border">
+          <ion-col class="no-border">
+          <font color="#2E2F83" size="2px" translate="REJECTDate">Reject Date:</font>
+          </ion-col>
+          <ion-col class="no-border">
+          <font size="2px"> {{document.rejectDate}}</font>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="no-bottom-border">
+          <ion-col class="no-border">
+          <font color="#2E2F83" size="2px" translate="DOCUMENTStatus">Status:</font>
+          </ion-col>
+          <ion-col class="no-border">
+          <font size="2px"> {{document.status}}</font>
+          </ion-col>
+        </ion-row>
+
+      </div>
+
+      <ion-row class="top-border"></ion-row>
+    </ion-grid>
+  </div>
+
+  </ion-col>
+  </ion-row>
+
+  </ion-grid>
+</div>
+</ion-content>
+<app-ssmfooter></app-ssmfooter>

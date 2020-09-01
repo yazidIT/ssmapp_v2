@@ -16,6 +16,7 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
 
   placeHolder: string
   stat308CoId: string
+  registrationType: string
   status308ResponseData: any
   alertPrompt : AlertPromptComponent
   
@@ -40,7 +41,12 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
+    this.registrationType = "ROC"
     this.placeHolder = "Company/MyCoID No."
+  }
+
+  registrationTypeSelect() {
+
   }
 
   status308Find() {

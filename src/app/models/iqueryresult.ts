@@ -76,3 +76,17 @@ export interface IStatus308Cos {
     newFormatNo: string
     oldFormatNo: string
 }
+
+export interface IQueryData {
+    companyNo: string
+    companyName: string
+    documents: Array<IQueryDocument>
+}
+
+export interface IQueryDocument {
+    document: string
+    documentDate: string
+    queryDate: string
+    rejectDate: string
+    status: string
+}

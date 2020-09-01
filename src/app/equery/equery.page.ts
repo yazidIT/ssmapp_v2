@@ -16,6 +16,7 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
 
   placeHolder: string
   queryCoId: string
+  registrationType: string
   eQueryRespondData: any
   alertPrompt : AlertPromptComponent
   
@@ -39,6 +40,7 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
+    this.registrationType = "ROC"
     this.placeHolder = "Company No./MyCoID"
   }
 
@@ -49,13 +51,13 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
       return
     }
 
-    let urlEndpoint = this.apiv2url + 'equery'
-    let postData = { "documentNo": this.queryCoId }
+    let urlEndpoint = this.apiv2url + 'esearch/equery'
+    let postData = { "documentNo": this.queryCoId, "lang": "en" }
 
     this.ssmQueryServ.eQueryQuery(urlEndpoint, postData).then(response => {
 
       this.eQueryRespondData = JSON.parse(response.data)
-      console.log(this.eQueryRespondData)
+      console.log(JSON.stringify(this.eQueryRespondData))
 
       this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eQueryRespondData.data)).then(() => {
         console.log("query result saved!")

@@ -51,6 +51,10 @@ const routes: Routes = [
   {
     path: 'contact_us',
     loadChildren: () => import('./contactus/contactus.module').then( m => m.ContactusPageModule)
+  },
+  {
+    path: 'equery-result',
+    loadChildren: () => import('./equery-result/equery-result.module').then( m => m.EqueryResultPageModule)
   }
 ];
 

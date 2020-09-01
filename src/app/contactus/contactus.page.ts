@@ -45,7 +45,7 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     }
 
     this.selectedOption = this.officeData.offices[0];
-    // this.loadMap()
+    this.loadMap()
   }
 
   ngOnDestroy(): void {
