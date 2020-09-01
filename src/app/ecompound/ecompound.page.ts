@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { NavController, Platform } from '@ionic/angular';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
+import { SsmloadingService } from '../services/ssmloading.service';
 
 @Component({
   selector: 'app-ecompound',
@@ -38,6 +39,7 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
+              private ssmloadingSvc: SsmloadingService,
               private navCtrl: NavController,
               private platform: Platform,
               private location: Location) {
@@ -83,8 +85,10 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
       "entityNo": this.compoundEntity
     }
 
+    this.ssmloadingSvc.showLoader()
     this.ssmQueryServ.eCompoundQuery(urlEndpoint, postBody).then(response => {
 
+      this.ssmloadingSvc.hideLoader()
       this.eCompoundResponseData = JSON.parse(response.data)
 
       if(this.eCompoundResponseData.success === false) {
@@ -98,6 +102,7 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
       })
 
     }, error => {
+      this.ssmloadingSvc.hideLoader()
       console.log(error.status)
       this.alertPrompt.presentServerFail("e-Compound", error.status, false)
     })

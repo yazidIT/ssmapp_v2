@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 
 import { SsmQueryService } from '../services/ssmquery.service';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
+import { SsmloadingService } from '../services/ssmloading.service';
 
 @Component({
   selector: 'app-status308',
@@ -23,6 +24,7 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
+              private ssmloadingSvc: SsmloadingService,
               private navCtrl: NavController,
               private platform: Platform,
               private location: Location) {
@@ -58,8 +60,10 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
 
     let urlEndpoint = this.apiv2url + 'esearch/status308/' + this.stat308CoId
 
+    this.ssmloadingSvc.showLoader()
     this.ssmQueryServ.status308Query(urlEndpoint).then(response => {
 
+      this.ssmloadingSvc.hideLoader()
       this.status308ResponseData = JSON.parse(response.data)
       console.log(this.status308ResponseData)
 
@@ -75,6 +79,7 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
 
 
     }, error => {
+      this.ssmloadingSvc.hideLoader()
       console.log(JSON.stringify(error))
       console.log(error.status)
       this.alertPrompt.presentServerFail("Status 308", error.status, false)

@@ -4,6 +4,7 @@ import { NavController, Platform } from '@ionic/angular';
 
 import { SsmQueryService } from '../services/ssmquery.service';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
+import { SsmloadingService } from '../services/ssmloading.service';
 
 @Component({
   selector: 'app-esearch',
@@ -32,6 +33,7 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
+              private loadingSvc: SsmloadingService,
               private navCtrl: NavController,
               private platform: Platform,
               private location: Location) {
@@ -81,8 +83,10 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
 
     let urlEndpoint = this.apiv2url + 'esearch/' + findUrl + this.searchCompany
 
+    this.loadingSvc.showLoader();
     this.ssmQueryServ.eSearchQuery(urlEndpoint).then(response => {
 
+      this.loadingSvc.hideLoader()
       this.eSearchResponseData = JSON.parse(response.data)
       if(this.eSearchResponseData.success === false) {
         this.alertPrompt.presentInputError("e-Search", this.eSearchResponseData.message)
@@ -109,6 +113,7 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
 
     }, error => {
 
+      this.loadingSvc.hideLoader()
       console.log(error.status)
       this.alertPrompt.presentServerFail("e-Search", error.status, false)
       
