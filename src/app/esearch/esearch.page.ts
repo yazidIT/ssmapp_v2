@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { NavController } from '@ionic/angular';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
+import { SsmloadingService } from '../services/ssmloading.service';
 
 @Component({
   selector: 'app-esearch',
@@ -27,6 +28,7 @@ export class EsearchPage implements OnInit {
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
+              private loadingSvc: SsmloadingService,
               private navCtrl: NavController) {
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
@@ -58,8 +60,10 @@ export class EsearchPage implements OnInit {
 
     let urlEndpoint = this.apiv2url + 'esearch/' + findUrl + this.searchCompany
 
+    this.loadingSvc.showLoader();
     this.ssmQueryServ.eSearchQuery(urlEndpoint).then(resData => {
 
+      this.loadingSvc.hideLoader()
       console.log(resData)
 
       if(resData.result === undefined) {
@@ -75,6 +79,8 @@ export class EsearchPage implements OnInit {
       }
 
     }, error => {
+
+      this.loadingSvc.hideLoader()
       console.log(error.status)
       this.alertPrompt.presentServerFail("e-Search", error.status, false)
     })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { NavController } from '@ionic/angular';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
+import { SsmloadingService } from '../services/ssmloading.service';
 
 @Component({
   selector: 'app-equery',
@@ -18,6 +19,7 @@ export class EqueryPage implements OnInit {
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private ssmQueryServ: SsmQueryService,
+              private ssmloadingSvc: SsmloadingService,
               private navCtrl: NavController) {
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
@@ -36,8 +38,10 @@ export class EqueryPage implements OnInit {
     let urlEndpoint = this.apiv2url + 'equery'
     let postData = { "documentNo": this.queryCoId }
 
+    this.ssmloadingSvc.showLoader()
     this.ssmQueryServ.eQueryQuery(urlEndpoint, JSON.stringify(postData)).then(resData => {
 
+      this.ssmloadingSvc.hideLoader()
       console.log(resData)
 
       this.ssmQueryServ.saveQueryResult(JSON.stringify(resData.result)).then(() => {
@@ -46,6 +50,7 @@ export class EqueryPage implements OnInit {
       })
 
     }, error => {
+      this.ssmloadingSvc.hideLoader()
       console.log(error)
       console.log(error.status)
       this.alertPrompt.presentServerFail("e-Search", error.status, false)
