@@ -45,7 +45,6 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     }
 
     this.selectedOption = this.officeData.offices[0];
-    this.loadMap()
   }
 
   ngOnDestroy(): void {
@@ -56,6 +55,8 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
       this.location.back()
     });
+
+    this.loadMap()
   }
 
   openInAppBrowser(link) {
@@ -69,14 +70,14 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
 
   loadMap() {
     this.map = GoogleMaps.create('map', {
-      // camera: {
-      //   target: {
-      //     lat: 43.0741704,
-      //     lng: -89.3809802
-      //   },
-      //   zoom: 18,
-      //   tilt: 30
-      // }
+      camera: {
+        target: {
+          lat: 43.0741704,
+          lng: -89.3809802
+        },
+        zoom: 15,
+        tilt: 30
+      }
     });
     this.goToMyLocation();
   }
@@ -100,7 +101,7 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
         title: '@ionic-native/google-maps plugin!',
         snippet: 'This plugin is awesome!',
         position: location.latLng,
-        animation: GoogleMapsAnimation.BOUNCE
+        animation: GoogleMapsAnimation.DROP
       });
 
       //show the infoWindow

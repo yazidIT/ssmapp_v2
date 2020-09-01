@@ -63,6 +63,11 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
       this.status308ResponseData = JSON.parse(response.data)
       console.log(this.status308ResponseData)
 
+      if(this.status308ResponseData.success === false) {
+        this.alertPrompt.presentInputError("Status 308", this.status308ResponseData.message)
+        return
+      }
+
       this.ssmQueryServ.saveQueryResult(JSON.stringify(this.status308ResponseData)).then(() => {
         console.log("query result saved!")
         this.navCtrl.navigateForward('/status308-result')
