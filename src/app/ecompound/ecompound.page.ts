@@ -71,7 +71,7 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
 
   }
 
-  ecompoundFind() {
+  async ecompoundFind() {
 
     if(this.compoundEntity === undefined || this.compoundEntity.length == 0 ) {
       this.alertPrompt.presentInputError("e-Compound", "Missing search parameter")
@@ -85,26 +85,30 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
       "entityNo": this.compoundEntity
     }
 
-    this.ssmloadingSvc.showLoader()
+    await this.ssmloadingSvc.showLoader()
     this.ssmQueryServ.eCompoundQuery(urlEndpoint, postBody).then(response => {
 
-      this.ssmloadingSvc.hideLoader()
-      this.eCompoundResponseData = JSON.parse(response.data)
+      this.ssmloadingSvc.hideLoader().then(()=> {
+        this.eCompoundResponseData = JSON.parse(response.data)
 
-      if(this.eCompoundResponseData.success === false) {
-        this.alertPrompt.presentInputError("e-Compound", this.eCompoundResponseData.message)
-        return
-      }
+        if(this.eCompoundResponseData.success === false) {
+          this.alertPrompt.presentInputError("e-Compound", this.eCompoundResponseData.message)
+          return
+        }
+  
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eCompoundResponseData.data)).then(() => {
+          console.log("query result saved!")
+          this.navCtrl.navigateForward('/ecompound-result')
+        })
 
-      this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eCompoundResponseData.data)).then(() => {
-        console.log("query result saved!")
-        this.navCtrl.navigateForward('/ecompound-result')
       })
 
     }, error => {
-      this.ssmloadingSvc.hideLoader()
-      console.log(error.status)
-      this.alertPrompt.presentServerFail("e-Compound", error.status, false)
+      this.ssmloadingSvc.hideLoader().then(()=> {
+        console.log(error.status)
+        this.alertPrompt.presentServerFail("e-Compound", error.status, false)
+      })
+
     })
   }
 }

@@ -21,24 +21,25 @@ export class SsmloadingService {
   }
 
   // Show the loader for infinite time
-  showLoader() {
+  async showLoader() {
 
-    this.loadingController.create({
+    const res = await this.loadingController.create({
       message: 'Searching ...'
-    }).then((res) => {
-      res.present();
     });
+    res.present();
 
   }
   
   // Hide the loader if already created otherwise return error
-  hideLoader() {
+  async hideLoader() {
 
-    this.loadingController.dismiss().then((res) => {
+    try {
+      const res = await this.loadingController.dismiss();
       console.log('Loading dismissed!', res);
-    }).catch((error) => {
+    }
+    catch (error) {
       console.log('error', error);
-    });
+    }
 
   }
 }

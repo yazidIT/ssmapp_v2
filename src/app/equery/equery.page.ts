@@ -46,7 +46,7 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
     this.placeHolder = "Company No./MyCoID"
   }
 
-  equeryFind() {
+  async equeryFind() {
 
     if(this.queryCoId === undefined || this.queryCoId.length == 0 ) {
       this.alertPrompt.presentInputError("e-Query", "Missing search parameter")
@@ -56,23 +56,29 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
     let urlEndpoint = this.apiv2url + 'esearch/equery'
     let postData = { "documentNo": this.queryCoId, "lang": "en" }
 
-    this.ssmloadingSvc.showLoader()
+    await this.ssmloadingSvc.showLoader()
     this.ssmQueryServ.eQueryQuery(urlEndpoint, postData).then(response => {
 
-      this.ssmloadingSvc.hideLoader()
-      this.eQueryRespondData = JSON.parse(response.data)
-      console.log(JSON.stringify(this.eQueryRespondData))
+      this.ssmloadingSvc.hideLoader().then(()=> {
 
-      this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eQueryRespondData.data)).then(() => {
-        console.log("query result saved!")
-        this.navCtrl.navigateForward('/equery-result')
+        this.eQueryRespondData = JSON.parse(response.data)
+        console.log(JSON.stringify(this.eQueryRespondData))
+  
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eQueryRespondData.data)).then(() => {
+          console.log("query result saved!")
+          this.navCtrl.navigateForward('/equery-result')
+        })
+
       })
 
     }, error => {
-      this.ssmloadingSvc.hideLoader()
-      console.log(JSON.stringify(error))
-      console.log(error.status)
-      this.alertPrompt.presentServerFail("e-Query", error.status, false)
+      
+      this.ssmloadingSvc.hideLoader().then(()=> {
+        console.log(JSON.stringify(error))
+        console.log(error.status)
+        this.alertPrompt.presentServerFail("e-Query", error.status, false)
+      })
+
     })
   }
 }

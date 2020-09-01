@@ -51,7 +51,7 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
 
   }
 
-  status308Find() {
+  async status308Find() {
 
     if(this.stat308CoId === undefined || this.stat308CoId.length == 0 ) {
       this.alertPrompt.presentInputError("Status 308", "Missing search parameter")
@@ -60,29 +60,34 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
 
     let urlEndpoint = this.apiv2url + 'esearch/status308/' + this.stat308CoId
 
-    this.ssmloadingSvc.showLoader()
+    await this.ssmloadingSvc.showLoader()
     this.ssmQueryServ.status308Query(urlEndpoint).then(response => {
 
-      this.ssmloadingSvc.hideLoader()
-      this.status308ResponseData = JSON.parse(response.data)
-      console.log(this.status308ResponseData)
+      this.ssmloadingSvc.hideLoader().then(()=> {
 
-      if(this.status308ResponseData.success === false) {
-        this.alertPrompt.presentInputError("Status 308", this.status308ResponseData.message)
-        return
-      }
+        this.status308ResponseData = JSON.parse(response.data)
+        console.log(this.status308ResponseData)
+  
+        if(this.status308ResponseData.success === false) {
+          this.alertPrompt.presentInputError("Status 308", this.status308ResponseData.message)
+          return
+        }
+  
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(this.status308ResponseData)).then(() => {
+          console.log("query result saved!")
+          this.navCtrl.navigateForward('/status308-result')
+        })
 
-      this.ssmQueryServ.saveQueryResult(JSON.stringify(this.status308ResponseData)).then(() => {
-        console.log("query result saved!")
-        this.navCtrl.navigateForward('/status308-result')
       })
 
-
     }, error => {
-      this.ssmloadingSvc.hideLoader()
-      console.log(JSON.stringify(error))
-      console.log(error.status)
-      this.alertPrompt.presentServerFail("Status 308", error.status, false)
+      
+      this.ssmloadingSvc.hideLoader().then(()=> {
+        console.log(JSON.stringify(error))
+        console.log(error.status)
+        this.alertPrompt.presentServerFail("Status 308", error.status, false)
+      })
+
     })
   }
 }

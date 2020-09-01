@@ -65,7 +65,7 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
     this.placeHolder = this.searchNameValue[this.searchType]
   }
 
-  esearchFind() {
+  async esearchFind() {
 
     if(this.searchCompany === undefined || this.searchCompany.length == 0 ) {
       this.alertPrompt.presentInputError("e-Search", "Missing search parameter")
@@ -83,39 +83,43 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
 
     let urlEndpoint = this.apiv2url + 'esearch/' + findUrl + this.searchCompany
 
-    this.loadingSvc.showLoader();
+    await this.loadingSvc.showLoader();
     this.ssmQueryServ.eSearchQuery(urlEndpoint).then(response => {
 
-      this.loadingSvc.hideLoader()
-      this.eSearchResponseData = JSON.parse(response.data)
-      if(this.eSearchResponseData.success === false) {
-        this.alertPrompt.presentInputError("e-Search", this.eSearchResponseData.message)
-        return
-      }
+      this.loadingSvc.hideLoader().then(()=> {
 
-      // for LLP
-      if(this.eSearchResponseData.result === undefined) {
+        this.eSearchResponseData = JSON.parse(response.data)
+        if(this.eSearchResponseData.success === false) {
+          this.alertPrompt.presentInputError("e-Search", this.eSearchResponseData.message)
+          return
+        }
+  
+        // for LLP
+        if(this.eSearchResponseData.result === undefined) {
+  
+          this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eSearchResponseData)).then(() => {
+            console.log("query result saved!")
+            this.navCtrl.navigateForward('/esearch-result')
+          })
+  
+        // For ROC & ROB
+        } else {
+  
+          this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eSearchResponseData.result)).then(() => {
+            console.log("query result saved!")
+            this.navCtrl.navigateForward('/esearch-result')
+          })
+  
+        }
 
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eSearchResponseData)).then(() => {
-          console.log("query result saved!")
-          this.navCtrl.navigateForward('/esearch-result')
-        })
-
-      // For ROC & ROB
-      } else {
-
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eSearchResponseData.result)).then(() => {
-          console.log("query result saved!")
-          this.navCtrl.navigateForward('/esearch-result')
-        })
-
-      }
+      })
 
     }, error => {
 
-      this.loadingSvc.hideLoader()
-      console.log(error.status)
-      this.alertPrompt.presentServerFail("e-Search", error.status, false)
+      this.loadingSvc.hideLoader().then(()=> {
+        console.log(error.status)
+        this.alertPrompt.presentServerFail("e-Search", error.status, false)
+      })
       
     })
   }
