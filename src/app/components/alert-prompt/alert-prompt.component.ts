@@ -46,13 +46,11 @@ export class AlertPromptComponent implements OnInit {
 
   async presentInputError(title:string, message: string) {
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
       header: title,
       subHeader: "Input Error",
       message: message,
       buttons: [{
         text: 'OK',
-        cssClass: 'title-class',
         handler: () => {}
       }]
     });
