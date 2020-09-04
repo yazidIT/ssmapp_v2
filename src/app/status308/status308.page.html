@@ -22,14 +22,14 @@
   </ion-row>
 
   <ion-row>
-  <ion-col class="ion-align-self-center">
+  <ion-col class="ion-align-self-center" size="6">
     <ion-label class="input-label">
       <strong><font color="#2E2F83">{{'REGISTYPE'|translate}}</font></strong>
     </ion-label>
   </ion-col>
 
-  <ion-col class="ion-align-self-center">
-      <ion-select class="item item-input item-select" name="s308Type" interface="popover" value="ROC"
+  <ion-col class="ion-align-self-center" size="6">
+      <ion-select class="item item-input item-select overflow" name="s308Type" interface="popover" value="ROC"
        [(ngModel)]="registrationType" (ionChange)="registrationTypeSelect()">
         <ion-select-option value="ROC" >{{'optEntityCRegNoOld'|translate}}</ion-select-option>
         <ion-select-option value="ROCNEW" >{{'optEntityCRegNoNew'|translate}}</ion-select-option>
@@ -38,13 +38,13 @@
   </ion-row>
 
   <ion-row>
-  <ion-col class="ion-align-self-center">
+  <ion-col class="ion-align-self-center" size="7">
     <ion-label class="input-label">
       <strong><font color="#2E2F83" translate="COMPANYNO">Company/MyCoID No.:</font></strong>
     </ion-label>
   </ion-col>
 
-  <ion-col class="ion-align-self-center">
+  <ion-col class="ion-align-self-center" size="5">
     <ion-input type="text" class="item item-input item-select" font="#FF0000" placeholder="{{'COMPANYNO'|translate}}"
     [(ngModel)]="stat308CoId">
     </ion-input>

@@ -5,7 +5,7 @@
 
 ion-row {
     border-bottom: 1px solid #aeb7ca;
-    padding: 15px;
+    padding: 5px;
 }
 
 ion-row.no-border {
@@ -24,4 +24,12 @@ ion-button.findbutton {
 
 ion-content {
     --overflow: visible;
+}
+
+ion-select.overflow {
+    width: 100%;
+    direction: ltr;
+    position: inherit;
+    padding-left: 0px;
+    --overflow: hidden;
 }
