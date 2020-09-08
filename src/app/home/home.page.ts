@@ -30,8 +30,7 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
   selectedLanguage:string;
 
-  constructor(private regDevServ: RegisterDeviceService,
-              private newsServ: NewsService,
+  constructor(private newsServ: NewsService,
               private platform: Platform,
               private routerOutlet: IonRouterOutlet) {
 

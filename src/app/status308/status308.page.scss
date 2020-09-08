@@ -20,3 +20,11 @@ ion-button.findbutton {
 ion-content {
     --overflow: visible;
 }
+
+ion-select.item-select {
+    width:100%;
+    direction: ltr;
+    position: inherit;
+    padding-left: 0px;
+    overflow: scroll;
+}
