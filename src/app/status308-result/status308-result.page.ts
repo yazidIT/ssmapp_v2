@@ -14,7 +14,8 @@ export class Status308ResultPage implements OnInit {
   status308Cos: IStatus308Cos
   status308Notices: IStatus308Notice
 
-  constructor(private storage: NativeStorage) { 
+  constructor(private storage: NativeStorage,
+              private utilServ: UtilsService) { 
 
     this.status308Data = {
         companyName: "",
@@ -46,9 +47,31 @@ export class Status308ResultPage implements OnInit {
 
       this.status308Data = jsonObj.data
       this.status308Cos = jsonObj.cos
-      this.status308Notices = this.status308Data.notices[0]
+
+      this.processDateNotices();
     })
 
+  }
+
+  processDateNotices() {
+    var notices : IStatus308Notice = this.status308Data.notices[0]
+
+    this.status308Notices.dateNotice1 = "-";
+    this.status308Notices.dateNotice2 = "-";
+    this.status308Notices.nfaDate = "-";
+    this.status308Notices.dateNotice4 = "-";
+    this.status308Notices.gazzetteDate2 = "-";
+
+    if(notices.dateNotice1 !== '' && notices.dateNotice1 !== '-')
+      this.status308Notices.dateNotice1 = this.utilServ.getDateNonStandard(notices.dateNotice1);
+    if(notices.dateNotice2 !== '' && notices.dateNotice2 !== '-')
+      this.status308Notices.dateNotice2 = this.utilServ.getDateNonStandard(notices.dateNotice2);
+    if(notices.nfaDate !== '' && notices.nfaDate !== '-')
+      this.status308Notices.nfaDate = this.utilServ.getDateNonStandard(notices.nfaDate);
+    if(notices.dateNotice4 !== '' && notices.dateNotice4 !== '-')
+      this.status308Notices.dateNotice4 = this.utilServ.getDateNonStandard(notices.dateNotice4);
+    if(notices.gazzetteDate2 !== '' && notices.gazzetteDate2 !== '-')
+      this.status308Notices.gazzetteDate2 = this.utilServ.getDateNonStandard(notices.gazzetteDate2);
   }
 
 }
