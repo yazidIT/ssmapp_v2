@@ -6,11 +6,11 @@ import {
   GoogleMaps, GoogleMap,
   GoogleMapsEvent, Marker,
   GoogleMapsAnimation,
-  LatLng, GoogleMapOptions
+  LatLng, GoogleMapOptions, MapTypeId
 } from '@ionic-native/google-maps';
 import { TranslateService } from '@ngx-translate/core';
+
 import { ISSMOffice, ISSMOffices } from '../models/issmoffices';
-import { MapType } from '@angular/compiler';
 
 @Component({
   selector: 'app-contactus',
@@ -94,6 +94,10 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
       });
   }
 
+  openLink(link) {
+    this.inAppBrowser.create(link, '_system')
+  }
+
   officeLocationSelect() {
     this.selectedOption = this.officeData.data.offices[this.officeLocation - 1]
     this.changeMarker()
@@ -126,7 +130,9 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
           target: this.latLng,
           zoom: 18,
           tilt: 30
-        }
+        },
+      streetViewControl: false,
+      mapType: MapTypeId.ROADMAP
     };
     this.map = GoogleMaps.create('map', mapOptions);
   }
@@ -151,7 +157,7 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     // Move the map camera to the location with animation
     this.map.animateCamera({
       target: this.latLng,
-      zoom: 17,
+      zoom: 15,
       duration: 2000
     });
 
@@ -163,17 +169,12 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     });
 
     //show the infoWindow
-    // marker.showInfoWindow();
+    marker.showInfoWindow();
 
     //If clicked it, display the alert
     marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
       // this.showToast('clicked!');
     });
 
-    this.map.on(GoogleMapsEvent.MAP_READY).subscribe(
-      (data) => {
-          console.log("Click MAP",data);
-      }
-    );
   }
 }

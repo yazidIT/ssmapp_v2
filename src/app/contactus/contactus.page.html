@@ -7,11 +7,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="bgtukar">
-  <div class="bgtukar" style="height: 100%; padding: 5px;">
+<ion-content>
 
-    <div id="map" data-tap-disabled="true" style="height: 300px"></div>
+  <div class="bgtukar" style="height: 100%; padding: 0px;">
 
+    <div id="map" class="list" data-tap-disabled="true" style="height: 240px"></div>
+    <br>
+    
     <div style="text-align:center;">
       <font size="4px" color="#2E2F83"><strong>{{'SSMOFFICES'|translate}}</strong></font>
     </div>
@@ -109,16 +111,13 @@
       </ion-row>
       <p>
       <ion-row class="ion-justify-content-center">
-        <ion-img class="soscial-link avatar relative" (click)="openInAppBrowser('https://www.facebook.com/ssmofficialpage')"
+        <ion-img class="soscial-link avatar relative" (click)="openLink('https://www.facebook.com/ssmofficialpage')"
           src="../../assets/images/facebook.png"></ion-img>
-        <ion-img class="soscial-link avatar relative"
-          (click)="openInAppBrowser('https://twitter.com/ssmofficialpage')"
+        <ion-img class="soscial-link avatar relative" (click)="openLink('https://twitter.com/ssmofficialpage')"
           src="../../assets/images/twitter.png"></ion-img>
-        <ion-img class="soscial-link avatar relative"
-          (click)="openInAppBrowser('https://www.instagram.com/suruhanjaya_syarikat_malaysia/')"
+        <ion-img class="soscial-link avatar relative" (click)="openLink('https://www.instagram.com/suruhanjaya_syarikat_malaysia/')"
           src="../../assets/images/instagram.png"></ion-img>
-        <ion-img class="soscial-link avatar relative"
-          (click)="openInAppBrowser('http://www.youtube.com/user/ssmofficialpage')"
+        <ion-img class="soscial-link avatar relative" (click)="openLink('http://www.youtube.com/user/ssmofficialpage')"
           src="../../assets/images/youtube.png"></ion-img>
       </ion-row>
     </ion-grid>
