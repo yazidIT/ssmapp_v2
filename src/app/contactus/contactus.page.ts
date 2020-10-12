@@ -3,15 +3,14 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Location } from '@angular/common';
 import { Platform } from '@ionic/angular';
 import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsEvent,
-  Marker,
+  GoogleMaps, GoogleMap,
+  GoogleMapsEvent, Marker,
   GoogleMapsAnimation,
-  MyLocation
+  LatLng, GoogleMapOptions
 } from '@ionic-native/google-maps';
 import { TranslateService } from '@ngx-translate/core';
 import { ISSMOffice, ISSMOffices } from '../models/issmoffices';
+import { MapType } from '@angular/compiler';
 
 @Component({
   selector: 'app-contactus',
@@ -26,7 +25,8 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
   officeLocation: any
   selectedOption: ISSMOffice
 
-  map: GoogleMap;
+  map: GoogleMap
+  latLng : LatLng
 
   myHtmlAddr: any
   myHtmlOperation: any
@@ -35,8 +35,8 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
   
   constructor(private inAppBrowser: InAppBrowser,
               private platform: Platform,
-              private location: Location) { }
-  constructor(private translate: TranslateService) { }
+              private location: Location,
+              private translate: TranslateService) {}
 
   ngOnInit() {
     this.officeData = {
@@ -77,12 +77,6 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
       this.location.back()
     });
-
-    this.loadMap()
-  }
-
-  openInAppBrowser(link) {
-    this.inAppBrowser.create(link)
   }
 
   readData(){
@@ -95,6 +89,7 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
         })
 
         this.selectedOption = this.officeData.data.offices[0]
+        this.loadMap()
         this.changeMarker()
       });
   }
@@ -116,74 +111,69 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     this.myHtmlTel = this.selectedOption.tel
     this.myHtmlFax = this.selectedOption.fax
 
-    this.loadMap()
+    this.latLng = new LatLng(Number(this.selectedOption.location.lat),
+                            Number(this.selectedOption.location.long))
+
+    this.goToOfficeLocation()
   }
 
   loadMap() {
-    this.map = GoogleMaps.create('map', {
+    this.latLng = new LatLng(Number(this.selectedOption.location.lat),
+                            Number(this.selectedOption.location.long))
+
+    let mapOptions: GoogleMapOptions = {
       camera: {
-        target: {
-          lat: Number(this.selectedOption.location.lat),
-          lng: Number(this.selectedOption.location.long)
-        },
-        zoom: 18,
-        tilt: 30
-      }
-    });
-    this.goToLocation();
+          target: this.latLng,
+          zoom: 18,
+          tilt: 30
+        }
+    };
+    this.map = GoogleMaps.create('map', mapOptions);
   }
 
   goToLocation() {
-    console.log("Click address gps")
+    this.inAppBrowser.create('https://maps.google.com?q='+this.selectedOption.location.lat + "," + this.selectedOption.location.long,
+                              '_system','location=yes')
   }
   
   call() {
-    console.log("Click number: " + this.selectedOption.mainTel.replace(/\s/g,''))
+    this.inAppBrowser.create('tel:' + this.selectedOption.mainTel.replace(/\s/g,''),'_system')
   }
 
   email() {
-    console.log("Click email: " + this.selectedOption.email.replace('[at]','@'))
+    this.inAppBrowser.create('mailto:' + this.selectedOption.email.replace('[at]','@'),'_system','location=yes')
   }
 
-  goToMyLocation() {
-    this.map.clear();
+  goToOfficeLocation() {
 
-    // Get the location of you
-    this.map.getMyLocation().then((location: MyLocation) => {
-      console.log(JSON.stringify(location, null ,2));
+    this.map.clear()
 
-      // Move the map camera to the location with animation
-      this.map.animateCamera({
-        target: location.latLng,
-        zoom: 17,
-        duration: 5000
-      });
-
-      //add a marker
-      let marker: Marker = this.map.addMarkerSync({
-        title: '@ionic-native/google-maps plugin!',
-        snippet: 'This plugin is awesome!',
-        position: location.latLng,
-        animation: GoogleMapsAnimation.DROP
-      });
-
-      //show the infoWindow
-      marker.showInfoWindow();
-
-      //If clicked it, display the alert
-      marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
-        // this.showToast('clicked!');
-      });
-
-      this.map.on(GoogleMapsEvent.MAP_READY).subscribe(
-        (data) => {
-            console.log("Click MAP",data);
-        }
-      );
-    })
-    .catch(err => {
-      //this.loading.dismiss();
-      // this.showToast(err.error_message);
+    // Move the map camera to the location with animation
+    this.map.animateCamera({
+      target: this.latLng,
+      zoom: 17,
+      duration: 2000
     });
+
+    //add a marker
+    let marker: Marker = this.map.addMarkerSync({
+      title: 'SSM ' + this.selectedOption.name,
+      position: this.latLng,
+      animation: GoogleMapsAnimation.DROP
+    });
+
+    //show the infoWindow
+    // marker.showInfoWindow();
+
+    //If clicked it, display the alert
+    marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
+      // this.showToast('clicked!');
+    });
+
+    this.map.on(GoogleMapsEvent.MAP_READY).subscribe(
+      (data) => {
+          console.log("Click MAP",data);
+      }
+    );
   }
 }
