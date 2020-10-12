@@ -13,48 +13,105 @@
   <p>
   <div class="bgtukar" style="height: 100%; padding: 5px;">
 
-    <font size="4px" color="#2E2F83"><strong>{{'SSMOFFICES'|translate}}</strong></font>
+    <div id="map" data-tap-disabled="true"></div>
+
+    <div style="text-align:center;">
+      <font size="4px" color="#2E2F83"><strong>{{'SSMOFFICES'|translate}}</strong></font>
+    </div>
     <p>
 
     <ion-grid>
-    <ion-row>
-    <ion-col class="ion-align-self-center">
-      <ion-label class="input-label">
-        {{'OFFICELOCATION'|translate}} :
-      </ion-label>
-    </ion-col>
+      <ion-row class="all-border">
+        <ion-col class="ion-align-self-center">
+          <ion-label class="input-label">
+            {{'OFFICELOCATION'|translate}} :
+          </ion-label>
+        </ion-col>
 
-    <ion-col class="ion-align-self-center">
-      <ion-select name="officeSelect" class="item item-input item-select" interface="popover" value={{selectedOption.id}}
-        [(ngModel)]="officeLocation" (ionChange)="officeLocationSelect()">
-        <div *ngFor="let s of officeData.offices">
-          <ion-select-option value="{{s.id}}" style="width:20px;">{{s.placeHolderName}}</ion-select-option>
+        <ion-col class="ion-align-self-center">
+          <ion-select name="officeSelect" class="item item-input item-select" interface="popover" value={{selectedOption.id}}
+            [(ngModel)]="officeLocation" (ionChange)="officeLocationSelect()">
+            <div *ngFor="let s of officeData.data.offices">
+              <ion-select-option value="{{s.id}}" style="width:20px;">{{s.placeHolderName}}</ion-select-option>
+            </div>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <br><br>
+      <ion-row class="top-border">
+        <div class="item info-item">
+          <div class="info-title">{{selectedOption.placeHolderName}} - {{'ADDRESS'|translate}}</div>
         </div>
-      </ion-select>
-    </ion-col>
-    </ion-row>
-    </ion-grid>
-
-    <p>
-    <p>
-
-    <div class="item info-item">
-
-    <div class="info-container">
-        <div class="info-title">{{selectedOption.placeHolderName}} - {{'ADDRESS'|translate}}</div>
-        <div class="info-details" style="margin-top:10px;">
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="info-details" style="margin-top:10px;">
             <div [innerHTML]="myHtmlAddr"></div>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <div class="info-icon" (click)="goToLocation()">
+            <ion-icon name="pin"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <p><p>
+      <ion-row class="top-border">
+        <div class="item info-item">
+          <div class="info-title">SSM {{selectedOption.placeHolderName}} - {{'OPERATIONHOUR'|translate}}</div>
+          <div class="info-details" style="margin-top:10px;">
+            <div [innerHTML]="myHtmlOperation"></div>
+          </div>
         </div>
-    </div>
+      </ion-row>
 
-    <div class="info-icon">
-        <ion-icon name="locate"></ion-icon>
-    </div>
+      <p><p>
+      <ion-row class="top-border">
+        <div class="info-title">SSM {{selectedOption.placeHolderName}} - {{'CONTACT'|translate}}</div>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="item info-item">
+            <div class="info-details telfax">
+              <br>Tel: <div [innerHTML]="myHtmlTel">{{selectedOption.tel}}</div>
+              <br>{{'FAX'|translate}}:<div [innerHTML]="myHtmlFax">{{selectedOption.fax}}</div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <div class="info-icon" (click)="call()">
+            <ion-icon name="call"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
 
-    </div>
+      <p><p>
+      <ion-row class="top-border">
+        <div class="info-title">SSM {{selectedOption.placeHolderName}} - {{'EMAIL'|translate}}</div>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="item info-item">
+            <div class="info-details telfax">
+              <br>{{'EMAIL'|translate}}: {{selectedOption.email}}
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="3">
+          <div class="info-icon" (click)="email()">
+            <ion-icon name="mail"></ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
 
-    <div class="social-title info-title">{{'OURSOCIAL'|translate}}</div>
-    <div>
+      <p><p>
+      <ion-row class="top-border">
+        <div class="social-title info-title">{{'OURSOCIAL'|translate}}</div>
+      </ion-row>
+      <p>
+      <ion-row class="ion-justify-content-center">
       <ion-img class="soscial-link avatar relative" 
         (click)="openInAppBrowser('https://www.facebook.com/ssmofficialpage')"
         src="../../assets/images/facebook.png"></ion-img>
@@ -67,8 +124,8 @@
       <ion-img class="soscial-link avatar relative"
         (click)="openInAppBrowser('http://www.youtube.com/user/ssmofficialpage')"
         src="../../assets/images/youtube.png"></ion-img>
-    </div>
-
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>
 <app-ssmfooter></app-ssmfooter>

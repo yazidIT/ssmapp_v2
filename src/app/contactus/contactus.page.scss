@@ -1,3 +1,36 @@
 ion-content {
     --overflow: visible;
 }
+ion-col {
+    // border-bottom: 1px solid #aeb7ca;
+    padding: 0px;
+}
+
+ion-col.no-border {
+    border-bottom: 0px;
+}
+
+ion-col.all-border {
+    border: 1px solid
+}
+
+ion-grid.all-border {
+    border: 1px solid
+}
+
+ion-row.no-bottom-border {
+    border: 1px solid lightgray;
+    border-bottom: 0px;
+}
+
+ion-row.all-border {
+    border: 1px solid lightgray;
+}
+
+ion-row.top-border {
+    border-top: 1px solid lightgray;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+    padding-top: 10px;
+}

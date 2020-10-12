@@ -10,6 +10,8 @@ import {
   GoogleMapsAnimation,
   MyLocation
 } from '@ionic-native/google-maps';
+import { TranslateService } from '@ngx-translate/core';
+import { ISSMOffice, ISSMOffices } from '../models/issmoffices';
 
 @Component({
   selector: 'app-contactus',
@@ -20,31 +22,51 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
 
   backButtonSubscription; 
 
-  officeData: any
+  officeData: ISSMOffices
   officeLocation: any
-  selectedOption: any
+  selectedOption: ISSMOffice
 
   map: GoogleMap;
+
+  myHtmlAddr: any
+  myHtmlOperation: any
+  myHtmlTel: any
+  myHtmlFax: any
   
   constructor(private inAppBrowser: InAppBrowser,
               private platform: Platform,
               private location: Location) { }
+  constructor(private translate: TranslateService) { }
 
   ngOnInit() {
     this.officeData = {
-      offices: [
-        {
-          id: 1,
-          placeHolderName: "Putrajaya"
-        },
-        {
-          id: 2,
-          placeHolderName: "Melaka"
-        }
-      ]
+      data: {
+        defaultid: 0,
+        offices : []
+      }
     }
 
-    this.selectedOption = this.officeData.offices[0];
+    this.selectedOption = {
+      id: 0,
+      placeHolderName: "",
+      name: "",
+      nameMs: "",
+      location: {
+        lat: "",
+        long: ""
+      },
+      address: "",
+      tel: "",
+      fax: "",
+      email: "",
+      mainTel: "",
+      operationHour: "",
+      operationHourMs: "",
+      pic: ""
+    }
+
+    this.readData()
+    // this.loadMap()
   }
 
   ngOnDestroy(): void {
@@ -63,23 +85,64 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     this.inAppBrowser.create(link)
   }
 
+  readData(){
+    fetch('./assets/contact.json').then(res => res.json())
+      .then(json => {
+
+        this.officeData = json
+        this.officeData.data.offices.forEach(office => {
+          office.placeHolderName = office.name
+        })
+
+        this.selectedOption = this.officeData.data.offices[0]
+        this.changeMarker()
+      });
+  }
+
   officeLocationSelect() {
-    console.log(this.officeLocation)
-    this.selectedOption = this.officeData.offices[this.officeLocation - 1];
+    this.selectedOption = this.officeData.data.offices[this.officeLocation - 1]
+    this.changeMarker()
+  }
+
+  changeMarker() {
+    this.myHtmlAddr = this.selectedOption.address
+
+    var currLang = this.translate.currentLang
+    if(currLang === "en")
+      this.myHtmlOperation = this.selectedOption.operationHour
+    else
+      this.myHtmlOperation = this.selectedOption.operationHourMs
+
+    this.myHtmlTel = this.selectedOption.tel
+    this.myHtmlFax = this.selectedOption.fax
+
+    this.loadMap()
   }
 
   loadMap() {
     this.map = GoogleMaps.create('map', {
       camera: {
         target: {
-          lat: 43.0741704,
-          lng: -89.3809802
+          lat: Number(this.selectedOption.location.lat),
+          lng: Number(this.selectedOption.location.long)
         },
-        zoom: 15,
+        zoom: 18,
         tilt: 30
       }
     });
-    this.goToMyLocation();
+    this.goToLocation();
+  }
+
+  goToLocation() {
+    console.log("Click address gps")
+  }
+  
+  call() {
+    console.log("Click number: " + this.selectedOption.mainTel.replace(/\s/g,''))
+  }
+
+  email() {
+    console.log("Click email: " + this.selectedOption.email.replace('[at]','@'))
   }
 
   goToMyLocation() {
