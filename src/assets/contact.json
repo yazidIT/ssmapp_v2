@@ -1,0 +1,416 @@
+{
+  "data" : {
+    "defaultId": 0,
+    "offices": [
+      {
+        "id": 1,
+        "name": "MENARA SSM@SENTRAL",
+        "nameMs": "MENARA SSM@SENTRAL",
+        "location" : {
+          "lat": "3.1330833",
+          "long": "101.6843056"
+        },
+        "address": "<div>No 7, Jalan Stesen Sentral 5<br>Kuala Lumpur Sentral<div>50623 Kuala Lumpur.​​</div>",
+        "tel": "<div>03-7721 4000</div>",
+        "fax": "<div>03-7721 4001</div>",
+        "email": "enquiry[at]ssm.com.my",
+        "mainTel": "03-7721 4000<",
+        "operationHour": "<div>Day &#58; Monday - Friday</div><div>Service Counter &#58; 8.15 am - 4.15 pm<br></div>",
+        "operationHourMs": "<div>Hari &#58; Isnin - Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.15 pg - 4.15 ptg<br></div>",
+        "pic": ""
+      },
+      {
+        "id": 2,
+        "name": "JOHOR",
+        "nameMs": "JOHOR",
+        "location" : {
+          "lat": "1.460554",
+          "long": "103.762543"
+        },
+        "address": "<div><p>​Hairul Anuar bin Yasin</p><div>Podium 4B &amp; 5, Menara Ansar,<br></div><div>​65 Jalan Trus,​</div><div>80000 Johor Bahru, Johor.​<br></div></div>",
+        "tel": "<div>07-224 4710</div>",
+        "fax": "<div>07-224 1714 / 224 8169</div>",
+        "email": "hairul[at]ssm.com.my",
+        "mainTel": "07-224 4710",
+        "operationHour": "<div><p>8.15 am - 4.00 pm (Sunday - Wednesday)</p><p>8.15 am - 3.45 pm (Thursday)<br></p></div>",
+        "operationHourMs": "<div><p>8.15 pg - 4.00 ptg (Ahad - Rabu)</p><p>8.15 pg - 3.45 ptg (Khamis)<br></p></div>",
+        "pic": ""
+      },
+      {
+        "id": 3,
+        "name": "KEDAH",
+        "nameMs": "KEDAH",
+        "location" : {
+          "lat": "6.1247583",
+          "long": "100.3696648"
+        },
+        "address": "<div><p>Ramle bin Leen</p><div>Tingkat 1 &amp; 2,</div><div>Wisma PERKESO,</div><div>No.186 Jalan Teluk WanJah,​<br></div><div>05538 Alor Setar, Kedah.​</div></div>",
+        "tel": "<div>04-733 0111</div>",
+        "fax": "<div>04-731 5517​</div>",
+        "email": "lramle[at]ssm.com.my",
+        "mainTel": "04-733 0111",
+        "operationHour": "<div>Day &#58; Sunday – Thursday</div><div>\n      Service Counter &#58;</div><div>8.15 am - 4.00 pm (Sund​​ay - Wednesday)</div><div>8.15 am - 3.45 pm (Thursday)</div>",
+        "operationHourMs": "<div>Hari &#58; Ahad – Khamis</div><div>\n      Perkhidmatan Kaunter &#58;</div><div>8.15 pg - 4.00 ptg (Ahad - Rabu)</div><div>8.15 pg - 3.45 ptg (Khamis)</div>",
+        "pic": ""
+      },
+      {
+        "id": 4,
+        "name": "KELANTAN",
+        "nameMs": "KELANTAN",
+        "location" : {
+          "lat": "6.1134167",
+          "long": "102.2496944"
+        },
+        "address": "<div><p>​M.K Mastura binti Mat Zin</p><div>Tingkat 2 &amp; 3 Kota Sri Mutiara,</div><div>Jalan Sultan Yahya Petra,</div><div>15150 Kota Bharu, Kelantan.​</div></div>",
+        "tel": "<div>09-748 2860 / 748 4599</div>",
+        "fax": "<div>09-744 7622 / 747 2607</div>",
+        "email": "mastura[at]ssm.com.my",
+        "mainTel": "09-748 2860",
+        "operationHour": "<div>Day &#58; Sunday – Thursday</div><div>Service Counter &#58;</div><div>8.15 am - 4.00 pm (Sunday - Wednesday)</div><div>8.15 am - 3.45 pm (Thursday)</div>",
+        "operationHourMs": "<div>Hari &#58; Ahad – Khamis</div><div>Perkhidmatan Kaunter &#58;</div><div>8.15 pg - 4.00 ptg (Ahad - Rabu)</div><div>8.15 pg - 3.45 ptg (Khamis)</div>",
+        "pic": ""
+      },
+      {
+        "id": 5,
+        "name": "MELAKA",
+        "nameMs": "MELAKA",
+        "location" : {
+          "lat": "2.26984465856",
+          "long": "102.289889414"
+        },
+        "address": "<div><p>Azrin Mohd Ripin</p><div>No. 53 &amp; 55, Jalan Komersial,<br></div><div>Taman Kota Fesyen MITC,<br></div>\n         <div>75450 Ayer Keroh,​ Melaka.​<br></div></div>",
+        "tel": "<div>06-231 1717</div>",
+        "fax": "<div>06-231 3502</div>",
+        "email": "azrin[at]ssm.com.my",
+        "mainTel": "06-231 1717",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.15 am - 4.15 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.15 pg - 4.15 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 6,
+        "name": "NEGERI SEMBILAN",
+        "nameMs": "NEGERI SEMBILAN",
+        "location" : {
+          "lat": "2.7211389",
+          "long": "101.93925"
+        },
+        "address": "<div><p>Rashidan bin Abd Rashid</p><div>Aras 3, Wisma Perkeso,</div><div>Lot 3757 &amp; 52</div><div>Jalan Sungai Ujong,</div><div>70000 Seremban, Negeri Sembilan.</div></div>",
+        "tel": "<div>06-761 9098 / 761 5506 / 06-764 1885 / 764 5598</div>",
+        "fax": "<div>06-765 5877</div>",
+        "email": "rashidan[at]ssm.com.my",
+        "mainTel": "06-761 9098",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.15 am - 4.15 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.15 pg - 4.15 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 7,
+        "name": "PAHANG",
+        "nameMs": "PAHANG",
+        "location" : {
+          "lat": "3.8361038",
+          "long": "103.3032759"
+        },
+        "address": "<div> Mohd Zamri Hassan</div><div>B2 &amp; B4, Aras ​Bawah Suria Atabara​</div><div>Jalan IM 7/2</div><div>Bandar Indera Mahkota​<br></div> 25200 Kuantan, Pahang</div></div>",
+        "tel": "<div>09-572 9743​ / 573 0866 / 573 0400/ 573 0969</div>",
+        "fax": "<div>09-573 2316</div>",
+        "email": "mzamri[at]ssm.com.my",
+        "mainTel": "09-572 9743",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.15 am - 4.15 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.15 pg - 4.15 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 8,
+        "name": "PERAK",
+        "nameMs": "PERAK",
+        "location" : {
+          "lat": "4.6028333",
+          "long": "101.0948889"
+        },
+        "address": "<div><p>Mohd Arif Hamzah</p><div>Tingkat 2C, Angsana Ipoh Mall,</div><div>Jalan Hospital,</div><div>30450 Ipoh, Perak.</div>​\n   </div>",
+        "tel": "<div>05-241 6900 / 254 7913 / 253 3071​</div>",
+        "fax": "",
+        "email": "arifh[at]ssm.com.my",
+        "mainTel": "05-241 6900",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.15 am - 4.15 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.15 pg - 4.15 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 9,
+        "name": "PULAU PINANG",
+        "nameMs": "PULAU PINANG",
+        "location" : {
+          "lat": "5.3942222",
+          "long": "100.3975"
+        },
+        "address": "<div><p>R.Sivam Rajagopal​<br></p><div>Tingkat 6-7, Bangunan KWSP,</div><div>No. 3009, ​Off Leboh Tenggiri 2,</div><div>Bandar Seberang Jaya,</div><div>13700 Pulau Pinang.​</div></div>",
+        "tel": "<div>04-397 7793​</div>",
+        "fax": "<div>04-397 7713</div>",
+        "email": "sivam[at]ssm.com.my",
+        "mainTel": "04-397 7793",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.15 am - 4.15 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.15 pg - 4.15 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 10,
+        "name": "SABAH",
+        "nameMs": "SABAH",
+        "location" : {
+          "lat": "5.9738611",
+          "long": "116.0693611"
+        },
+        "address": "<div><p>Mohd Yasin @ Jafri Abd Malik</p><div>Tingkat 4, Menara MAA,</div><div>6 Lorong Api-Api,</div><div>Locked Bag 2039,</div><div>88999 Kota Kinabalu, Sabah.<br></div>​​\n   </div>",
+        "tel": "<div>088-233 551 / 233 346​</div>",
+        "fax": "<div>088-237 884</div>",
+        "email": "yasin[at]ssm.com.my",
+        "mainTel": "088-233 551",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.00 am - 4.00 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhimdmatan Kaunter &#58; 8.00 pg - 4.00 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 11,
+        "name": "SARAWAK",
+        "nameMs": "SARAWAK",
+        "location" : {
+          "lat": "1.551422",
+          "long": "110.38197"
+        },
+        "address": "<div>\n\nM.K Abdul Rahman bin Rosli\n<div>Lot 11115, Section 64</div></div><div>Kuching Town Land District</div><div>Jalan Pending, City Square Phase 1</div><div>93450 Kuching, Sarawak</div></div>",
+        "tel": "<div>082-266111 / 266112 / 266113 / 266114​</div>",
+        "fax": "<div>082-266115</div>",
+        "email": "arahman[at]ssm.com.my",
+        "mainTel": "082-266111",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.00 am - 4.00 pm</div><div>Break &#58; 1.00 pm - 2.00 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.00 pg - 4.00 ptg</div><div>Rehat &#58; 1.00 ptg - 2.00 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 12,
+        "name": "SELANGOR",
+        "nameMs": "SELANGOR",
+        "location" : {
+          "lat": "3.0749703",
+          "long": "101.5095245"
+        },
+        "address": "<div><p>Khairudin bin Rusli</p><p>Blok 9, 10 &amp; 11, Kompleks KPPMS,</p><p>Lot 291, Jalan RU 3/9A, Seksyen 3,</p><p>40000 Shah Alam, Selangor.​<br></p>​ </div></div>",
+        "tel": "<div>03-5511 6500 / 5513 5997​</div>",
+        "fax": "<div>03-5510 4200</div>",
+        "email": "krudin[at]ssm.com.my",
+        "mainTel": "03-5511 6500",
+        "operationHour": "<div>Day &#58; Monday – Friday<br></div><div>Service Counter &#58; 8.15 am - 4.15 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat<br></div><div>Perkhidmatan Kaunter &#58; 8.15 pg - 4.15 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 13,
+        "name": "TERENGGANU",
+        "nameMs": "TERENGGANU",
+        "location" : {
+          "lat": "5.325966",
+          "long": "103.141596"
+        },
+        "address": "<div><p>\n        Ab Razak bin Isa</p><div>Tingkat 6, Menara Yayasan Islam,</div><div>Jalan Sultan Omar,</div><div>20300 Kuala Terengganu, Terengganu.</div>​\n   </div>",
+        "tel": "<div>09-623 7170 / 624 0721​</div>",
+        "fax": "<div>09-623 0945</div>",
+        "email": "abrazak[at]ssm.com.my",
+        "mainTel": "09-623 7170",
+        "operationHour": "<div>Day &#58; Sunday – Thursday</div><div>Service Counter &#58;</div><div>8.15 am - 4.00 pm (Sunday - Wednesday)</div><div>8.15 am - 3.45 pm (Thursday)</div>",
+        "operationHourMs": "<div>Hari &#58; Ahad – Khamis</div><div>Perkhidmatan Kaunter &#58;</div><div>8.15 pg - 4.00 ptg (Ahad - Rabu)</div><div>8.15 pg - 3.45 ptg (Khamis)</div></div>",
+        "pic": ""
+      },
+      {
+        "id": 14,
+        "name": "MIRI",
+        "nameMs": "MIRI",
+        "location" : {
+          "lat": "4.393688",
+          "long": "113.987849"
+        },
+        "address": "<p>Misiah binti Ramli</p><p>D-G-03A &amp; D-G-05,</p><p>Miri Times Square</p><p>Marina ParkCity</p><p>98000 Miri, Sarawak</p>",
+        "tel": "<div>085-324400/ 325334​</div>",
+        "fax": "<div>085-324545</div>",
+        "email": "misiahr[at]ssm.com.my",
+        "mainTel": "085-324400",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.00 am - 4.00 pm</div><div>Day &#58; Monday – Thursday​</div><div>Break &#58; 1.00 pm - 2.00 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.00 pg - 4.00 ptg</div><div>Hari &#58; Isnin – Khamis</div><div>Rehat &#58; 1.00 ptg - 2.00 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 15,
+        "name": "MUAR",
+        "nameMs": "MUAR",
+        "location" : {
+          "lat": "2.0492343",
+          "long": "102.5714363"
+        },
+        "address": "<div><p>Norsilawati binti Bachek</p><div>No.1, Jalan Perdagangan,</div><div>Off Bulatan Jalan Bakri,</div><div>84000 Muar, J​ohor.</div></div>",
+        "tel": "<div>06-954 6611 / 954 7711</div>",
+        "fax": "<div>06-954 6600</div>",
+        "email": "norsilawati[at]ssm.com.my",
+        "mainTel": "06-954 6611",
+        "operationHour": "<div>Day &#58; Sunday – Thursday</div><div>Service Counter &#58; 8.1​5 am - 4.00 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Ahad – Khamis</div><div>Perkhidmatan Kaunter &#58; 8.1​5 pg - 4.00 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 16,
+        "name": "SIBU",
+        "nameMs": "SIBU",
+        "location" : {
+          "lat": "2.2902054",
+          "long": "111.8226652"
+        },
+        "address": "<div><p>Ronatkinson Nujol</p><div>No. 3 &amp; 5, Tingkat 1,</div><div>Jalan Lau King Howe,</div><div>Lot 776 &amp; 777, Block 5,</div><div>Sibu Town District,</div><div>96000, Sibu</div><div>Sarawak.</div></div>",
+        "tel": "<div>084-250 145​</div>",
+        "fax": "<div>084-250 147</div>",
+        "email": "ronatkinson[at]ssm.com.my",
+        "mainTel": "084-250 145",
+        "operationHour": "<div>Day &#58; Monday – Friday​</div><div>Service Counter &#58; 8.00 am - 4.00 pm</div><div>Day &#58; Monday – Thursday</div><div>Break &#58; 1.00 pm - 2.00 pm</div><div>Day &#58; Friday</div><div>Break &#58; 11.45 am - 2.15 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.00 pg - 4.00 ptg</div><div>Hari &#58; Isnin – Khamis</div><div>Rehat &#58; 1.00 ptg - 2.00 ptg</div><div>Hari &#58; Jumaat</div><div>Rehat &#58; 11.45 pg - 2.15 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 17,
+        "name": "TAWAU",
+        "nameMs": "TAWAU",
+        "location" : {
+          "lat": "4.2439167",
+          "long": "117.8933333"
+        },
+        "address": "<div><p>Dayang Doliana binti Abang Abdullah​​</p><div>TB 4444, GF &amp; 1st floor,</div><div>Blok F, Sabindo Square,</div><div>Jalan Dunlop,</div><div>91018 Tawau, Sabah.</div></div>",
+        "tel": "<div>089-750 585 / 752 585​</div>",
+        "fax": "<div>089-754 585</div>",
+        "email": "doliana[at]ssm.com.my",
+        "mainTel": "089-750 5851",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.00 am - 4.00 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhimdmatan Kaunter &#58; 8.00 pg - 4.00 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 18,
+        "name": "TEMERLOH",
+        "nameMs": "TEMERLOH",
+        "location" : {
+          "lat": "3.4495036",
+          "long": "102.4169411"
+        },
+        "address": "<div><p>Adnan bin Hj Omar</p><div>No. 15 &amp; 16,</div><div>Jalan Ahmad Shah,</div><div>28000 Temerloh, Pahang.</div>\n   ​\n   </div>",
+        "tel": "<div>09-296 4600 / 296 5600</div>",
+        "fax": "<div>09-296 0010</div>",
+        "email": "adnan[at]ssm.com.my",
+        "mainTel": "09-296 4600",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.15 am - 4.15 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.15 pg - 4.15 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 19,
+        "name": "PERLIS",
+        "nameMs": "PERLIS",
+        "location" : {
+          "lat": "6.4361667",
+          "long": "100.2013056"
+        },
+        "address": "<div><p>Ahmad Nizam bin Samsoo</p><div>Urban Transformation Centre (UTC) Perlis</div><div>No.1 Aras 1, Blok B,</div><div>Pusat Transformasi Bandar (UTC) Perlis,</div><div>Mukim Sena 01000 Kangar, Perlis</div>\n     ​\n   </div>",
+        "tel": "<div>04-970 5471 / 04-970 5472</div>",
+        "fax": "<div>04-970 5473</div>",
+        "email": "nizam[at]ssm.com.my",
+        "mainTel": "04-970 5471",
+        "operationHour": "<div>Day &#58; Monday – Friday (except Public Holiday)</div><div>8.00 am - 5.00 pm</div><div>Service Counter &#58;</div>​ \n   <div>8.00 am; - 4.00 pm</div><div>Break (Friday) &#58; 12.15 pm – 2.45 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat (kecuali Cuti Umum)</div><div>8.00 pg - 5.00 ptg</div><div>Perkhidmatan Kaunter &#58;</div>​ \n   <div>8.00 pg; - 4.00 ptg</div><div>Rehat (Jumaat) &#58; 12.15 tgh – 2.45 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 20,
+        "name": "WILAYAH PERSEKUTUAN LABUAN",
+        "nameMs": "WILAYAH PERSEKUTUAN LABUAN",
+        "location" : {
+          "lat": "5.275974",
+          "long": "115.249152"
+        },
+        "address": "<div>Raja Nor Mohd Shawal Raja Brahim</div><div>No. 6A1 &amp; 6A2, Tingkat 6</div><div>Block 4, Kompleks Ujana Kewangan</div><div>Jalan Merdeka</div><div>87000 Wilayah Persekutuan Labuan.</div>\n  ​\n</div>",
+        "tel": "<div>087-414 ​100</div>",
+        "fax": "<div>087-414 152</div>",
+        "email": "shawal[at]ssm.com.my",
+        "mainTel": "087-414 ​100",
+        "operationHour": "<div>Day &#58; Monday – Friday</div><div>Service Counter &#58; 8.00 am - 4.00 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat</div><div>Perkhidmatan Kaunter &#58; 8.00 pg - 4.00 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 21,
+        "name": "URBAN TRANSFORMATION CENTRE (UTC) KUALA LUMPUR",
+        "nameMs": "URBAN TRANSFORMATION CENTRE (UTC) KUALA LUMPUR",
+        "location" : {
+          "lat": "3.1456944",
+          "long": "101.7007778"
+        },
+        "address": "<div><p>Suruhanjaya Syarikat Malaysia</p><p>Ruang Legar, Tingkat Bawah,</p><p>Bangunan UTC Kuala Lumpur</p><div>Jalan Pudu (Pudu Sentral)</div><div>55100 Kuala Lumpur.<br></div>\n   ​\n   </div>",
+        "tel": "<div>03-2026 2041 / 03-2026 2042</div>",
+        "fax": "<div>03-2026 2036​</div>",
+        "email": "",
+        "mainTel": "03-2026 2041",
+        "operationHour": "<div>Day &#58; Monday – Sunday (except Public Holiday)</div><div>8.00 am - 5.00 pm</div><div>Service Counter &#58;</div><div>8.00 am - 4.00 pm</div><div>Break (Friday) &#58; 12.15 pm – 2.45 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin – Jumaat (kecuali Cuti Umum)</div><div>8.00 pg - 5.00 ptg</div><div>Perkhidmatan Kaunter &#58;</div><div>8.00 pg - 4.00 ptg</div><div>Rehat (Jumaat) &#58; 12.15 tgh – 2.45 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 22,
+        "name": "URBAN TRANSFORMATION CENTRE (UTC) MELAKA",
+        "nameMs": "URBAN TRANSFORMATION CENTRE (UTC) MELAKA",
+        "location" : {
+          "lat": "2.20425",
+          "long": "102.2464722"
+        },
+        "address": "<div><p>​</p><div>Aras 3, Wisma UTC</div><div>Jalan Hang Tuah</div><div>75300, Melaka​​<br></div>\n    ​\n   </div>",
+        "tel": "<div>06-283 0076</div>",
+        "fax": "",
+        "email": "",
+        "mainTel": "06-283 0076",
+        "operationHour": "<div>Day &#58; Sunday - Thursday</div><div>8.30 am - 1.00 pm</div><div>Break &#58; 1.00 pm – 2.00 pm</div><div><div>Day &#58; Friday(except Public Holiday /State Holiday)</div><div>Service Counter &#58;8.00 am – 4.15 pm</div><div><p>Break &#58; 12.15 pm - 2.45 pm</p></div>",
+        "operationHourMs": "<div>Hari &#58; Ahad - Khamis</div><div>8.30 pg - 1.00 ptg</div><div>Rehat &#58; 1.00 ptg – 2.00 ptg</div><div><div>Hari &#58; Jumaat(kecuali Cuti Umum /Negeri Melaka)</div><div>Perkhidmatan Kaunter &#58;8.00 pg – 4.15 ptg</div><div><p>Rehat &#58; 12.15 tgh - 2.45 ptg</p></div>",
+        "pic": ""
+      },
+      {
+        "id": 23,
+        "name": "LANGKAWI",
+        "nameMs": "LANGKAWI",
+        "location" : {
+          "lat": "6.3167741",
+          "long": "99.8512609"
+        },
+        "address": "<div>Pusat Perkhidmatan</div><div>Suruhanjaya Syarikat Malaysia Langkawi</div><div>No 56, Tingkat 1</div><div>Kompleks Pekan Rabu</div><div>07000 Langkawi, Kedah.</div>​​<br></div>",
+        "tel": "<div>04-966 7943</div>",
+        "fax": "<div>04-966 5318</div>",
+        "email": "zahidah[at]ssm.com.my",
+        "mainTel": "04-966 7943",
+        "operationHour": "<div>Service Counter &#58;</div><div>Day &#58; Wednesday</div><div>10.00 am – 4.00 pm</div><div>Break &#58; 1.00 pm – 2.00 pm</div><div>Day &#58; Thursday</div><div>8.15 am – 3.45 pm</div><div>Break &#58; 1.00 pm – 2.00 pm</div>",
+        "operationHourMs": "<div>Perkhidmatan Kaunter &#58;</div><div>Hari &#58; Rabu</div><div>10.00 pg – 4.00 ptg</div><div>Rehat &#58; 1.00 ptg – 2.00 ptg</div><div>Hari &#58; Khamis</div><div>8.15 pg – 3.45 ptg</div><div>Rehat &#58; 1.00 ptg – 2.00 ptg</div>",
+        "pic": ""
+      },
+      {
+        "id": 24,
+        "name": "PUTRAJAYA",
+        "nameMs": "PUTRAJAYA",
+        "location" : {
+          "lat": "2.920495",
+          "long": "101.687464"
+        },
+        "address": "<div>Kaunter Khidmat Pengguna,<br></div><div>Aras G,</div><div>Kementerian Perdagangan Dalam Negeri</div><div>Dan Hal Ehwal Pengguna (KPDNHEP),</div><div>No. 13, Persiaran Perdana,</div><div>Presint 2, Pusat Pentadbiran Kerajaan Persekutuan,</div><div>62623 Putrajaya,</div><div>Wilayah Persekutuan Putrajaya.​<br></div>",
+        "tel": "<div>03 - 2299 4400</div>",
+        "fax": "<div>03 - 2299 4411</div>",
+        "email": "enquiry@ssm.com.my",
+        "mainTel": "03 - 2299 4400",
+        "operationHour": "<div>Day &#58; Monday - Thursday \n      <div>Office &#58; 8.15 am - 5.15 pm</div><div>Service Counter &#58;8.15 am – 4.15 pm</div><div>Day &#58; Friday</div><div>Office&#58; 8.15 am - 5.15 pm​​</div><div>Service Counter &#58;8.15 am – 4.15 pm</div><div>Break &#58; 11.45 am – 2.45 pm</div>",
+        "operationHourMs": "<div>Hari &#58; Isnin - Khamis \n      <div>Pejabat &#58; 8.15 pg - 5.15 ptg</div><div>Perkhidmatan Kaunter &#58;8.15 pg – 4.15 ptg</div><div>Hari &#58; Jumaat</div><div>Pekabat&#58; 8.15 pg - 5.15 ptg</div><div>Perkhidmatan Kaunter &#58;8.15 pg – 4.15 ptg</div><div>Rehat &#58; 11.45 pg – 2.45 ptg</div>",
+        "pic": ""
+      }
+    ]
+  }
+}
+
