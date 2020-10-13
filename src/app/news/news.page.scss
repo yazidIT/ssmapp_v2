@@ -106,3 +106,8 @@ ion-content {
       height: 100%;
   }
 }
+
+ion-content {
+  --overflow: visible;
+  --background: white;
+}

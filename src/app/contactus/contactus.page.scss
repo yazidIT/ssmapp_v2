@@ -1,6 +1,16 @@
 ion-content {
     --overflow: visible;
+    // --background: white;
 }
+
+ion-select.overflow {
+    width: 100%;
+    direction: ltr;
+    position: inherit;
+    padding-left: 0px;
+    --overflow: hidden;
+}
+
 ion-col {
     // border-bottom: 1px solid #aeb7ca;
     padding: 0px;
@@ -31,6 +41,6 @@ ion-row.top-border {
     border-top: 1px solid lightgray;
     border-left: 0px;
     border-right: 0px;
-    border-bottom: 0px;
+    border-bottom: 10px;
     padding-top: 10px;
 }

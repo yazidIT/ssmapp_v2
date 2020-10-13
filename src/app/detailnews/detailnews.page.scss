@@ -35,3 +35,8 @@ tr:nth-child(even){background-color: #f2f2f2}
     font-size: 14px;
     font-weight: bold;
 }
+
+ion-content {
+    --overflow: visible;
+    --background: white;
+}

@@ -30,3 +30,8 @@ ion-row.top-border {
     border-right: 0px;
     border-bottom: 0px;
 }
+
+ion-content {
+    --overflow: visible;
+    --background: white;
+}

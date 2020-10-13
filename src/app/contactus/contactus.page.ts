@@ -79,6 +79,10 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
+  openLink(link) {
+    this.inAppBrowser.create(link, '_system')
+  }
+
   readData(){
     fetch('./assets/contact.json').then(res => res.json())
       .then(json => {
@@ -90,12 +94,29 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
 
         this.selectedOption = this.officeData.data.offices[0]
         this.loadMap()
-        this.changeMarker()
+        // this.changeMarker()
       });
   }
 
-  openLink(link) {
-    this.inAppBrowser.create(link, '_system')
+  loadMap() {
+    // this.latLng = new LatLng(Number(this.selectedOption.location.lat),
+    //                         Number(this.selectedOption.location.long))
+
+    let mapOptions: GoogleMapOptions = {
+      camera: {
+          // target: this.latLng,
+          zoom: 18,
+          tilt: 30
+        },
+      streetViewControl: false,
+      mapType: MapTypeId.ROADMAP
+    };
+
+    this.map = GoogleMaps.create('map', mapOptions);
+
+    this.map.one(GoogleMapsEvent.MAP_READY).then((data: any) => {
+      this.changeMarker()
+		});
   }
 
   officeLocationSelect() {
@@ -104,6 +125,10 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   changeMarker() {
+
+    this.latLng = new LatLng(Number(this.selectedOption.location.lat),
+                              Number(this.selectedOption.location.long))
+
     this.myHtmlAddr = this.selectedOption.address
 
     var currLang = this.translate.currentLang
@@ -115,39 +140,7 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     this.myHtmlTel = this.selectedOption.tel
     this.myHtmlFax = this.selectedOption.fax
 
-    this.latLng = new LatLng(Number(this.selectedOption.location.lat),
-                            Number(this.selectedOption.location.long))
-
     this.goToOfficeLocation()
-  }
-
-  loadMap() {
-    this.latLng = new LatLng(Number(this.selectedOption.location.lat),
-                            Number(this.selectedOption.location.long))
-
-    let mapOptions: GoogleMapOptions = {
-      camera: {
-          target: this.latLng,
-          zoom: 18,
-          tilt: 30
-        },
-      streetViewControl: false,
-      mapType: MapTypeId.ROADMAP
-    };
-    this.map = GoogleMaps.create('map', mapOptions);
-  }
-
-  goToLocation() {
-    this.inAppBrowser.create('https://maps.google.com?q='+this.selectedOption.location.lat + "," + this.selectedOption.location.long,
-                              '_system','location=yes')
-  }
-  
-  call() {
-    this.inAppBrowser.create('tel:' + this.selectedOption.mainTel.replace(/\s/g,''),'_system')
-  }
-
-  email() {
-    this.inAppBrowser.create('mailto:' + this.selectedOption.email.replace('[at]','@'),'_system','location=yes')
   }
 
   goToOfficeLocation() {
@@ -177,4 +170,18 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     });
 
   }
+
+  goToLocation() {
+    this.inAppBrowser.create('https://maps.google.com?q='+this.selectedOption.location.lat + "," + this.selectedOption.location.long,
+                              '_system','location=yes')
+  }
+  
+  call() {
+    this.inAppBrowser.create('tel:' + this.selectedOption.mainTel.replace(/\s/g,''),'_system')
+  }
+
+  email() {
+    this.inAppBrowser.create('mailto:' + this.selectedOption.email.replace('[at]','@'),'_system','location=yes')
+  }
+
 }

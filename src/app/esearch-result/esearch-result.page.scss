@@ -23,3 +23,8 @@ ion-row.no-bottom-border {
 ion-row.all-border {
     border: 1px solid lightgray;
 }
+
+ion-content {
+    --overflow: visible;
+    --background: white;
+}

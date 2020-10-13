@@ -28,3 +28,8 @@ ion-select.overflow {
     padding-left: 0px;
     --overflow: hidden;
 }
+
+ion-content {
+    --overflow: visible;
+    --background: white;
+}

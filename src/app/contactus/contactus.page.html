@@ -9,11 +9,10 @@
 
 <ion-content>
 
-  <div class="bgtukar" style="height: 100%; padding: 0px;">
+  <div id="map" data-tap-disabled="true" style="height: 240px"></div>
 
-    <div id="map" class="list" data-tap-disabled="true" style="height: 240px"></div>
+  <div class="bgtukar" style="height: 100%; padding: 0px;">
     <br>
-    
     <div style="text-align:center;">
       <font size="4px" color="#2E2F83"><strong>{{'SSMOFFICES'|translate}}</strong></font>
     </div>
@@ -55,8 +54,8 @@
           </div>
         </ion-col>
       </ion-row>
+      <br>
 
-      <p><p>
       <ion-row class="top-border">
         <div class="item info-item">
           <div class="info-title">SSM {{selectedOption.placeHolderName}} - {{'OPERATIONHOUR'|translate}}</div>
@@ -65,8 +64,8 @@
           </div>
         </div>
       </ion-row>
+      <br>
 
-      <p><p>
       <ion-row class="top-border">
         <div class="info-title">SSM {{selectedOption.placeHolderName}} - {{'CONTACT'|translate}}</div>
       </ion-row>
@@ -85,8 +84,8 @@
           </div>
         </ion-col>
       </ion-row>
+      <br>
 
-      <p><p>
       <ion-row class="top-border">
         <div class="info-title">SSM {{selectedOption.placeHolderName}} - {{'EMAIL'|translate}}</div>
       </ion-row>
@@ -104,8 +103,8 @@
           </div>
         </ion-col>
       </ion-row>
-
-      <p><p>
+      <br>
+      
       <ion-row class="top-border">
         <div class="social-title info-title">{{'OURSOCIAL'|translate}}</div>
       </ion-row>
@@ -120,8 +119,11 @@
         <ion-img class="soscial-link avatar relative" (click)="openLink('http://www.youtube.com/user/ssmofficialpage')"
           src="../../assets/images/youtube.png"></ion-img>
       </ion-row>
+
+      <p>
+      <ion-row>
+      </ion-row>
     </ion-grid>
-    <br><br>
   </div>
 </ion-content>
 <app-ssmfooter></app-ssmfooter>
