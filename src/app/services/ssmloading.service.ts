@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SsmloadingService {
 
-  constructor(private loadingController: LoadingController) { }
+  constructor(private loadingController: LoadingController, private translate: TranslateService) { }
 
   async showHideAutoLoader() {
 
@@ -23,8 +24,9 @@ export class SsmloadingService {
   // Show the loader for infinite time
   async showLoader() {
 
+    let searchingText: string = this.translate.instant('SEARCHING');
     const res = await this.loadingController.create({
-      message: 'Searching ...'
+      message: searchingText
     });
     res.present();
 

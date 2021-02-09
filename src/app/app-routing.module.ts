@@ -63,6 +63,14 @@ const routes: Routes = [
   {
     path: 'biztrust-scan',
     loadChildren: () => import('./biztrust-scan/biztrust-scan.module').then( m => m.BiztrustScanPageModule)
+  },
+  {
+    path: 'biztrust-result',
+    loadChildren: () => import('./biztrust-result/biztrust-result.module').then( m => m.BiztrustResultPageModule)
+  },
+  {
+    path: 'biztrust-error',
+    loadChildren: () => import('./biztrust-error/biztrust-error.module').then( m => m.BiztrustErrorPageModule)
   }
 ];
 

@@ -62,4 +62,15 @@ export class SsmQueryService {
       return this.http.get(urlEndpoint, {}, {})
     })
   }
+
+  async bizTrustQuery(urlEndpoint:string) {
+
+    var authHeader: any
+    return this.regDevServ.getDevToken().then(token => {
+      authHeader = 'Bearer' + ' ' + token;
+      let headers = { Authorization : authHeader }
+
+      return this.http.post(urlEndpoint, {}, headers)
+    })
+  }
 }
