@@ -44,6 +44,11 @@ export class AppComponent {
       icon: 'list'
     },
     {
+      title: 'SSMBizTrust',
+      url: '/biztrust',
+      icon: 'list'
+    },
+    {
       title: 'MENU_02',
       url: '/contact_us',
       icon: 'list'

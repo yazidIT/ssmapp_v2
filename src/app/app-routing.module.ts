@@ -55,6 +55,10 @@ const routes: Routes = [
   {
     path: 'equery-result',
     loadChildren: () => import('./equery-result/equery-result.module').then( m => m.EqueryResultPageModule)
+  },
+  {
+    path: 'biztrust',
+    loadChildren: () => import('./biztrust/biztrust.module').then( m => m.BiztrustPageModule)
   }
 ];
 
