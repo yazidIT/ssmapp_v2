@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar class="bar-class">
+    <ion-buttons slot="start">
+      <ion-menu-button class="bar-class" style="border-radius:5px;"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title-class">{{'MENU_09'|translate }}</ion-title>
+    <ion-buttons slot="end">
+      <button style="background: #F9EC00; color: black" (click)="goBack()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="bgtukar" style="height: 100%; padding-left: 20px; padding-right: 20px;">
+
+    <div style="padding-top: 20px; padding-bottom: 0px; margin-top: 10px;">
+      <p><div translate="WELCOMEUSER" style="text-align: center;">Welcome User</div>
+    </div>
+
+  <ion-grid>
+
+    <ion-row (click)="scanQRCode()">
+    <ion-col>
+      <div class="horizontal-center">
+      <ion-img src="assets/images/qrcodessm.jpg" style="height: 70%; width: 70%; object-fit: contain;"></ion-img>
+      </div>
+    </ion-col>
+    </ion-row>
+
+    <ion-row (click)="scanQRCode()">
+    <ion-col>
+      <div class="ion-text-center">
+        <ion-button class="findbutton"><strong>{{'TAPSCREENTOSCAN'|translate}}</strong></ion-button>
+      </div>
+    </ion-col>
+    </ion-row>
+
+    <ion-row>
+    <ion-col>
+      <div class="horizontal-center">
+      <ion-img src="assets/images/step1_step2_step3.png" style="height: 70%; width: 70%; object-fit: contain;"></ion-img>
+      </div>
+    </ion-col>
+    </ion-row>
+
+    <ion-row>
+    <ion-col>
+      <div class="horizontal-center">
+      <ion-img src="assets/images/logo_ssm_v3.png" style="height: 30%; width: 30%; object-fit: contain;"></ion-img>
+      </div>
+    </ion-col>
+    </ion-row>
+
+    <ion-row>
+    <ion-col>
+      <div class="ion-text-center">
+        <ion-button class="userguide" (click)="goTo()"><strong>{{'USERGUIDE'|translate}}</strong></ion-button>
+      </div>
+    </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</div>
+</ion-content>
+<app-ssmfooter></app-ssmfooter>

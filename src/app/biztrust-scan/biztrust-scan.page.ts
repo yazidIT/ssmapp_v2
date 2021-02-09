@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-biztrust',
-  templateUrl: './biztrust.page.html',
-  styleUrls: ['./biztrust.page.scss'],
+  selector: 'app-biztrust-scan',
+  templateUrl: './biztrust-scan.page.html',
+  styleUrls: ['./biztrust-scan.page.scss'],
 })
-export class BiztrustPage implements OnInit {
+export class BiztrustScanPage implements OnInit {
 
   constructor(private navCtrl: NavController) { }
 
@@ -19,5 +19,9 @@ export class BiztrustPage implements OnInit {
 
   goTo(page) {
     this.navCtrl.navigateForward(page);
+  }
+
+  scanQRCode() {
+    console.log("Scanning ....")
   }
 }
