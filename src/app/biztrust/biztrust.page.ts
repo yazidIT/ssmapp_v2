@@ -14,7 +14,7 @@ export class BiztrustPage implements OnInit {
   }
 
   goBack() {
-    this.navCtrl.navigateBack('/home');
+    this.navCtrl.back();
   }
 
   goTo(page) {
