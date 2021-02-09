@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-biztrust-scan',
@@ -8,7 +9,7 @@ import { NavController } from '@ionic/angular';
 })
 export class BiztrustScanPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(private navCtrl: NavController, private barcodeScanner: BarcodeScanner) { }
 
   ngOnInit() {
   }
@@ -23,5 +24,10 @@ export class BiztrustScanPage implements OnInit {
 
   scanQRCode() {
     console.log("Scanning ....")
+    this.barcodeScanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+     }).catch(err => {
+         console.log('Error', err);
+     });
   }
 }

@@ -19,6 +19,7 @@ import { TranslateConfigService } from './services/translate-config.service';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 export function LanguageLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -49,6 +50,7 @@ export function LanguageLoader(http: HttpClient) {
     Device,
     HTTP,
     InAppBrowser,
+    BarcodeScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
