@@ -26,6 +26,7 @@ export class SsmloadingService {
 
     let searchingText: string = this.translate.instant('SEARCHING');
     const res = await this.loadingController.create({
+      spinner: 'circles',
       message: searchingText
     });
     res.present();

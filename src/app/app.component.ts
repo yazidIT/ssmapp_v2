@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { RegisterDeviceService } from './services/registerdevice.service';
 import { TranslateConfigService } from './services/translate-config.service';
+import { Location } from "@angular/common"
+import { AlertPromptComponent } from './components/alert-prompt/alert-prompt.component';
 
 @Component({
   selector: 'app-root',

@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { BiztrustErrorPageRoutingModule } from './biztrust-error-routing.module';
 
 import { BiztrustErrorPage } from './biztrust-error.page';
+import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BiztrustErrorPageRoutingModule
+    ComponentmoduleModule,
+    BiztrustErrorPageRoutingModule,
+    TranslateModule
   ],
   declarations: [BiztrustErrorPage]
 })

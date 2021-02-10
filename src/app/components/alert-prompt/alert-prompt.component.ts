@@ -33,7 +33,7 @@ export class AlertPromptComponent implements OnInit {
       message: msg,
       buttons: [{
         text: 'OK',
-        cssClass: 'title-class',
+        cssClass: 'buton-ok',
         handler: () => {
           if(goBack)
             this.navCtrl.back()
@@ -73,11 +73,12 @@ export class AlertPromptComponent implements OnInit {
   async presentAlertConfirmExitApp() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: "SSMApp",
-      message: "Exit SSMApp?",
+      header: "MySSM",
+      message: "Exit MySSM App?",
       buttons: [
         {
           text: 'OK',
+          cssClass: 'button-ok',
           handler: () => {
             navigator['app'].exitApp();
           }

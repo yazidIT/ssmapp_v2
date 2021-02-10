@@ -1,0 +1,39 @@
+ion-row {
+    border-bottom: 1px solid #aeb7ca;
+    padding: 5px;
+}
+
+ion-row.no-border {
+    border-bottom: 0px;
+}
+
+ion-col.no-border {
+    border-bottom: 0px;
+}
+
+ion-button.findbutton {
+    --background: #2E2F83;
+    --color: #F9EC00;
+    --border-color: #2E2F83;
+}
+
+ion-content {
+    --overflow: visible;
+}
+
+ion-select.overflow {
+    width: 100%;
+    direction: ltr;
+    position: inherit;
+    padding-left: 0px;
+    --overflow: hidden;
+}
+
+.page-background-image {
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("/assets/images/logo_biztrust.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
