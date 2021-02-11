@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar class="bar-class">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <img src="assets/images/icon_qr.png" style="height: 32px; width: 32px;"/>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div class="page-background-image" style="padding-left: 20px; padding-right: 20px;">
+
+  <ion-card style="padding-top:20px; padding-bottom:20px;
+                      margin-left:20px; margin-right:20px; margin-top: 40px;
+                      border-radius: 15px; background: rgba(255, 255, 255, 0.7)">
+    <ion-card-content>
+    <ion-grid>
+
+      <ion-row>
+        <div style="margin-top: 20px;">
+        <ion-img src="assets/images/error_no_connection.png" style="height: 100%; width: 100%; object-fit: contain;"></ion-img>
+        </div>
+      </ion-row>
+
+      <ion-row justify-content-center>
+        <div style="font-size: 18px; color: #2E2F83; font-weight: bold;" translate="WHOOPS">Whoops!</div>
+      </ion-row>
+
+      <ion-row justify-content-center>
+        <div style="font-size: 18px; color: black; font-weight: bold;" translate="CONNECTIONLOST">Connection Lost!</div>
+      </ion-row>
+
+      <ion-row justify-content-center text-center>
+        <div style="font-size: 18px; color: black;" translate="CHECKCONNECTION">Check your internet connection and try again</div>
+      </ion-row>
+
+    </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <div style="font-size:13px; text-align: left; margin-left: 20px;">
+    <label>{{'ASAT'|translate}}: {{todayDate}}</label><br>
+    <label>{{'GST_ASAT'|translate}}: {{asAtDate}}</label><br>
+  </div>
+
+</div>
+</ion-content>
+<app-ssmfooter></app-ssmfooter>

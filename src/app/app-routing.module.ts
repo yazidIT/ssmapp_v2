@@ -71,6 +71,14 @@ const routes: Routes = [
   {
     path: 'biztrust-error',
     loadChildren: () => import('./biztrust-error/biztrust-error.module').then( m => m.BiztrustErrorPageModule)
+  },
+  {
+    path: 'biztrust-connection-error',
+    loadChildren: () => import('./biztrust-connection-error/biztrust-connection-error.module').then( m => m.BiztrustConnectionErrorPageModule)
+  },
+  {
+    path: 'biztrust-user-guide',
+    loadChildren: () => import('./biztrust-user-guide/biztrust-user-guide.module').then( m => m.BiztrustUserGuidePageModule)
   }
 ];
 

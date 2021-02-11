@@ -20,12 +20,17 @@ export class EsearchResultPage implements OnInit {
 
   llpResult: IESearchLLP
   llpReg: boolean = false
+
+  todayDate: string
   
   constructor(private storage: NativeStorage,
               private utilServ: UtilsService,
               private translate: TranslateService) { }
 
   ngOnInit() {
+
+    let currentDate = new Date();
+    this.todayDate = currentDate.toLocaleDateString('en-MY')
 
     this.companyResult = {
       companyNo:"",

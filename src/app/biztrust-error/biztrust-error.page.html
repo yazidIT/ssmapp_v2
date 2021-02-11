@@ -13,53 +13,60 @@
 <ion-content>
 <div class="page-background-image" style="padding-left: 20px; padding-right: 20px;">
 
-    <div style="padding-top: 20px; padding-bottom: 0px; margin-top: 10px;">
-      <p><div translate="WELCOMEUSER" style="text-align: center;">Welcome User</div>
-    </div>
+  <ion-card style="padding-top:20px; padding-bottom:20px;
+                      margin-left:20px; margin-right:20px; margin-top: 40px;
+                      border-radius: 15px; background: rgba(255, 255, 255, 0.7)">
+    <ion-card-content>
+    <ion-grid>
 
-  <ion-grid>
+      <div [hidden]=hideNoInfo>
+        <ion-row>
+          <div style="margin-top: 20px;">
+          <ion-img src="assets/images/error_no_info.png" style="height: 100%; width: 100%; object-fit: contain;"></ion-img>
+          </div>
+        </ion-row>
 
-    <ion-row (click)="scanQRCode()">
-    <ion-col>
-      <div class="horizontal-center">
-      <ion-img src="assets/images/qrcodessm.jpg" style="height: 70%; width: 70%; object-fit: contain;"></ion-img>
+        <ion-row justify-content-center>
+          <div style="font-size: 18px; color: #2E2F83; font-weight: bold;" translate="WHOOPS">Whoops!</div>
+        </ion-row>
+
+        <ion-row justify-content-center text-center>
+          <div style="font-size: 18px; color: black; font-weight: bold;" translate="INFORMATIONNOTFOUND">Information Not Found</div>
+        </ion-row>
+
+        <ion-row justify-content-center text-center>
+          <div style="font-size: 18px; color: black;" translate="PLEASECONTACTENQUIRY">Please contact enquiry@ssm.com.my for further clarification.</div>
+        </ion-row>
       </div>
-    </ion-col>
-    </ion-row>
 
-    <ion-row (click)="scanQRCode()">
-    <ion-col>
-      <div class="ion-text-center">
-        <ion-button class="findbutton"><strong>{{'TAPSCREENTOSCAN'|translate}}</strong></ion-button>
+      <div [hidden]=hideInvalidCode>
+        <ion-row>
+          <div style="margin-top: 20px;">
+          <ion-img src="assets/images/error_invalid_code.png" style="height: 100%; width: 100%; object-fit: contain;"></ion-img>
+          </div>
+        </ion-row>
+
+        <ion-row justify-content-center>
+          <div style="font-size: 18px; color: #2E2F83; font-weight: bold;" translate="WHOOPS">Whoops!</div>
+        </ion-row>
+
+        <ion-row justify-content-center text-center>
+          <div style="font-size: 18px; color: black; font-weight: bold;" translate="INVALIDQRCODE">Invalid SSM BizTrust QR Code</div>
+        </ion-row>
+
+        <ion-row justify-content-center text-center>
+          <div style="font-size: 18px; color: black;" translate="PLEASESCANAGAIN">Please scan QR Code again.</div>
+        </ion-row>
       </div>
-    </ion-col>
-    </ion-row>
 
-    <ion-row>
-    <ion-col>
-      <div class="horizontal-center">
-      <ion-img src="assets/images/three_steps.png" style="height: 70%; width: 70%; object-fit: contain;"></ion-img>
-      </div>
-    </ion-col>
-    </ion-row>
+    </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <div style="font-size:13px; text-align: left; margin-left: 20px;">
+    <label>{{'ASAT'|translate}}: {{todayDate}}</label><br>
+    <label>{{'GST_ASAT'|translate}}: {{asAtDate}}</label><br>
+  </div>
 
-    <ion-row>
-    <ion-col>
-      <div class="horizontal-center">
-      <ion-img src="assets/images/logo_ssm_v3.png" style="height: 30%; width: 30%; object-fit: contain;"></ion-img>
-      </div>
-    </ion-col>
-    </ion-row>
-
-    <ion-row>
-    <ion-col>
-      <div class="ion-text-center">
-        <ion-button class="userguide" (click)="goTo()"><strong>{{'USERGUIDE'|translate}}</strong></ion-button>
-      </div>
-    </ion-col>
-    </ion-row>
-
-  </ion-grid>
 </div>
 </ion-content>
 <app-ssmfooter></app-ssmfooter>
