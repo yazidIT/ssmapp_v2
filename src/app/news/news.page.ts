@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, AfterViewInit} from '@angular/core';
 import { Location } from '@angular/common';
-import { Platform } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { NewsService } from '../services/news.service';
 import { INewsResultData } from '../models/inewsresult';
 
@@ -18,6 +18,7 @@ export class NewsPage implements OnInit, OnDestroy, AfterViewInit{
   
   constructor(private newsServ: NewsService,
               private platform: Platform,
+              private navCtrl: NavController,
               private location: Location) {
     
     this.newsData = {
@@ -40,7 +41,7 @@ export class NewsPage implements OnInit, OnDestroy, AfterViewInit{
 
   ngAfterViewInit(): void {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      this.location.back()
+      this.navCtrl.navigateBack('home')
     });
   }
 

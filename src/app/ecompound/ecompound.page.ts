@@ -59,7 +59,7 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
   
   ngAfterViewInit(): void {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      this.location.back()
+      this.navCtrl.navigateBack('home')
     });
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { Location } from '@angular/common';
-import { Platform } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import {
   GoogleMaps, GoogleMap,
   GoogleMapsEvent, Marker,
@@ -36,6 +36,7 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
   constructor(private inAppBrowser: InAppBrowser,
               private platform: Platform,
               private location: Location,
+              private navCtrl: NavController,
               private translate: TranslateService) {}
 
   ngOnInit() {
@@ -75,7 +76,7 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
   
   ngAfterViewInit(): void {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      this.location.back()
+      this.navCtrl.navigateBack('home')
     });
   }
 
