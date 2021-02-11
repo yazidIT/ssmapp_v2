@@ -19,6 +19,7 @@ ion-button.findbutton {
 
 ion-content {
     --overflow: visible;
+    --background: white;
 }
 
 ion-select.overflow {
@@ -28,11 +29,6 @@ ion-select.overflow {
     padding-left: 0px;
     --overflow: hidden;
 }
-
-// ion-content {
-//     --overflow: visible;
-//     --background: white;
-// }
 
 .page-background-image {
     background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("/assets/images/logo_biztrust.png");
