@@ -1,9 +1,64 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>biztrustResult</ion-title>
+  <ion-toolbar class="bar-class">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <img src="assets/images/icon_qr.png" style="height: 32px; width: 32px;"/>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<div class="page-background-image" style="padding-left: 20px; padding-right: 20px;">
 
+  <ion-card style="padding-top:20px; padding-bottom:20px;
+                      margin-left:20px; margin-right:20px; margin-top: 40px;
+                      border-radius: 15px; background: rgba(255, 255, 255, 0.7)">
+    <ion-card-content>
+    <ion-grid>
+
+      <ion-row class="ion-justify-content-center ion-text-center">
+        <div style="font-size: 18px; color: #2E2F83; font-weight: bold;" translate="GREAT">Great!</div>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <div class="biztrust-title" translate="CORPORATEINFO">CORPORATE INFORMATION</div>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-item class="item item-trns" style="margin: auto;">
+
+          <div class="biztrust-item" translate="BTREGNUMBER">Registration Number</div>
+          <div class="biztrust-item2">{{responseData.entityNoNew}} ({{responseData.entityNo}}-{{responseData.checkDigit}})</div>
+
+          <div class="biztrust-item" translate="NAME">Name</div>
+          <div class="biztrust-item2">{{responseData.entityName}}</div>
+
+          <div class="biztrust-item">Status</div>
+          <div class="biztrust-item2">{{responseData.statusDescription}}</div>
+
+          <div class="biztrust-item" translate="URLLINKS">URL Links</div>
+          <div class="biztrust-item3">(i) {{responseData.mainUrl}}</div>
+          <div class="biztrust-item3" ng-if="responseData.addUrl.length > 0">(ii) {{responseData.addUrl[0]}}</div>
+          <div class="biztrust-item3" ng-if="responseData.addUrl.length > 1">(iii) {{responseData.addUrl[1]}}</div>
+          <br>
+          <div class="biztrust-item4" ng-if="responseData.addUrl.length > 2" ng-click="seeMoreUrl()">See More <i class="icon ion-chevron-down"></i> </div>
+          <div ng-hide="!seeMore" class="biztrust-item3" ng-if="responseData.addUrl.length > 2">(iv) {{responseData.addUrl[2]}}</div>
+          <div ng-hide="!seeMore" class="biztrust-item3" ng-if="responseData.addUrl.length > 3">(v) {{responseData.addUrl[3]}}</div>
+
+        </ion-item>
+      </ion-row>
+
+    </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <div style="font-size:13px; text-align: left; margin-left: 20px;">
+    <label>{{'ASAT'|translate}}: {{todayDate}}</label><br>
+    <label>{{'GST_ASAT'|translate}}: {{asAtDate}}</label><br>
+  </div>
+
+</div>
 </ion-content>
+<app-ssmfooter></app-ssmfooter>

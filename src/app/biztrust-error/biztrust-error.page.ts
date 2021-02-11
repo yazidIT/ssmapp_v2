@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-biztrust-error',
@@ -11,12 +12,16 @@ export class BiztrustErrorPage implements OnInit {
   hideNoInfo: boolean
   hideInvalidCode: boolean
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
     let currentDate = new Date();
     this.todayDate = currentDate.toLocaleDateString('en-MY')
     this.hideNoInfo = true
     this.hideInvalidCode = false
+  }
+
+  goTo(page) {
+    this.navCtrl.navigateForward(page);
   }
 }

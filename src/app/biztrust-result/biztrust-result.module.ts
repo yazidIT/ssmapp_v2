@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { BiztrustResultPageRoutingModule } from './biztrust-result-routing.module';
 
 import { BiztrustResultPage } from './biztrust-result.page';
+import { TranslateModule } from '@ngx-translate/core';
+import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BiztrustResultPageRoutingModule
+    ComponentmoduleModule,
+    BiztrustResultPageRoutingModule,
+    TranslateModule
   ],
   declarations: [BiztrustResultPage]
 })
