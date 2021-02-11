@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-biztrust-connection-error',
@@ -9,10 +10,14 @@ export class BiztrustConnectionErrorPage implements OnInit {
 
   todayDate: string
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
     let currentDate = new Date();
     this.todayDate = currentDate.toLocaleDateString('en-MY')
+  }
+
+  goTo(page) {
+    this.navCtrl.navigateForward(page);
   }
 }

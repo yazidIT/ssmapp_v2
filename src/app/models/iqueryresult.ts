@@ -90,3 +90,19 @@ export interface IQueryDocument {
     rejectDate: string
     status: string
 }
+
+export interface IBizTrustData {
+    errorMsg: string
+    successCode: string
+    entityNo: string
+    checkDigit: string
+    entityNoNew: string
+    entityName: string
+    statusCode: string
+    statusDescription: string
+    url: string
+    mainUrl: string
+    addUrl: Array<string>
+    version: number
+    entityType: string
+}

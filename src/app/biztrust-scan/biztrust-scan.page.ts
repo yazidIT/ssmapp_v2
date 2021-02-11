@@ -32,7 +32,7 @@ export class BiztrustScanPage implements OnInit, OnDestroy, AfterViewInit {
   
   ngAfterViewInit(): void {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      this.location.back()
+      this.navCtrl.navigateBack('biztrust')
     });
   }
 
@@ -40,7 +40,7 @@ export class BiztrustScanPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   goBack() {
-    this.navCtrl.back();
+    this.navCtrl.navigateBack('biztrust')
   }
 
   goTo(page) {
@@ -82,7 +82,7 @@ export class BiztrustScanPage implements OnInit, OnDestroy, AfterViewInit {
           return;
         }
   
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(this.bizTrustQueryRespondData.data)).then(() => {
+        this.ssmQueryServ.saveQueryResult(JSON.stringify(this.bizTrustQueryRespondData.response)).then(() => {
           console.log("query result saved!")
           this.navCtrl.navigateForward('/biztrust-result')
         })

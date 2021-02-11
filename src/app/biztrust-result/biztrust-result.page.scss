@@ -19,6 +19,7 @@ ion-button.findbutton {
 
 ion-content {
     --overflow: visible;
+    height: auto
 }
 
 ion-select.overflow {
@@ -43,5 +44,28 @@ ion-select.overflow {
     font-size: 15px;
     font-weight: bold;
     margin-top: 20px;
-    text-align: center;
+  }
+
+  .biztrust-item{
+    color: #2E2F83;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  .biztrust-item2{
+    color: black;
+    font-size: 14px;
+  }
+  
+  .biztrust-item3{
+    color: #2E2F83;
+    font-size: 14px;
+    text-align: left;
+    margin-left: 20px;
+  }
+  
+  .biztrust-item4{
+    color: rgb(219, 24, 24);
+    font-size: 14px;
   }
