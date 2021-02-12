@@ -34,6 +34,9 @@ export class BiztrustPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   goTo(page) {
-    this.navCtrl.navigateForward(page);
+    if(page === 'home')
+      this.navCtrl.navigateRoot(page)
+    else
+      this.navCtrl.navigateForward(page)
   }
 }

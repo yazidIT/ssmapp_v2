@@ -13,9 +13,8 @@ const apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
   templateUrl: './biztrust-scan.page.html',
   styleUrls: ['./biztrust-scan.page.scss'],
 })
-export class BiztrustScanPage implements OnInit, OnDestroy, AfterViewInit {
+export class BiztrustScanPage implements OnInit {
 
-  backButtonSubscription; 
   alertPrompt : AlertPromptComponent
 
   bizTrustQueryRespondData: any
@@ -31,16 +30,6 @@ export class BiztrustScanPage implements OnInit, OnDestroy, AfterViewInit {
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
 
-  ngOnDestroy(): void {
-    this.backButtonSubscription.unsubscribe();
-  }
-  
-  ngAfterViewInit(): void {
-    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      this.navCtrl.navigateBack('biztrust')
-    });
-  }
-
   ngOnInit() {
   }
 
@@ -49,7 +38,10 @@ export class BiztrustScanPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   goTo(page) {
-    this.navCtrl.navigateForward(page);
+    if(page === 'biztrust')
+      this.navCtrl.navigateBack(page)
+    else
+      this.navCtrl.navigateForward(page);
   }
 
   scanQRCode() {

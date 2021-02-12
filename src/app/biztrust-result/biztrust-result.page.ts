@@ -50,7 +50,10 @@ export class BiztrustResultPage implements OnInit {
   }
 
   goTo(page) {
-    this.navCtrl.navigateForward(page);
+    if(page === "biztrust-scan")
+      this.navCtrl.navigateBack(page)
+    else
+      this.navCtrl.navigateForward(page);
   }
 
   seeMoreUrl() {
