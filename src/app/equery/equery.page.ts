@@ -63,6 +63,14 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
 
         this.eQueryRespondData = JSON.parse(response.data)
         console.log(JSON.stringify(this.eQueryRespondData))
+
+        let docData: Array<any> = this.eQueryRespondData.data
+
+        if(docData.length == 0) {
+          console.log("eQuery returns zero document list")
+          // TODO - trigger alert "No Record Found"
+          return;
+        }
   
         this.ssmQueryServ.saveQueryResult(JSON.stringify(this.eQueryRespondData.data)).then(() => {
           console.log("query result saved!")
