@@ -40,7 +40,8 @@
         <div class="biztrust-item2" *ngIf="qrScanData.addUrl.length > 0">(ii) {{qrScanData.addUrl[0]}}</div>
         <div class="biztrust-item2" *ngIf="qrScanData.addUrl.length > 1">(iii) {{qrScanData.addUrl[1]}}</div>
   
-        <div class="biztrust-item4" *ngIf="qrScanData.addUrl.length > 2" (click)="seeMoreUrl()">See More <ion-icon name="arrow-dropdown"></ion-icon></div>
+        <div class="biztrust-item4" *ngIf="qrScanData.addUrl.length > 2" (click)="seeMoreUrl()">See More <ion-icon *ngIf="!seeMore" name="arrow-dropdown"></ion-icon>
+        </div>
         <div [hidden]=!seeMore class="biztrust-item2" *ngIf="qrScanData.addUrl.length > 2">(iv) {{qrScanData.addUrl[2]}}</div>
         <div [hidden]=!seeMore class="biztrust-item2" *ngIf="qrScanData.addUrl.length > 3">(v) {{qrScanData.addUrl[3]}}</div>
 

@@ -13,50 +13,28 @@
 <ion-content>
 <div class="bgtukar" style="height: 100%; padding-left: 20px; padding-right: 20px;">
 
-    <div style="padding-top: 20px; padding-bottom: 0px; margin-top: 10px;">
-      <p><div translate="WELCOMEUSER" style="text-align: center;">Welcome User</div>
-    </div>
-
   <ion-grid>
 
-    <ion-row (click)="scanQRCode()">
-    <ion-col>
-      <div class="horizontal-center">
-      <ion-img src="assets/images/qrcodessm.jpg" style="height: 70%; width: 70%; object-fit: contain;"></ion-img>
-      </div>
-    </ion-col>
+    <ion-row class="ion-justify-content-center ion-text-center" style="padding-top:20px; padding-bottom: 20px;">
+      <div style="font-size: 18px; font-weight: bold;" translate="WELCOMEUSER">Welcome User</div>
     </ion-row>
 
-    <ion-row (click)="scanQRCode()">
-    <ion-col>
-      <div class="ion-text-center">
-        <ion-button class="findbutton"><strong>{{'TAPSCREENTOSCAN'|translate}}</strong></ion-button>
-      </div>
-    </ion-col>
+    <ion-row class="ion-justify-content-center" (click)="scanQRCode()">
+
+      <ion-img src="assets/images/qrcodessm.jpg" style="height: 80%; width: 80%; object-fit: contain;"></ion-img>
+      <ion-button style="margin-top: 20px;" class="findbutton"><strong>{{'TAPSCREENTOSCAN'|translate}}</strong></ion-button>
+      
     </ion-row>
 
-    <ion-row>
-    <ion-col>
-      <div class="horizontal-center">
+    <ion-row class="ion-justify-content-center">
       <ion-img src="assets/images/three_steps.png" style="height: 70%; width: 70%; object-fit: contain;"></ion-img>
-      </div>
-    </ion-col>
     </ion-row>
-
-    <ion-row>
-    <ion-col>
-      <div class="horizontal-center">
+    <ion-row class="ion-justify-content-center">
       <ion-img src="assets/images/logo_ssm_v3.png" style="height: 30%; width: 30%; object-fit: contain;"></ion-img>
-      </div>
-    </ion-col>
     </ion-row>
 
-    <ion-row>
-    <ion-col>
-      <div class="ion-text-center">
-        <ion-button class="userguide" (click)="goTo('/biztrust-user-guide')"><strong>{{'USERGUIDE'|translate}}</strong></ion-button>
-      </div>
-    </ion-col>
+    <ion-row class="ion-justify-content-center">
+      <ion-button class="userguide" (click)="goTo('/biztrust-user-guide')"><strong>{{'USERGUIDE'|translate}}</strong></ion-button>
     </ion-row>
 
   </ion-grid>

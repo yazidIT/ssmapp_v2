@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="my.mikhaelgametech.myssmapp" version="4.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MySSM</name>
+<widget id="my.ssm.ssmappmobile2" version="4.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>MySSM2</name>
     <description>SSM Mobile Application</description>
     <author email="yazid.abdrasid@gmail.com" href="">
       SSM Mobile Dev

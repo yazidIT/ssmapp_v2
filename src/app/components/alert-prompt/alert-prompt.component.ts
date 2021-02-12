@@ -19,9 +19,9 @@ export class AlertPromptComponent implements OnInit {
 
   async presentServerFail(title:string, errNo: Number, goBack: boolean) {
     
-    var msg = ""
+    var msg: string
     if(errNo === 401) {
-      msg = "Unauthorised access"
+      msg = "Unauthorised Access"
     } else if(errNo === 500) {
       msg = "Internal Server Error"
     }
@@ -29,11 +29,11 @@ export class AlertPromptComponent implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: title,
-      subHeader: "Server error",
+      subHeader: "Server Error",
       message: msg,
       buttons: [{
         text: 'OK',
-        cssClass: 'buton-ok',
+        cssClass: 'button-ok',
         handler: () => {
           if(goBack)
             this.navCtrl.back()
