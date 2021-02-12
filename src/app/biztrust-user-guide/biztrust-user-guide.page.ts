@@ -14,7 +14,7 @@ export class BiztrustUserGuidePage implements OnInit {
   }
 
   goBack() {
-    this.navCtrl.navigateBack('biztrust-scan')
+    this.navCtrl.navigateBack('/biztrust-scan')
   }
 
 }

@@ -34,11 +34,11 @@ export class BiztrustScanPage implements OnInit {
   }
 
   goBack() {
-    this.navCtrl.navigateBack('biztrust')
+    this.navCtrl.navigateBack('/biztrust')
   }
 
   goTo(page) {
-    if(page === 'biztrust')
+    if(page === '/biztrust')
       this.navCtrl.navigateBack(page)
     else
       this.navCtrl.navigateForward(page);
@@ -50,7 +50,7 @@ export class BiztrustScanPage implements OnInit {
       console.log('Barcode data: ', barcodeData.text);
 
       if(this.netServ.getCurrentNetworkStatus() === ConnectionStatus.Offline) {
-        this.goTo('biztrust-connection-error')
+        this.goTo('/biztrust-connection-error')
       }
       this.bizTrustQuery(barcodeData.text)
      }).catch(err => {
