@@ -4,6 +4,7 @@ import { SsmQueryService } from '../services/ssmquery.service';
 import { NavController, Platform } from '@ionic/angular';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 import { SsmloadingService } from '../services/ssmloading.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-ecompound',
@@ -42,6 +43,7 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
               private ssmloadingSvc: SsmloadingService,
               private navCtrl: NavController,
               private platform: Platform,
+              private translate: TranslateService,
               private location: Location) {
                 
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
@@ -74,7 +76,7 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
   async ecompoundFind() {
 
     if(this.compoundEntity === undefined || this.compoundEntity.length == 0 ) {
-      this.alertPrompt.presentInputError("e-Compound", "Missing search parameter")
+      this.alertPrompt.presentInputError(this.translate.instant('MENU_06'), this.translate.instant('emptySearch'))
       return
     }
 
@@ -92,7 +94,7 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
         this.eCompoundResponseData = JSON.parse(response.data)
 
         if(this.eCompoundResponseData.success === false) {
-          this.alertPrompt.presentInputError("e-Compound", this.eCompoundResponseData.message)
+          this.alertPrompt.presentInputError(this.translate.instant('MENU_06'), this.eCompoundResponseData.message)
           return
         }
   
@@ -106,7 +108,7 @@ export class EcompoundPage implements OnInit, OnDestroy, AfterViewInit {
     }, error => {
       this.ssmloadingSvc.hideLoader().then(()=> {
         console.log(error.status)
-        this.alertPrompt.presentServerFail("e-Compound", error.status, false)
+        this.alertPrompt.presentServerFail(this.translate.instant('MENU_06'), error.status, false)
       })
 
     })

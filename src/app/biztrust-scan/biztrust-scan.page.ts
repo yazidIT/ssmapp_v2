@@ -6,6 +6,7 @@ import { SsmloadingService } from '../services/ssmloading.service';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 import { Location } from '@angular/common';
 import { ConnectionStatus, NetworkService } from '../services/network.service';
+import { TranslateService } from '@ngx-translate/core';
 
 const apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 @Component({
@@ -25,6 +26,7 @@ export class BiztrustScanPage implements OnInit {
               private ssmloadingSvc: SsmloadingService,
               private platform: Platform,
               private netServ: NetworkService,
+              private translate: TranslateService,
               private location: Location) {
   
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
@@ -93,7 +95,7 @@ export class BiztrustScanPage implements OnInit {
       this.ssmloadingSvc.hideLoader().then(()=> {
         console.log(JSON.stringify(error))
         console.log(error.status)
-        this.alertPrompt.presentServerFail("BizTrust QR Code", error.status, false)
+        this.alertPrompt.presentServerFail(this.translate.instant('MENU_09'), error.status, false)
       })
 
     })

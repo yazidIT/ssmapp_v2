@@ -5,6 +5,7 @@ import { NavController, Platform } from '@ionic/angular';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 import { SsmloadingService } from '../services/ssmloading.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-equery',
@@ -27,6 +28,7 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
               private ssmloadingSvc: SsmloadingService,
               private navCtrl: NavController,
               private platform: Platform,
+              private translate: TranslateService,
               private location: Location) {
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
@@ -49,7 +51,7 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
   async equeryFind() {
 
     if(this.queryCoId === undefined || this.queryCoId.length == 0 ) {
-      this.alertPrompt.presentInputError("e-Query", "Missing search parameter")
+      this.alertPrompt.presentInputError(this.translate.instant('MENU_05'), this.translate.instant('emptySearch'))
       return
     }
 
@@ -68,7 +70,7 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
 
         if(docData.length == 0) {
           console.log("eQuery returns zero document list")
-          // TODO - trigger alert "No Record Found"
+          this.alertPrompt.presentResponseError(this.translate.instant('MENU_05'), this.translate.instant('norecord'))
           return;
         }
   
@@ -84,7 +86,7 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
       this.ssmloadingSvc.hideLoader().then(()=> {
         console.log(JSON.stringify(error))
         console.log(error.status)
-        this.alertPrompt.presentServerFail("e-Query", error.status, false)
+        this.alertPrompt.presentServerFail(this.translate.instant('MENU_05'), error.status, false)
       })
 
     })

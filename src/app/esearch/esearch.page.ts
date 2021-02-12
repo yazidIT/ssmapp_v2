@@ -5,6 +5,7 @@ import { NavController, Platform } from '@ionic/angular';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 import { SsmloadingService } from '../services/ssmloading.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-esearch',
@@ -36,6 +37,7 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
               private loadingSvc: SsmloadingService,
               private navCtrl: NavController,
               private platform: Platform,
+              private translate: TranslateService,
               private location: Location) {
 
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
@@ -68,7 +70,7 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
   async esearchFind() {
 
     if(this.searchCompany === undefined || this.searchCompany.length == 0 ) {
-      this.alertPrompt.presentInputError("e-Search", "Missing search parameter")
+      this.alertPrompt.presentInputError(this.translate.instant('MENU_07'), this.translate.instant('emptySearch'))
       return
     }
 
@@ -90,7 +92,7 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
 
         this.eSearchResponseData = JSON.parse(response.data)
         if(this.eSearchResponseData.success === false) {
-          this.alertPrompt.presentInputError("e-Search", this.eSearchResponseData.message)
+          this.alertPrompt.presentInputError(this.translate.instant('MENU_07'), this.eSearchResponseData.message)
           return
         }
   
@@ -118,7 +120,7 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
 
       this.loadingSvc.hideLoader().then(()=> {
         console.log(error.status)
-        this.alertPrompt.presentServerFail("e-Search", error.status, false)
+        this.alertPrompt.presentServerFail(this.translate.instant('MENU_07'), error.status, false)
       })
       
     })

@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 import { SsmloadingService } from '../services/ssmloading.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-status308',
@@ -27,6 +28,7 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
               private ssmloadingSvc: SsmloadingService,
               private navCtrl: NavController,
               private platform: Platform,
+              private translate: TranslateService,
               private location: Location) {
 
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
@@ -38,7 +40,7 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
   
   ngAfterViewInit(): void {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      this.location.back()
+      this.navCtrl.navigateBack('home')
     });
   }
 
@@ -54,7 +56,7 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
   async status308Find() {
 
     if(this.stat308CoId === undefined || this.stat308CoId.length == 0 ) {
-      this.alertPrompt.presentInputError("Status 308", "Missing search parameter")
+      this.alertPrompt.presentInputError(this.translate.instant('MENU_08'), this.translate.instant('emptySearch'))
       return
     }
 
@@ -69,7 +71,7 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
         console.log(this.status308ResponseData)
   
         if(this.status308ResponseData.success === false) {
-          this.alertPrompt.presentInputError("Status 308", this.status308ResponseData.message)
+          this.alertPrompt.presentInputError(this.translate.instant('MENU_08'), this.status308ResponseData.message)
           return
         }
   
@@ -85,7 +87,7 @@ export class Status308Page implements OnInit, OnDestroy, AfterViewInit {
       this.ssmloadingSvc.hideLoader().then(()=> {
         console.log(JSON.stringify(error))
         console.log(error.status)
-        this.alertPrompt.presentServerFail("Status 308", error.status, false)
+        this.alertPrompt.presentServerFail(this.translate.instant('MENU_08'), error.status, false)
       })
 
     })
