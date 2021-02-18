@@ -148,7 +148,7 @@
     "URLLINKS": "Link (URL)",
     "CONNECTIONLOST": "Connection Lost!",
     "CHECKCONNECTION": "Check your internet connection and try again",
-    "PLEASECONTACTENQUIRY": "Please contact enquiry@ssm.com.my for further clarification.",
+    "PLEASECONTACTENQUIRY": "Please contact <font color='#FF5733'>enquiry@ssm.com.my</font> for further clarification.",
     "PLEASESCANAGAIN" : "Please scan QR Code again.",
     "BIZTRUSTINTRO" : "INTRODUCTION",
     "BIZTRUSTINTROCONTENT": "SSM BizTrust is a business starter kit that serves as digital identification of business entities registered with the Companies Commission of Malaysia (SSM).",
@@ -157,5 +157,7 @@
     "BIZTRUSTFUNC": "FUNCTION",
     "BIZTRUSTFUNCCONTENT": "This method of reviewing merchant information via SSM BizTrust QR code will display infomratin such as business name, business registration number, status and business URL address (if any).",
     "USERGUIDE": "User Guide",
-    "WHOOPS": "Whoops!"
+    "WHOOPS": "Whoops!",
+    "QRSCANPROMPT": "Place QR code inside the scan area",
+    "SEEMORE": "See More"
 }

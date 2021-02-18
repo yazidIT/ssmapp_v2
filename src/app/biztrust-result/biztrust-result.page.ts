@@ -44,9 +44,7 @@ export class BiztrustResultPage implements OnInit {
       var jsonObj = JSON.parse(resData)
 
       this.qrScanData = jsonObj
-      this.qrScanData.addUrl = ["www.url2.com.my", "www.url3.com.my", "www.url4.com.my", "www.url5.com.my"]
     })
-    // this.qrScanData.addUrl = ["www.url2.com.my", "www.url3.com.my", "www.url4.com.my", "www.url5.com.my"]
   }
 
   goTo(page) {
