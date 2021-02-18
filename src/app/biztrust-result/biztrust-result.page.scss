@@ -77,3 +77,15 @@ ion-select.overflow {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
+
+  .design  {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url("/assets/images/logo_biztrust.png");
+    // background-image: url("/assets/images/logo_biztrust.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .card-md {
+    margin: 0;
+  }
