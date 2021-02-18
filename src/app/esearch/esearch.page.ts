@@ -6,6 +6,7 @@ import { SsmQueryService } from '../services/ssmquery.service';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 import { SsmloadingService } from '../services/ssmloading.service';
 import { TranslateService } from '@ngx-translate/core';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-esearch',
@@ -38,6 +39,7 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
               private navCtrl: NavController,
               private platform: Platform,
               private translate: TranslateService,
+              private inAppBrowser: InAppBrowser,
               private location: Location) {
 
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
@@ -65,6 +67,10 @@ export class EsearchPage implements OnInit, OnDestroy, AfterViewInit {
 
   searchTypeSelect() {
     this.placeHolder = this.searchNameValue[this.searchType]
+  }
+
+  openLink(link) {
+    this.inAppBrowser.create(link, '_system')
   }
 
   async esearchFind() {
