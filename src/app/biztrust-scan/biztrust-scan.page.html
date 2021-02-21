@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar class="bar-class">
+  <ion-toolbar class="bar-class" mode="ios">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -22,19 +22,24 @@
     <ion-row class="ion-justify-content-center" (click)="scanQRCode()">
 
       <ion-img src="assets/images/qrcodessm.jpg" style="height: 80%; width: 80%; object-fit: contain;"></ion-img>
-      <ion-button style="margin-top: 20px;" class="findbutton"><strong>{{'TAPSCREENTOSCAN'|translate}}</strong></ion-button>
+      <ion-button style="margin-top: 20px; text-transform: none;" class="findbutton" ><strong>{{'TAPSCREENTOSCAN'|translate}}</strong></ion-button>
       
     </ion-row>
 
     <ion-row class="ion-justify-content-center">
-      <ion-img src="assets/images/three_steps.png" style="height: 70%; width: 80%; object-fit: contain;"></ion-img>
+      <ion-img [hidden]=ms src="assets/images/three_steps.png" style="height: 70%; width: 80%; object-fit: contain;"></ion-img>
+      <ion-img [hidden]=!ms src="assets/images/tiga_langkah.png" style="height: 70%; width: 80%; object-fit: contain;"></ion-img>
     </ion-row>
     <ion-row class="ion-justify-content-center">
       <ion-img src="assets/images/logo_ssm_v3.png" style="height: 50%; width: 50%; object-fit: contain;"></ion-img>
     </ion-row>
 
     <ion-row class="ion-justify-content-center">
-      <ion-button class="userguide" (click)="goTo('/biztrust-user-guide')"><strong>{{'USERGUIDE'|translate}}</strong></ion-button>
+      <ion-button class="userguide" (click)="goTo('/biztrust-user-guide')" style="text-transform: none;"><strong>{{'USERGUIDE'|translate}}</strong></ion-button>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center ion-text-center">
+      <div style="font-size:12px; color: #2E2F83">{{'CHECKSSMBIZTRUST'|translate}}</div>
     </ion-row>
 
   </ion-grid>

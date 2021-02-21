@@ -19,6 +19,7 @@ export class BiztrustScanPage implements OnInit {
   alertPrompt : AlertPromptComponent
 
   bizTrustQueryRespondData: any
+  ms: boolean
 
   constructor(private navCtrl: NavController,
               private barcodeScanner: BarcodeScanner,
@@ -33,6 +34,7 @@ export class BiztrustScanPage implements OnInit {
   }
 
   ngOnInit() {
+    this.ms = this.translate.currentLang === "ms"
   }
 
   goBack() {

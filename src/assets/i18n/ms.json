@@ -135,7 +135,7 @@
     "SCANQR" : "Imbas QR",
     "ERRORCAMERAPERMISSION" : "MySSM Imbas QR kod memerlukan akses ke KAMERA. Sila pastikan akses di berikan.",
     "WELCOMEUSER": "Selamat Datang",
-    "TAPSCREENTOSCAN": "Sentuh Skrin Untuk Imbas",
+    "TAPSCREENTOSCAN": "Sentuh skrin untuk imbas",
     "VALIDQRCODE": "QR Code BizTrust Sah",
     "INVALIDQRCODE": "Kod QR BizTrust SSM Tidak Sah",
     "QRCODEGUIDE": "<font color='#2E2F83'>1. Sentuh logo BizTrust di atas untuk memulakan imbasan QR Code<br><br>2. Arahkan kotak imbasan ke QR Code BizTrust<br><br>3. Jika imbasan berjaya, keputusan akan di paparkan di skrin</font>",
@@ -151,13 +151,14 @@
     "PLEASECONTACTENQUIRY": "Sila hubungi <font color='#FF5733'>enquiry@ssm.com.my</font> untuk maklumat selanjutnya.",
     "PLEASESCANAGAIN" : "Sila imbas kod QR sekali lagi.",
     "BIZTRUSTINTRO" : "PENGENALAN",
-    "BIZTRUSTINTROCONTENT": "SSM BizTrust merupakan satu (1) <i>business starter kit</i> yang berfungsi sebagai satu (1) pengesahan dan pengenalan identiti digital (<i>digital identification</i>) kepada entiti perniagaan yang berdaftar dengan Suruhanjaya Syarikat Malaysia (SSM)",
+    "BIZTRUSTINTROCONTENT": "SSM BizTrust merupakan satu (1) <i>business starter kit</i> yang berfungsi sebagai satu (1) pengesahan dan pengenalan identiti digital (<i>digital identification</i>) kepada entiti-entiti perniagaan yang berdaftar dengan Suruhanjaya Syarikat Malaysia (SSM)",
     "BIZTRUSTOBJ": "OBJEKTIF",
     "BIZTRUSTOBJCONTENT": "Objektif SSM BizTrust <i>business starter kit</i> ini adalah untuk memperkasakan pematuhan ke atas entiti-entiti perniagaaan melalui peruntukan Akta-akta yang ditadbir oleh SSM dengan adanya pengesahan melalui kod QR SSM BizTrust.",
     "BIZTRUSTFUNC": "FUNGSI",
-    "BIZTRUSTFUNCCONTENT": "Kaedah semakan maklumat peniaga melalui kod QR SSM BizTrust ini akan memaparkan maklumat seperti nama perniagaan, nombor pendaftaran perniagaan status serta alamat URL perniagaan (sekiranya ada).",
+    "BIZTRUSTFUNCCONTENT": "Kaedah semakan maklumat peniaga melalui kod QR SSM BizTrust ini akan memaparkan maklumat seperti nama perniagaan, nombor pendaftaran perniagaan, status serta alamat URL perniagaan (sekiranya ada).",
     "USERGUIDE": "Panduan Pengguna",
     "WHOOPS": "Alamak!",
     "QRSCANPROMPT": "Sila pastikan kod QR di dalam kawasan imbasan",
-    "SEEMORE": "Lihat Lagi"
+    "SEEMORE": "Lihat Lagi",
+    "CHECKSSMBIZTRUST": "Semak maklumat SSM BizTrust melalui aplikasi MySSM." 
 }
