@@ -1,12 +1,9 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
-import { NavController, Platform } from '@ionic/angular';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
-import { SsmQueryService } from '../services/ssmquery.service';
+import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { SsmloadingService } from '../services/ssmloading.service';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
-import { Location } from '@angular/common';
-import { ConnectionStatus, NetworkService } from '../services/network.service';
 import { TranslateService } from '@ngx-translate/core';
+import { QRScannerService } from '../services/qrscanner.service';
 
 const apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 @Component({
@@ -22,13 +19,9 @@ export class BiztrustScanPage implements OnInit {
   ms: boolean
 
   constructor(private navCtrl: NavController,
-              private barcodeScanner: BarcodeScanner,
-              private ssmQueryServ: SsmQueryService,
+              private qrScannerSvc: QRScannerService,
               private ssmloadingSvc: SsmloadingService,
-              private platform: Platform,
-              private netServ: NetworkService,
-              private translate: TranslateService,
-              private location: Location) {
+              private translate: TranslateService) {
   
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
   }
@@ -50,68 +43,58 @@ export class BiztrustScanPage implements OnInit {
 
   scanQRCode() {
 
-    var scannerOptions = {
-      // preferFrontCamera : true, // iOS and Android
-      // showFlipCameraButton : true, // iOS and Android
-      showTorchButton : true, // iOS and Android
-      // torchOn: true, // Android, launch with the torch switched on (if available)
-      // saveHistory: true, // Android, save scan history (default false)
-      prompt : this.translate.instant('QRSCANPROMPT'), // Android
-      resultDisplayDuration: 500, // Android, display scanned text for X ms. 0 suppresses it entirely, default 1500
-      //formats : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
-      // orientation : "landscape", // Android only (portrait|landscape), default unset so it rotates with the device
-      // disableAnimations : true, // iOS
-      // disableSuccessBeep: false // iOS and Android
-    };
+    this.qrScannerSvc.scanQRCode().then( res => {
 
-    this.barcodeScanner.scan(scannerOptions).then(barcodeData => {
-      console.log('Barcode data: ', barcodeData.text);
-
-      if(this.netServ.getCurrentNetworkStatus() === ConnectionStatus.Offline) {
+      if(res === "NetworkError") {
         this.goTo('/biztrust-connection-error')
+        return;
       }
-      this.bizTrustQuery(barcodeData.text)
-     }).catch(err => {
-         console.log('Error', err);
-     });
+      
+      this.queryBizTrust(res)
+
+    }, (err) => {
+      console.log('Error', err);
+    })
   }
 
-
-  async bizTrustQuery(barcodetext:string) {
-
-    let urlEndpoint = apiv2url + 'qr/resolve' + "?qrcode=" + barcodetext;
+  async queryBizTrust(barcodetext:string) {
 
     await this.ssmloadingSvc.showLoader()
-    this.ssmQueryServ.bizTrustQuery(urlEndpoint).then(response => {
 
-      this.ssmloadingSvc.hideLoader().then(()=> {
+    this.qrScannerSvc.bizTrustQuery(barcodetext).then( result => {
 
-        this.bizTrustQueryRespondData = JSON.parse(response.data)
-        console.log(JSON.stringify(this.bizTrustQueryRespondData))
+      console.log("Result returned: " + result)
+      this.ssmloadingSvc.hideLoader().then(() => {
 
-        if(this.bizTrustQueryRespondData.success == false) {
-          console.log("Error - " + this.bizTrustQueryRespondData);
-          return;
+        if(result === "Unauthorised") {
+          this.alertPrompt.presentServerFail("BizTrust", 401, false)
+          return
         }
 
-        if(this.bizTrustQueryRespondData.response.successCode !== "00") {
-          this.navCtrl.navigateForward('/biztrust-error')
-          return;
+        if(result === "Fail") {
+          console.log("Fail")
+          return
         }
   
-        this.ssmQueryServ.saveQueryResult(JSON.stringify(this.bizTrustQueryRespondData.response)).then(() => {
-          console.log("query result saved!")
+        if(result === "Error") {
+          this.navCtrl.navigateForward('/biztrust-error')
+          return
+        }
+  
+        // success
+        this.qrScannerSvc.saveResult(result).then( res => {
           this.navCtrl.navigateForward('/biztrust-result')
+          return
         })
 
       })
 
-    }, error => {
-      
+    }, err => {
+
       this.ssmloadingSvc.hideLoader().then(()=> {
-        console.log(JSON.stringify(error))
-        console.log(error.status)
-        this.alertPrompt.presentServerFail(this.translate.instant('MENU_09'), error.status, false)
+        console.log(JSON.stringify(err))
+        console.log(err.status)
+        this.alertPrompt.presentServerFail(this.translate.instant('MENU_09'), err.status, false)
       })
 
     })

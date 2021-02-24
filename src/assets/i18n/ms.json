@@ -155,7 +155,7 @@
     "BIZTRUSTOBJ": "OBJEKTIF",
     "BIZTRUSTOBJCONTENT": "Objektif SSM BizTrust <i>business starter kit</i> ini adalah untuk memperkasakan pematuhan ke atas entiti-entiti perniagaaan melalui peruntukan Akta-akta yang ditadbir oleh SSM dengan adanya pengesahan melalui kod QR SSM BizTrust.",
     "BIZTRUSTFUNC": "FUNGSI",
-    "BIZTRUSTFUNCCONTENT": "Kaedah semakan maklumat peniaga melalui kod QR SSM BizTrust ini akan memaparkan maklumat seperti nama perniagaan, nombor pendaftaran perniagaan, status serta alamat URL perniagaan (sekiranya ada).",
+    "BIZTRUSTFUNCCONTENT": "Kaedah semakan maklumat peniaga melalui kod QR SSM BizTrust ini akan memaparkan maklumat seperti nama dan nombor pendaftaran entiti perniagaan, status serta alamat URL.",
     "USERGUIDE": "Panduan Pengguna",
     "WHOOPS": "Alamak!",
     "QRSCANPROMPT": "Sila pastikan kod QR di dalam kawasan imbasan",

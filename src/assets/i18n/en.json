@@ -155,7 +155,7 @@
     "BIZTRUSTOBJ": "OBJECTIVE",
     "BIZTRUSTOBJCONTENT": "The objective of SSM BizTrust business starter kit is to strengthen the compliance with business entities through the provisions of the Acts administered by SSM with validation through SSM BizTrust QR code.",
     "BIZTRUSTFUNC": "FUNCTION",
-    "BIZTRUSTFUNCCONTENT": "This method of reviewing merchant information via SSM BizTrust QR code will display infomratin such as business name, business registration number, status and business URL address (if any).",
+    "BIZTRUSTFUNCCONTENT": "This method of reviewing merchant information via SSM BizTrust QR code will display information such as name of business, business entities registration number, status and URL.",
     "USERGUIDE": "User Guide",
     "WHOOPS": "Whoops!",
     "QRSCANPROMPT": "Place QR code inside the scan area",

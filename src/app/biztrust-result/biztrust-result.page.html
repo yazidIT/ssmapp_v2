@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar class="bar-class">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button text="Back" style="text-transform: none;" (click)="goTo('/biztrust-scan')"></ion-back-button>
     </ion-buttons>
 
     <ion-buttons slot="end">
-      <img src="assets/images/icon_qr.png" style="height: 32px; width: 32px;" (click)="goTo('/biztrust-scan')"/>
+      <img src="assets/images/icon_qr.png" style="height: 32px; width: 32px;" (click)="scanQRCode()"/>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

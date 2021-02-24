@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="bar-class" mode="ios">
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-back-button text="Back" style="text-transform: none;" (click)="goTo('/biztrust')"></ion-back-button>
     </ion-buttons>
     <ion-title class="title-class">{{'MENU_09'|translate }}</ion-title>
     <ion-buttons slot="end">
@@ -35,7 +35,7 @@
     </ion-row>
 
     <ion-row class="ion-justify-content-center">
-      <ion-button class="userguide" (click)="goTo('/biztrust-user-guide')" style="text-transform: none;"><strong>{{'USERGUIDE'|translate}}</strong></ion-button>
+      <ion-button class="findbutton" (click)="goTo('/biztrust-user-guide')" style="text-transform: none;"><strong>{{'USERGUIDE'|translate}}</strong></ion-button>
     </ion-row>
 
     <ion-row class="ion-justify-content-center ion-text-center">
