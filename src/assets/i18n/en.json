@@ -136,10 +136,10 @@
     "ERRORCAMERAPERMISSION" : "MySSM Scan QR code require access to CAMERA. Please enabled camera permission.",
     "WELCOMEUSER": "Welcome User",
     "TAPSCREENTOSCAN": "Tap screen to scan",
-    "VALIDQRCODE": "Valid QR Code BizTrust",
+    "VALIDQRCODE": "Valid SSM BizTrust QR Code",
     "INVALIDQRCODE": "Invalid SSM BizTrust QR Code",
     "QRCODEGUIDE": "<font color='#2E2F83'>1. Tap BizTrust logo above to start scanning QR Code<br><br>2. Point the scanner window to the BizTrust QR Code<br><br>3. Upon successful scanning, user will be presented with the result.</font>",
-    "CORPORATEINFO": "CORPORATE INFORMATION",
+    "CORPORATEINFO": "ENTITY INFORMATION",
     "BTREGNUMBER": "Registration No,",
     "GREAT": "Great!",
     "INFORMATIONNOTFOUND": "Information Not Found",
@@ -160,5 +160,6 @@
     "WHOOPS": "Whoops!",
     "QRSCANPROMPT": "Place QR code inside the scan area",
     "SEEMORE": "See More",
-    "CHECKSSMBIZTRUST": "Check SSM BizTrust information through MySSM application."
+    "CHECKSSMBIZTRUST": "Check SSM BizTrust information through MySSM application.",
+    "PROCEED": "Proceed"
 }

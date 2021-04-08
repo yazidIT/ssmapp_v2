@@ -26,6 +26,7 @@
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk" />
     <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk" />
+    <preference name="android-minSdkVersion" value="22" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
