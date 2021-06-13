@@ -1,161 +1,42 @@
 {
   "project_info": {
-    "project_number": "83129234829",
-    "firebase_url": "https://earthquake-219720.firebaseio.com",
-    "project_id": "earthquake-219720",
-    "storage_bucket": "earthquake-219720.appspot.com"
+    "project_number": "100206597122",
+    "firebase_url": "https://myssm-77c9e.firebaseio.com",
+    "project_id": "myssm-77c9e",
+    "storage_bucket": "myssm-77c9e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:83129234829:android:3a8d69ed47085227",
+        "mobilesdk_app_id": "1:100206597122:android:4cc9a99474e1ece2ae831b",
         "android_client_info": {
-          "package_name": "com.mikhailgametech.aesalert"
+          "package_name": "my.ssm.ssmappmobile2"
         }
       },
       "oauth_client": [
         {
-          "client_id": "83129234829-025ptehpi7miebbblsfdoslbuq54tm1b.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "83129234829-025ptehpi7miebbblsfdoslbuq54tm1b.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:83129234829:android:4dccf8e1f71cbd62",
-        "android_client_info": {
-          "package_name": "com.mikhailgametech.earthquakeinfo"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "83129234829-3vi00shht9ebdbr0kgiv3c6tmmq0eaat.apps.googleusercontent.com",
+          "client_id": "100206597122-vv3cbs1hjgkvj6jbau4ihmt9dl3or0el.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.mikhailgametech.earthquakeinfo",
-            "certificate_hash": "38ddaa1b2ba254b003e8b1d9f68e5c9f7eb72bfd"
+            "package_name": "my.ssm.ssmappmobile2",
+            "certificate_hash": "78bea6dff903b3774d8b7634d94c62906f68fe84"
           }
         },
         {
-          "client_id": "83129234829-025ptehpi7miebbblsfdoslbuq54tm1b.apps.googleusercontent.com",
+          "client_id": "100206597122-6ht2cqslvcln1oapbhct13bfosl8c7oc.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk"
+          "current_key": "AIzaSyCkuWq0-pCF6nR4y22xtIyZqDDfUnUV-L0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "83129234829-025ptehpi7miebbblsfdoslbuq54tm1b.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      },
-      "admob_app_id": "ca-app-pub-3791008427704411~4075547082"
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:83129234829:android:0ccb165bf1e74926",
-        "android_client_info": {
-          "package_name": "com.mikhailgametech.earthquakeinfo.react"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "83129234829-025ptehpi7miebbblsfdoslbuq54tm1b.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "83129234829-025ptehpi7miebbblsfdoslbuq54tm1b.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      },
-      "admob_app_id": "ca-app-pub-3791008427704411~8272336643"
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:83129234829:android:a5372b2c790e0af6",
-        "android_client_info": {
-          "package_name": "com.mikhailgametech.qiblatlocator"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "83129234829-025ptehpi7miebbblsfdoslbuq54tm1b.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "83129234829-025ptehpi7miebbblsfdoslbuq54tm1b.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      },
-      "admob_app_id": "ca-app-pub-3791008427704411~3550585864"
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:83129234829:android:abf4adb8d4603a317bb9c4",
-        "android_client_info": {
-          "package_name": "my.mikhaelgametech.myssmapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "83129234829-025ptehpi7miebbblsfdoslbuq54tm1b.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "83129234829-025ptehpi7miebbblsfdoslbuq54tm1b.apps.googleusercontent.com",
+              "client_id": "100206597122-6ht2cqslvcln1oapbhct13bfosl8c7oc.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

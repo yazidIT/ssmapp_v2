@@ -18,7 +18,6 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="SplashScreenDelay" value="2000" />
     <preference name="FadeSplashScreenDuration" value="2000" />
-    <preference name="android-minSdkVersion" value="19" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashScreen" value="screen" />
     <preference name="AutoHideSplashScreen" value="false" />
@@ -27,6 +26,8 @@
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk" />
     <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk" />
     <preference name="android-minSdkVersion" value="22" />
+    <preference name="android-targetSdkVersion" value="30" />
+    <preference name="AndroidXEnabled" value="true" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
@@ -54,6 +55,7 @@
         <splash density="port-xhdpi" src="resources/android/splash/drawable-port-xhdpi-screen.png" />
         <splash density="port-xxhdpi" src="resources/android/splash/drawable-port-xxhdpi-screen.png" />
         <splash density="port-xxxhdpi" src="resources/android/splash/drawable-port-xxxhdpi-screen.png" />
+        <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
