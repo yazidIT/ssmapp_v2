@@ -11,6 +11,8 @@ import {
 import { TranslateService } from '@ngx-translate/core';
 
 import { ISSMOffice, ISSMOffices } from '../models/issmoffices';
+import { SsmQueryService } from '../services/ssmquery.service';
+import { SsmloadingService } from '../services/ssmloading.service';
 
 @Component({
   selector: 'app-contactus',
@@ -33,9 +35,13 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
   myHtmlTel: any
   myHtmlFax: any
   
+  private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
+
   constructor(private inAppBrowser: InAppBrowser,
               private platform: Platform,
               private location: Location,
+              private ssmQueryServ: SsmQueryService,
+              private ssmloadingSvc: SsmloadingService,
               private navCtrl: NavController,
               private translate: TranslateService) {}
 
@@ -66,8 +72,8 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
       pic: ""
     }
 
-    this.readData()
-    // this.loadMap()
+    // this.readData()
+    this.readContactUs()
   }
 
   ngOnDestroy(): void {
@@ -84,20 +90,42 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     this.inAppBrowser.create(link, '_system')
   }
 
-  readData(){
-    fetch('./assets/contact.json').then(res => res.json())
-      .then(json => {
+  async readContactUs() {
 
-        this.officeData = json
+    let urlEndpoint = this.apiv2url + 'json/contact'
+
+    await this.ssmloadingSvc.showLoader()
+    this.ssmQueryServ.contactUsQuery(urlEndpoint).then(response => {
+
+      this.ssmloadingSvc.hideLoader().then(() => {
+
+        this.officeData = JSON.parse(response.data)
         this.officeData.data.offices.forEach(office => {
           office.placeHolderName = office.name
         })
 
         this.selectedOption = this.officeData.data.offices[0]
         this.loadMap()
-        // this.changeMarker()
-      });
+      })
+
+    })
+
   }
+
+  // readData(){
+  //   fetch('./assets/contact.json').then(res => res.json())
+  //     .then(json => {
+
+  //       this.officeData = json
+  //       this.officeData.data.offices.forEach(office => {
+  //         office.placeHolderName = office.name
+  //       })
+
+  //       this.selectedOption = this.officeData.data.offices[0]
+  //       this.loadMap()
+  //       // this.changeMarker()
+  //     });
+  // }
 
   loadMap() {
     // this.latLng = new LatLng(Number(this.selectedOption.location.lat),

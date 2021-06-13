@@ -73,4 +73,15 @@ export class SsmQueryService {
       return this.http.post(urlEndpoint, {}, headers)
     })
   }
+
+  async contactUsQuery(urlEndpoint:string) {
+
+    var authHeader: any
+    return this.regDevServ.getDevToken().then(token => {
+      authHeader = 'Bearer' + ' ' + token;
+      let headers = { Authorization : authHeader }
+
+      return this.http.get(urlEndpoint, {}, {})
+    })
+  }
 }
