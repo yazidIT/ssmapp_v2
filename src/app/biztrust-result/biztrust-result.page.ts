@@ -6,6 +6,7 @@ import { QRScannerService } from '../services/qrscanner.service';
 import { SsmloadingService } from '../services/ssmloading.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-biztrust-result',
@@ -18,8 +19,11 @@ export class BiztrustResultPage implements OnInit {
   qrScanData : IBizTrustData
   seeMore : boolean
   todayDate: string
+  mainurl: any[]
+  moreaddurl: any[]
 
-  constructor(private navCtrl: NavController,
+  constructor(private inAppBrowser: InAppBrowser,
+              private navCtrl: NavController,
               private storage: NativeStorage,
               private qrScannerSvc: QRScannerService,
               private ssmloadingSvc: SsmloadingService,
@@ -50,10 +54,29 @@ export class BiztrustResultPage implements OnInit {
     this.storage.getItem('queryResult').then(resData => {
       console.log("QR Data : " + resData)
       var jsonObj = JSON.parse(resData)
-
       this.qrScanData = jsonObj
+
       if(this.qrScanData.addUrl === null)
         this.qrScanData.addUrl = []
+
+      else {
+        var urlarray = []
+        urlarray.push(this.qrScanData.url)
+        var mainurlarray = []
+        mainurlarray.push(this.qrScanData.mainUrl)
+
+        const concatarray = (...arrays) => [].concat(...arrays.filter(Array.isArray));
+
+        const urlList = concatarray(urlarray, mainurlarray, this.qrScanData.addUrl);
+        const urlListSize = urlList.length;
+
+        if(urlListSize > 3) {
+          this.mainurl = urlList.slice(0, 3);
+          this.moreaddurl = urlList.slice(3, urlListSize + 1);
+        } else {
+          this.mainurl = urlList.slice(0, urlListSize + 1);
+        }
+      }
     })
   }
 
@@ -121,5 +144,19 @@ export class BiztrustResultPage implements OnInit {
       })
 
     })
+  }
+
+  toRoman(num : number) : string { 
+    if(num < 1){ return "";} 
+    if(num >= 40){ return "xl" + this.toRoman(num - 40);} 
+    if(num >= 10){ return "x" + this.toRoman(num - 10);} 
+    if(num >= 9){ return "ix" + this.toRoman(num - 9);} 
+    if(num >= 5){ return "v" + this.toRoman(num - 5);} 
+    if(num >= 4){ return "iv" + this.toRoman(num - 4);} 
+    if(num >= 1){ return "i" + this.toRoman(num - 1);} 
+  }
+
+  openLink(link) {
+    this.inAppBrowser.create(link, '_system')
   }
 }
