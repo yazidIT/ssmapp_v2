@@ -27,7 +27,7 @@ export class RegisterDeviceService {
     }
   }
 
-  async registerDevice(): Promise<any> {
+  registerDevice(): Promise<any> {
     var timeNow = Math.floor(new Date().getTime()/100000)
     var uuid = this.device.uuid
     var platform = this.device.platform

@@ -5,6 +5,7 @@ import { RegisterDeviceService } from '../services/registerdevice.service';
 import { NewsService } from '../services/news.service';
 import { INewsResultData } from '../models/inewsresult';
 import { SsmloadingService } from '../services/ssmloading.service';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-home',
@@ -34,6 +35,8 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
   constructor(private newsServ: NewsService,
               private platform: Platform,
               private ssmloading: SsmloadingService,
+              private regDevSvc: RegisterDeviceService,
+              private storage: NativeStorage,
               private routerOutlet: IonRouterOutlet) {
 
     //Item object for Nature
@@ -71,9 +74,21 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
     this.backButtonSubscription.unsubscribe();
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.ssmloading.showLoaderText('LOADING')
-    this.initData()
+
+    if(this.storage.getItem('token') !== null) {
+      this.initData()
+
+    } else {
+      this.regDevSvc.registerDevice().then(()=>{
+        this.initData()
+  
+      }, error => {
+        this.ssmloading.hideLoader()
+      })
+
+    }
   }
 
   async initData() {
@@ -83,11 +98,9 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
       this.newsRss = JSON.parse(newsData.data)
       this.sliderOne.slidesItems = this.newsRss.channel.item
       this.ssmloading.hideLoader()
-      
     }, error => {
 
     })
-
   }
 
   //Move to Next slide
