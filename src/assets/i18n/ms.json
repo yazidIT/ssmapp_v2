@@ -161,5 +161,6 @@
     "QRSCANPROMPT": "Sila pastikan kod QR di dalam kawasan imbasan",
     "SEEMORE": "Lihat Lagi",
     "CHECKSSMBIZTRUST": "Semak maklumat SSM BizTrust melalui aplikasi MySSM.",
-    "PROCEED": "Teruskan"
+    "PROCEED": "Teruskan",
+    "LOADING": "Isian..."
 }

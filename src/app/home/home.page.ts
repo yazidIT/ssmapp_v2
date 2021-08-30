@@ -4,6 +4,7 @@ import { IonSlides, Platform, IonRouterOutlet } from '@ionic/angular';
 import { RegisterDeviceService } from '../services/registerdevice.service';
 import { NewsService } from '../services/news.service';
 import { INewsResultData } from '../models/inewsresult';
+import { SsmloadingService } from '../services/ssmloading.service';
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,7 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
   constructor(private newsServ: NewsService,
               private platform: Platform,
+              private ssmloading: SsmloadingService,
               private routerOutlet: IonRouterOutlet) {
 
     //Item object for Nature
@@ -70,6 +72,7 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
   }
 
   ngOnInit(): void {
+    this.ssmloading.showLoaderText('LOADING')
     this.initData()
   }
 
@@ -79,6 +82,7 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
       this.newsRss = JSON.parse(newsData.data)
       this.sliderOne.slidesItems = this.newsRss.channel.item
+      this.ssmloading.hideLoader()
       
     }, error => {
 

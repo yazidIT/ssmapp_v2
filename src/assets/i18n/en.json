@@ -161,5 +161,6 @@
     "QRSCANPROMPT": "Place QR code inside the scan area",
     "SEEMORE": "See More",
     "CHECKSSMBIZTRUST": "Check SSM BizTrust information through MySSM application.",
-    "PROCEED": "Proceed"
+    "PROCEED": "Proceed",
+    "LOADING": "Loading..."
 }

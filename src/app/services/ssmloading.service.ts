@@ -32,6 +32,17 @@ export class SsmloadingService {
     res.present();
 
   }
+
+  async showLoaderText(infotext) {
+
+    let searchingText: string = this.translate.instant(infotext);
+    const res = await this.loadingController.create({
+      spinner: 'circles',
+      message: searchingText
+    });
+    res.present();
+
+  }
   
   // Hide the loader if already created otherwise return error
   async hideLoader() {
