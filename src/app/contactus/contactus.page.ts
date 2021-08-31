@@ -112,24 +112,7 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
 
   }
 
-  // readData(){
-  //   fetch('./assets/contact.json').then(res => res.json())
-  //     .then(json => {
-
-  //       this.officeData = json
-  //       this.officeData.data.offices.forEach(office => {
-  //         office.placeHolderName = office.name
-  //       })
-
-  //       this.selectedOption = this.officeData.data.offices[0]
-  //       this.loadMap()
-  //       // this.changeMarker()
-  //     });
-  // }
-
-  loadMap() {
-    // this.latLng = new LatLng(Number(this.selectedOption.location.lat),
-    //                         Number(this.selectedOption.location.long))
+  async loadMap() {
 
     let mapOptions: GoogleMapOptions = {
       camera: {
@@ -143,9 +126,8 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
 
     this.map = GoogleMaps.create('map', mapOptions);
 
-    this.map.one(GoogleMapsEvent.MAP_READY).then((data: any) => {
-      this.changeMarker()
-		});
+    await this.map.one(GoogleMapsEvent.MAP_READY)
+    this.changeMarker()
   }
 
   officeLocationSelect() {
@@ -172,12 +154,12 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     this.goToOfficeLocation()
   }
 
-  goToOfficeLocation() {
+  async goToOfficeLocation() {
 
-    this.map.clear()
+    await this.map.clear()
 
     // Move the map camera to the location with animation
-    this.map.animateCamera({
+    await this.map.animateCamera({
       target: this.latLng,
       zoom: 15,
       duration: 2000
@@ -201,8 +183,8 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   goToLocation() {
-    this.inAppBrowser.create('https://maps.google.com?q='+this.selectedOption.location.lat + "," + this.selectedOption.location.long,
-                              '_system','location=yes')
+    this.inAppBrowser.create('https://maps.google.com?q='+this.selectedOption.location.lat + "," +
+                              this.selectedOption.location.long, '_system','location=yes')
   }
   
   call() {

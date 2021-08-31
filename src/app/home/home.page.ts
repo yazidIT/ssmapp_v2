@@ -1,11 +1,13 @@
 import { Component, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { IonSlides, Platform, IonRouterOutlet } from '@ionic/angular';
+import { IonSlides, Platform, IonRouterOutlet, NavController } from '@ionic/angular';
 
 import { RegisterDeviceService } from '../services/registerdevice.service';
 import { NewsService } from '../services/news.service';
 import { INewsResultData } from '../models/inewsresult';
 import { SsmloadingService } from '../services/ssmloading.service';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { TranslateService } from '@ngx-translate/core';
+import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 
 @Component({
   selector: 'app-home',
@@ -31,14 +33,18 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
   slideIndex = 0
 
   selectedLanguage:string;
+  alertPrompt : AlertPromptComponent
 
   constructor(private newsServ: NewsService,
               private platform: Platform,
+              private navCtrl: NavController,
+              private translate: TranslateService,
               private ssmloading: SsmloadingService,
               private regDevSvc: RegisterDeviceService,
               private storage: NativeStorage,
               private routerOutlet: IonRouterOutlet) {
 
+    this.alertPrompt = new AlertPromptComponent(this.navCtrl)
     //Item object for Nature
     this.sliderOne =
       {
@@ -63,10 +69,19 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
   ngAfterViewInit(): void {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
-      if (!this.routerOutlet.canGoBack())
+      if (!this.routerOutlet.canGoBack()) {
         // navigator['app'].exitApp();
-        if(window.confirm("Are you sure want to exit?"))
-          navigator['app'].exitApp();
+        // this.alertComponent.presentAlertConfirmExitApp().then(()=>{
+        let exittitle = this.translate.instant('EXITTITLE')
+        let exitmessage = this.translate.instant('EXITMSG')
+        let canceltext = this.translate.instant('CANCEL')
+        this.alertPrompt.presentAlertConfirmExitApp(exittitle, exitmessage, canceltext).then(()=> {
+
+        })
+      }
+        // })
+        // if(window.confirm("Are you sure want to exit?"))
+        //   navigator['app'].exitApp();
     });
   }
 
@@ -75,7 +90,7 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
   }
 
   async ngOnInit(): Promise<void> {
-    this.ssmloading.showLoaderText('LOADING')
+    await this.ssmloading.showLoaderText('LOADING')
 
     if(this.storage.getItem('token') !== null) {
       this.initData()

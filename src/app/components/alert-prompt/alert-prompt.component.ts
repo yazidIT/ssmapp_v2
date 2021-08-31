@@ -83,11 +83,12 @@ export class AlertPromptComponent implements OnInit {
     await alert.present();
   }
 
-  async presentAlertConfirmExitApp() {
+  async presentAlertConfirmExitApp(title: string, msg: string, cancelstr: string) {
+
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: "MySSM",
-      message: "Exit MySSM App?",
+      header: title,
+      message: msg,
       buttons: [
         {
           text: 'OK',
@@ -97,7 +98,7 @@ export class AlertPromptComponent implements OnInit {
           }
         },
         {
-          text: 'Cancel',
+          text: cancelstr,
           role: 'cancel',
           cssClass: 'secondary',
           handler: () => {}
