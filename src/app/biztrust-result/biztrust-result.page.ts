@@ -19,8 +19,8 @@ export class BiztrustResultPage implements OnInit {
   qrScanData : IBizTrustData
   seeMore : boolean
   todayDate: string
-  mainurl: any[]
-  moreaddurl: any[]
+  mainurl: string[] = []
+  moreaddurl: string[] = []
 
   constructor(private inAppBrowser: InAppBrowser,
               private navCtrl: NavController,
@@ -36,48 +36,59 @@ export class BiztrustResultPage implements OnInit {
     this.qrScanData = {
       errorMsg: null,
       successCode: null,
-      entityNo: "12345678",
-      checkDigit: "T",
-      entityNoNew: "2010122003",
-      entityName: "Company Sdn Bhd",
-      statusCode: "Y",
-      statusDescription: "YAHOO",
+      entityNo: null,
+      checkDigit: null,
+      entityNoNew:null,
+      entityName: null,
+      statusCode: null,
+      statusDescription: null,
       url: null,
-      mainUrl: "www.mainurl.com.my",
+      mainUrl: null,
       addUrl: [],
       version: 0,
-      entityType: "ROB"
+      entityType: null
     }
   }
 
-  ngOnInit() {
-    this.storage.getItem('queryResult').then(resData => {
-      console.log("QR Data : " + resData)
-      var jsonObj = JSON.parse(resData)
-      this.qrScanData = jsonObj
+  async ngOnInit() {
 
-      if(this.qrScanData.addUrl === null)
-        this.qrScanData.addUrl = []
+    let resData = await this.storage.getItem('queryResult')
 
-      else {
-        var urlarray = []
-        urlarray.push(this.qrScanData.url)
-        var mainurlarray = []
-        mainurlarray.push(this.qrScanData.mainUrl)
+    console.log("QR Data : " + resData)
+    var jsonObj = JSON.parse(resData)
+    this.qrScanData = jsonObj
 
-        const concatarray = (...arrays) => [].concat(...arrays.filter(Array.isArray));
+    let urlarray:string[] = []
+    if(this.qrScanData.url !== null)
+      urlarray.push(this.qrScanData.url)
 
-        const urlList = concatarray(urlarray, mainurlarray, this.qrScanData.addUrl);
-        const urlListSize = urlList.length;
+    let mainurlarray:string[] = []
+    if(this.qrScanData.mainUrl !== null)
+      mainurlarray.push(this.qrScanData.mainUrl)
 
-        if(urlListSize > 3) {
-          this.mainurl = urlList.slice(0, 3);
-          this.moreaddurl = urlList.slice(3, urlListSize + 1);
-        } else {
-          this.mainurl = urlList.slice(0, urlListSize + 1);
-        }
-      }
-    })
+    const concatarray = (...arrays) => [].concat(...arrays.filter(Array.isArray));
+
+    const urlList:string[] = concatarray(urlarray, mainurlarray, this.qrScanData.addUrl);
+    console.log("Url list: " + urlList)
+    const urlListSize = urlList.length;
+    console.log("Url list size: " + urlListSize)
+
+    if(urlListSize > 3) {
+      this.mainurl = urlList.slice(0, 3);
+      this.moreaddurl = urlList.slice(3);
+    } else {
+      this.mainurl = urlList.slice();
+    }
+    console.log("mainurl: " + this.mainurl)
+    console.log("moreaddurl: " + this.moreaddurl)
+
+    // if(this.qrScanData.addUrl === null) {
+    //   this.qrScanData.addUrl = []
+      
+    // } else {
+
+    // }
+
   }
 
   goTo(page) {

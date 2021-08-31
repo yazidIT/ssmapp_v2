@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content>
-<div style="padding-left: 20px; padding-right: 20px;">
+<div style="padding-left: 10px; padding-right: 10px;">
 
   <ion-card class="design" style="padding-top:20px; padding-bottom:20px;
                       margin-left:20px; margin-right:20px; margin-top: 20px;
@@ -36,10 +36,10 @@
         <div class="biztrust-item2">{{qrScanData.statusDescription}}</div>
 
         <div class="biztrust-item">{{'URLLINKS'|translate}}</div>
-        <div [hidden]="mainurl.length > 0" class="biztrust-item3" *ngFor="let url of mainurl; let i=index"
+        <div class="biztrust-item3" *ngFor="let url of mainurl; let i=index"
           (click)="openLink(url)">({{toRoman(i + 1)}}) {{url}}</div>
-        <div class="biztrust-item4" [hidden]="moreaddurl.length > 3 && !seeMore" (click)="seeMoreUrl()"
-          translate="SEEMORE">See More <i class="icon ion-chevron-down"></i> </div>
+        <div class="biztrust-item4" *ngIf="moreaddurl.length > 3 && !seeMore" (click)="seeMoreUrl()">
+        {{'SEEMORE'|translate}}<i class="icon ion-chevron-down"></i> </div>
         <div [hidden]=!seeMore class="biztrust-item3" *ngFor="let url of moreaddurl; let i=index" 
           (click)="openLink(url)">({{toRoman(i + 4)}}) {{url}}</div>
 
