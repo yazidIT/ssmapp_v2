@@ -58,36 +58,29 @@ export class BiztrustResultPage implements OnInit {
     var jsonObj = JSON.parse(resData)
     this.qrScanData = jsonObj
 
-    let urlarray:string[] = []
-    if(this.qrScanData.url !== null)
-      urlarray.push(this.qrScanData.url)
+    if(this.qrScanData.successCode !== "00") {
 
-    let mainurlarray:string[] = []
-    if(this.qrScanData.mainUrl !== null)
-      mainurlarray.push(this.qrScanData.mainUrl)
+      this.goTo('/biztrust-error')
 
-    const concatarray = (...arrays) => [].concat(...arrays.filter(Array.isArray));
-
-    const urlList:string[] = concatarray(urlarray, mainurlarray, this.qrScanData.addUrl);
-    console.log("Url list: " + urlList)
-    const urlListSize = urlList.length;
-    console.log("Url list size: " + urlListSize)
-
-    if(urlListSize > 3) {
-      this.mainurl = urlList.slice(0, 3);
-      this.moreaddurl = urlList.slice(3);
     } else {
-      this.mainurl = urlList.slice();
+
+      const concatarray = (...arrays) => [].concat(...arrays.filter(Array.isArray));
+
+      const urlList:string[] = concatarray(this.qrScanData.addUrl);
+      console.log("Url list: " + urlList)
+      const urlListSize = urlList.length;
+      console.log("Url list size: " + urlListSize)
+
+      if(urlListSize > 3) {
+        this.mainurl = urlList.slice(0, 3);
+        this.moreaddurl = urlList.slice(3);
+      } else {
+        this.mainurl = urlList.slice();
+      }
+      console.log("mainurl: " + this.mainurl)
+      console.log("moreaddurl: " + this.moreaddurl)
+
     }
-    console.log("mainurl: " + this.mainurl)
-    console.log("moreaddurl: " + this.moreaddurl)
-
-    // if(this.qrScanData.addUrl === null) {
-    //   this.qrScanData.addUrl = []
-      
-    // } else {
-
-    // }
 
   }
 
