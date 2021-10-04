@@ -39,13 +39,12 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
 
   constructor(private inAppBrowser: InAppBrowser,
               private platform: Platform,
-              private location: Location,
               private ssmQueryServ: SsmQueryService,
               private ssmloadingSvc: SsmloadingService,
               private navCtrl: NavController,
               private translate: TranslateService) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     this.officeData = {
       data: {
         defaultid: 0,
@@ -73,14 +72,15 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     }
 
     // this.readData()
-    this.readContactUs()
+    await this.readContactUs()
   }
 
   ngOnDestroy(): void {
     this.backButtonSubscription.unsubscribe();
   }
   
-  ngAfterViewInit(): void {
+  async ngAfterViewInit() {
+    await this.loadMap()
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
       this.navCtrl.navigateBack('home')
     });
@@ -95,20 +95,14 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     let urlEndpoint = this.apiv2url + 'json/contact'
 
     await this.ssmloadingSvc.showLoader()
-    this.ssmQueryServ.contactUsQuery(urlEndpoint).then(response => {
-
-      this.ssmloadingSvc.hideLoader().then(() => {
-
-        this.officeData = JSON.parse(response.data)
-        this.officeData.data.offices.forEach(office => {
-          office.placeHolderName = office.name
-        })
-
-        this.selectedOption = this.officeData.data.offices[0]
-        this.loadMap()
-      })
-
+    let response = await this.ssmQueryServ.contactUsQuery(urlEndpoint)
+    await this.ssmloadingSvc.hideLoader()
+    this.officeData = JSON.parse(response.data)
+    this.officeData.data.offices.forEach(office => {
+      office.placeHolderName = office.name
     })
+
+    this.selectedOption = this.officeData.data.offices[0]
 
   }
 

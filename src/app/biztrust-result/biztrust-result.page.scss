@@ -19,7 +19,8 @@ ion-button.findbutton {
 
 ion-content {
     --overflow: visible;
-    height: auto
+    height: auto;
+    --background: white;
 }
 
 ion-select.overflow {
