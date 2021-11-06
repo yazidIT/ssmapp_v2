@@ -64,9 +64,20 @@ export class BiztrustResultPage implements OnInit {
 
     } else {
 
-      const concatarray = (...arrays) => [].concat(...arrays.filter(Array.isArray));
+      let mainurlarray = [];
+      if(this.qrScanData.mainUrl != null)
+        mainurlarray.push(this.qrScanData.mainUrl)
 
-      const urlList:string[] = concatarray(this.qrScanData.addUrl);
+      let addurlarray = [];
+      if(this.qrScanData.addUrl != null)
+        addurlarray = this.qrScanData.addUrl
+
+      const concatarray = (...arrays) => [].concat(...arrays.filter(Array.isArray));
+      const arr = concatarray(mainurlarray, addurlarray);
+
+      var urlList:string[] = arr.filter(function(elem, index, self) {
+        return index === self.indexOf(elem);
+      })
       console.log("Url list: " + urlList)
       const urlListSize = urlList.length;
       console.log("Url list size: " + urlListSize)
