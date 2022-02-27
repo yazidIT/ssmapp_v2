@@ -8,6 +8,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "test:single": "ng test -- --include",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -57,7 +58,7 @@
     "@ionic/angular-toolkit": "^2.3.3",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
+    "@types/node": "^17.0.21",
     "codelyzer": "^6.0.2",
     "cordova-android": "^9.1.0",
     "cordova-plugin-androidx-adapter": "^1.1.3",

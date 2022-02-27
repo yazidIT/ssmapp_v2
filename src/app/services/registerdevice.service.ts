@@ -43,7 +43,7 @@ export class RegisterDeviceService {
 
     return this.http.post(urlEndpoint, postData, headers)
       .then(response => {
-
+        
         this.regDevResultData = JSON.parse(response.data)
         return this.storage.setItem('token', this.regDevResultData.token);
 
