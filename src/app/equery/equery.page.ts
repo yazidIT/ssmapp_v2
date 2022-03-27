@@ -48,6 +48,10 @@ export class EqueryPage implements OnInit, OnDestroy, AfterViewInit {
     this.placeHolder = "Company No./MyCoID"
   }
 
+  registrationTypeSelect() {
+
+  }
+  
   async equeryFind() {
 
     if(this.queryCoId === undefined || this.queryCoId.length == 0 ) {
