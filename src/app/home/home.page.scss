@@ -17,5 +17,12 @@
 
 ion-content {
     --overflow: visible;
-    // --background: white;
+    // --background: url('../../assets/images/background.png') 0 0/100% 100%;
+    --background: none;
+    background-image: url('../../assets/images/background.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
 }
