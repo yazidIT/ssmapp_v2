@@ -21,10 +21,12 @@
   <ion-grid>
     <ion-row>
  
-        <ion-slides pager="true" paginationType="fraction" [options]="slideOptsOne" #slideWithNav
-          (ionSlideDidChange)="slideDidChange(slideWithNav)">
+        <swiper [config]="slideOptsOne" #slideWithNav
+          (slideChange)="slideDidChange(slideWithNav)"
+          (swiper)="setSwiperInstance($event)">
 
-          <ion-slide *ngFor="let s of sliderOne.slidesItems">
+          <ng-template swiperSlide *ngFor="let s of sliderOne.slidesItems">
+
           <div class=box1>
             <div class="newscontent" [routerLink]="['/detailnews/', s.link_id]" routerDirection="forward">
               <div style="color:#2e2f83; display: inline-block; text-align: left;"><strong>{{s.title}}</strong></div>
@@ -32,11 +34,11 @@
               <div style="display: inline-block; text-align: left;">{{s.description}}</div>
             </div>
             <div class="main-readmore"><ion-icon name="more"></ion-icon></div>
-            
           </div>
-          </ion-slide>
+          
+          </ng-template>
 
-        </ion-slides>
+        </swiper>
 
     </ion-row>
 

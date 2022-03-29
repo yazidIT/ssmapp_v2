@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
-import { IonSlides, Platform, IonRouterOutlet, NavController } from '@ionic/angular';
+import { Platform, IonRouterOutlet, NavController, IonicSwiper } from '@ionic/angular';
 
 import { RegisterDeviceService } from '../services/registerdevice.service';
 import { NewsService } from '../services/news.service';
@@ -8,6 +8,9 @@ import { SsmloadingService } from '../services/ssmloading.service';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
+import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Swiper, SwiperOptions, Zoom } from 'swiper';
+
+SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSwiper]);
 
 @Component({
   selector: 'app-home',
@@ -18,16 +21,18 @@ import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.co
 export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
   backButtonSubscription; 
-  @ViewChild('slideWithNav', {static: false}) slideWithNav: IonSlides;
+  @ViewChild('slideWithNav', {static: false}) slideWithNav: Swiper;
 
   sliderOne: any
   newsRss : INewsResultData
 
   //Configuration for each Slider
-  slideOptsOne = {
+  slideOptsOne : SwiperOptions = {
     initialSlide: 0,
     slidesPerView: 1,
-    autoplay:false
+    autoplay: false,
+    pagination: { clickable: true },
+    scrollbar: { draggable: true },
   };
 
   slideIndex = 0
@@ -65,6 +70,10 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
         item: []
       }
     }
+  }
+
+  setSwiperInstance(swiper: any) {
+
   }
 
   ngAfterViewInit(): void {
@@ -134,9 +143,7 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
   //Method called when slide is changed by drag or navigation
   slideDidChange(slideView) {
-    this.slideWithNav.getActiveIndex().then(slideNo => {
-      this.slideIndex = slideNo
-    })
+    this.slideIndex = this.slideWithNav.activeIndex
     this.checkIfNavDisabled(this.sliderOne, slideView);
   }
 

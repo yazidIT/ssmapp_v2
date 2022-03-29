@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { SwiperModule } from 'swiper/angular';
 
 import { HomePage } from './home.page';
 import { ComponentmoduleModule } from '../components/componentmodule/componentmodule.module';
@@ -20,7 +21,7 @@ import { ComponentmoduleModule } from '../components/componentmodule/componentmo
         component: HomePage
       }
     ]),
-    TranslateModule
+    TranslateModule, SwiperModule
   ],
   declarations: [HomePage]
 })

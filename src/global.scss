@@ -25,6 +25,8 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+@import '~swiper/scss';
+@import '~@ionic/angular/css/ionic-swiper';
 
 .welcome-card img {
     max-height: 35vh;
