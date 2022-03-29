@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, Platform } from '@ionic/angular';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { IBizTrustData } from '../models/iqueryresult';
 import { QRScannerService } from '../services/qrscanner.service';
 import { SsmloadingService } from '../services/ssmloading.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @Component({
   selector: 'app-biztrust-result',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { HTTP } from '@ionic-native/http/ngx';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
+import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 
 import { RegisterDeviceService } from './registerdevice.service';
 

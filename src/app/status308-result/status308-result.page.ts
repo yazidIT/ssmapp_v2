@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { IStatus308Result, IStatus308Cos, IStatus308Data, IStatus308Notice } from '../models/iqueryresult';
 import { UtilsService } from '../services/utils.service';
 

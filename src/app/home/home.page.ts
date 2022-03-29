@@ -5,7 +5,7 @@ import { RegisterDeviceService } from '../services/registerdevice.service';
 import { NewsService } from '../services/news.service';
 import { INewsResultData } from '../models/inewsresult';
 import { SsmloadingService } from '../services/ssmloading.service';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Swiper, SwiperOptions, Zoom } from 'swiper';

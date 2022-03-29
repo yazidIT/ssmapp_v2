@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HTTP, HTTPResponse } from '@ionic-native/http/ngx';
+import { HTTP, HTTPResponse } from '@awesome-cordova-plugins/http/ngx';
 
 import { RegisterDeviceService } from './registerdevice.service';
 

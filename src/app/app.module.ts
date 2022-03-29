@@ -8,10 +8,10 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { Device } from '@ionic-native/device/ngx';
-import { HTTP } from '@ionic-native/http/ngx';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
+import { Device } from '@awesome-cordova-plugins/device/ngx';
+import { HTTP } from '@awesome-cordova-plugins/http/ngx';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';

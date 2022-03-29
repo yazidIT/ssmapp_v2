@@ -1,12 +1,12 @@
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { inject, TestBed } from '@angular/core/testing';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 import { HttpClient } from '@angular/common/http';
 
 import { RegisterDeviceService } from './registerdevice.service';
-import { Device } from '@ionic-native/device/ngx';
-import { HTTP } from '@ionic-native/http/ngx';
+import { Device } from '@awesome-cordova-plugins/device/ngx';
+import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 
 describe('RegisterdeviceService',() => {
 

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Device } from '@ionic-native/device/ngx';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
-import { HTTP } from '@ionic-native/http/ngx';
+import { Device } from '@awesome-cordova-plugins/device/ngx';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
+import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 
 import { Md5 } from 'ts-md5/dist/md5';
-import { IRegDevResult, IRegDevResultData } from '../models/iregdevresult'
+import { IRegDevResultData } from '../models/iregdevresult'
 
 @Injectable({
   providedIn: 'root'

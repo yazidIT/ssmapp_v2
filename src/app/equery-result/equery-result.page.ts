@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { IQueryData } from '../models/iqueryresult';
 import { TranslateConfigService } from '../services/translate-config.service';
