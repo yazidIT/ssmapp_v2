@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { RegisterDeviceService } from './services/registerdevice.service';
 import { TranslateConfigService } from './services/translate-config.service';
@@ -71,11 +71,10 @@ export class AppComponent {
   }
 
   async initializeApp() {
-    await this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-      this.translateConfigService.setLanguage('en')
-    });
+    await this.platform.ready()
+    this.statusBar.styleDefault();
+    this.splashScreen.hide();
+    this.translateConfigService.setLanguage('en')
 
     await this.regDevServ.registerDevice()
   }

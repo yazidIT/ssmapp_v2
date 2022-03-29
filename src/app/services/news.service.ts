@@ -31,12 +31,6 @@ export class NewsService {
 
   }
 
-  // getNewsItems() : Promise<INewsResultData>{
-  //   return this.storage.get('newsData').then(newsData => {
-  //     return JSON.parse(newsData) as INewsResultData
-  //   })
-  // }
-
   getDetailNews(newsUrl:string): Promise<HTTPResponse>{
 
     var urlEndpoint = newsUrl;

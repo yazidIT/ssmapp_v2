@@ -1,11 +1,3 @@
-<!-- <ion-header> -->
-  <!-- <ion-toolbar class="bg-image-toolbar"> -->
-    <!-- <ion-buttons slot="start" class="home-topbar">
-      <ion-menu-button class="bar-class" style="border-radius:5px;"></ion-menu-button>
-    </ion-buttons> -->
-  <!-- </ion-toolbar> -->
-<!-- </ion-header> -->
-
 <ion-content>
   <div>
     <ion-buttons slot="start" class="home-topbar" style="margin-top: 20px; margin-left: 10px;">
@@ -22,8 +14,7 @@
     <ion-row>
  
         <swiper [config]="slideOptsOne" #slideWithNav
-          (slideChange)="slideDidChange(slideWithNav)"
-          (swiper)="setSwiperInstance($event)">
+          (slideChange)="slideDidChange(slideWithNav)">
 
           <ng-template swiperSlide *ngFor="let s of sliderOne.slidesItems">
 

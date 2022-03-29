@@ -50,7 +50,7 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
               private routerOutlet: IonRouterOutlet) {
 
     this.alertPrompt = new AlertPromptComponent(this.navCtrl)
-    //Item object for Nature
+
     this.sliderOne =
       {
         isBeginningSlide: true,
@@ -72,15 +72,9 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
     }
   }
 
-  setSwiperInstance(swiper: any) {
-
-  }
-
   ngAfterViewInit(): void {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
       if (!this.routerOutlet.canGoBack()) {
-        // navigator['app'].exitApp();
-        // this.alertComponent.presentAlertConfirmExitApp().then(()=>{
         let exittitle = this.translate.instant('EXITTITLE')
         let exitmessage = this.translate.instant('EXITMSG')
         let canceltext = this.translate.instant('CANCEL')
@@ -88,9 +82,6 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
 
         })
       }
-        // })
-        // if(window.confirm("Are you sure want to exit?"))
-        //   navigator['app'].exitApp();
     });
   }
 
