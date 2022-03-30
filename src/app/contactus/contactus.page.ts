@@ -77,7 +77,7 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     }
 
     // this.readData()
-    await this.readContactUs()
+    this.readContactUs()
   }
 
   ngOnDestroy(): void {
@@ -89,18 +89,18 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
       this.navCtrl.navigateBack('home')
     });
-    await this.loadMap()
+    this.loadMap()
   }
 
   openLink(link) {
     this.inAppBrowser.create(link, '_system')
   }
 
-  async readContactUs() {
+  readContactUs() {
 
     let urlEndpoint = this.apiv2url + 'json/contact'
 
-    await this.ssmloadingSvc.showLoader()
+    this.ssmloadingSvc.showLoader()
     this.ssmQueryServ.contactUsQuery(urlEndpoint).then( response => {
       this.ssmloadingSvc.hideLoader()
       this.officeData = JSON.parse(response.data)
@@ -119,18 +119,18 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
   async loadMap() {
 
     let mapOptions: GoogleMapOptions = {
-      camera: {
-          // target: this.latLng,
-          zoom: 18,
-          tilt: 30
-        },
-      streetViewControl: false,
-      mapType: MapTypeId.ROADMAP
-    };
+        camera: {
+            // target: this.latLng,
+            zoom: 18,
+            tilt: 30
+          },
+        streetViewControl: false,
+        mapType: MapTypeId.ROADMAP
+      };
 
     this.map = GoogleMaps.create('map', mapOptions);
 
-    await this.map.one(GoogleMapsEvent.MAP_READY)
+    this.map.one(GoogleMapsEvent.MAP_READY)
     this.changeMarker()
   }
 
@@ -160,21 +160,21 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
 
   async goToOfficeLocation() {
 
-    await this.map.clear()
+    this.map.clear()
 
     // Move the map camera to the location with animation
-    await this.map.animateCamera({
-      target: this.latLng,
-      zoom: 15,
-      duration: 2000
-    });
+    this.map.animateCamera({
+        target: this.latLng,
+        zoom: 15,
+        duration: 2000
+      });
 
     //add a marker
-    let marker: Marker = this.map.addMarkerSync({
-      title: 'SSM ' + this.selectedOption.name,
-      position: this.latLng,
-      animation: GoogleMapsAnimation.DROP
-    });
+    let marker: Marker = await this.map.addMarker({
+        title: 'SSM ' + this.selectedOption.name,
+        position: this.latLng,
+        animation: GoogleMapsAnimation.DROP
+      });
 
     //show the infoWindow
     marker.showInfoWindow();

@@ -101,6 +101,7 @@ describe('HomePage', () => {
     fixture = TestBed.createComponent(HomePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    
     expect(component).toBeTruthy();
   });
 });
