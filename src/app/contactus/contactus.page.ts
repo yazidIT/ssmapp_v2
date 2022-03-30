@@ -13,6 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ISSMOffice, ISSMOffices } from '../models/issmoffices';
 import { SsmQueryService } from '../services/ssmquery.service';
 import { SsmloadingService } from '../services/ssmloading.service';
+import { AlertPromptComponent } from '../components/alert-prompt/alert-prompt.component';
 
 @Component({
   selector: 'app-contactus',
@@ -35,6 +36,8 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
   myHtmlTel: any
   myHtmlFax: any
   
+  alertPrompt : AlertPromptComponent
+  
   private apiv2url = 'https://m.ssm.com.my/apiv2/index.php/'
 
   constructor(private inAppBrowser: InAppBrowser,
@@ -42,7 +45,9 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
               private ssmQueryServ: SsmQueryService,
               private ssmloadingSvc: SsmloadingService,
               private navCtrl: NavController,
-              private translate: TranslateService) {}
+              private translate: TranslateService) {
+      this.alertPrompt = new AlertPromptComponent(this.navCtrl)
+  }
 
   async ngOnInit() {
     this.officeData = {
@@ -80,10 +85,11 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
   }
   
   async ngAfterViewInit() {
-    await this.loadMap()
+    await this.platform.ready()
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
       this.navCtrl.navigateBack('home')
     });
+    await this.loadMap()
   }
 
   openLink(link) {
@@ -95,15 +101,19 @@ export class ContactusPage implements OnInit, OnDestroy, AfterViewInit {
     let urlEndpoint = this.apiv2url + 'json/contact'
 
     await this.ssmloadingSvc.showLoader()
-    let response = await this.ssmQueryServ.contactUsQuery(urlEndpoint)
-    await this.ssmloadingSvc.hideLoader()
-    this.officeData = JSON.parse(response.data)
-    this.officeData.data.offices.forEach(office => {
-      office.placeHolderName = office.name
+    this.ssmQueryServ.contactUsQuery(urlEndpoint).then( response => {
+      this.ssmloadingSvc.hideLoader()
+      this.officeData = JSON.parse(response.data)
+      this.officeData.data.offices.forEach(office => {
+        office.placeHolderName = office.name
+      })
+  
+      this.selectedOption = this.officeData.data.offices[0]
+    }, err => {
+      this.ssmloadingSvc.hideLoader()
+      console.log(JSON.stringify(err))
+      this.alertPrompt.presentResponseError("Contact Load Error", err.status)
     })
-
-    this.selectedOption = this.officeData.data.offices[0]
-
   }
 
   async loadMap() {

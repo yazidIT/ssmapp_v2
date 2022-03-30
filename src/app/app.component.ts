@@ -53,11 +53,6 @@ export class AppComponent {
       url: '/contact_us',
       icon: 'list'
     }
-    // {
-    //   title: 'MENU_03',
-    //   url: '/bahasa_melayu',
-    //   icon: 'list'
-    // }
   ];
 
   constructor(

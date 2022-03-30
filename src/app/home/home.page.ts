@@ -106,15 +106,15 @@ export class HomePage implements OnInit, OnDestroy, AfterViewInit{
     }
   }
 
-  async initData() {
+  initData() {
 
     this.newsServ.getNews().then(newsData => {
 
       this.newsRss = JSON.parse(newsData.data)
       this.sliderOne.slidesItems = this.newsRss.channel.item
       this.ssmloading.hideLoader()
-    }, error => {
 
+    }, error => {
     })
   }
 
