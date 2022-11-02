@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="my.ssm.ssmappmobile2" version="4.1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MySSM2</name>
-    <description>SSM Mobile Application</description>
-    <author email="yazid.abdrasid@gmail.com" href="">
+<widget android-versionCode="1050" id="my.ssm.ssmappmobile" version="4.1.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>MySSM</name>
+    <description>
+        SSM Mobile Application
+    </description>
+    <author email="enquiry@ssm.com.my" href="http://ssm.com.my">
       SSM Mobile Dev
     </author>
     <content src="index.html" />

@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:100206597122:android:4cc9a99474e1ece2ae831b",
         "android_client_info": {
-          "package_name": "my.ssm.ssmappmobile2"
+          "package_name": "my.ssm.ssmappmobile"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "100206597122-vv3cbs1hjgkvj6jbau4ihmt9dl3or0el.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "my.ssm.ssmappmobile2",
+            "package_name": "my.ssm.ssmappmobile",
             "certificate_hash": "78bea6dff903b3774d8b7634d94c62906f68fe84"
           }
         },
