@@ -28,7 +28,7 @@
     <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk" />
     <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBX3pC2bm_qpud20tXIzVdi0tqYpG6EQOk" />
     <preference name="android-minSdkVersion" value="22" />
-    <preference name="android-targetSdkVersion" value="30" />
+    <preference name="android-targetSdkVersion" value="32" />
     <preference name="AndroidXEnabled" value="true" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
